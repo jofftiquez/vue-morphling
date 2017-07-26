@@ -3,7 +3,7 @@ export default (Vue) => {
         return json(value, indent);
     });
 
-    Vue.prototype.$morphJson = (value) => {
+    Vue.prototype.$morphJson = (value, indent) => {
         return json(value, indent);
     };
 
