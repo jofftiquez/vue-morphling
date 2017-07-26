@@ -1,11 +1,9 @@
 import morphs from './morphs';
 
-console.log('morphs', morphs)
-
-const VueFilterStash = {
+const Morphling = {
     install(Vue, options) {
        morphs(Vue, options);
     }
 }
 
-export default VueFilterStash;
+export default Morphling;
