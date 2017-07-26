@@ -143,13 +143,14 @@ Pretty print JSON objects inside the `<pre>` tag.
 `morph-json(indent)`
 
 ```html
-<pre>{{ {"favoriteBand":"Linkin Park"} | morph-json(2) }}</pre>
+<!-- const obj = {"favoriteBand":"Linkin Park"} -->
+<pre>{{ obj | morph-json(2) }}</pre>
 <!--
 {
   "favoriteBand": "Linkin Park"
 }
 -->
-<pre>{{ {"favoriteBand":"Linkin Park"} | morph-json('\t') }}</pre>
+<pre>{{ obj | morph-json('\t') }}</pre>
 <!--
 {
     "favoriteBand": "Linkin Park"
