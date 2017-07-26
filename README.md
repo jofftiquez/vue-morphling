@@ -232,7 +232,7 @@ And when you're feeling empty,
 Keep me in your memory,
 Leave out all the rest..."*
 
-*~In Memory of Chester Bennington (1976-2017)~*
+*In Memory of Chester Bennington (1976-2017)*
 
 I used Linkin Park songs as example strings to pay tribute to the death of Chester Bennington. One of my inspirations in music. Depression is very real, we may not fully understand it but it is very, very real. Talk to your love ones, and cherish every moment with them. Happy coding.
 
