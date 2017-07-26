@@ -4,7 +4,7 @@ A collection of VueJs filters.
 
 ## Filters
 
-[morph-capitalize](#morph---capitalize)
+[morph-capitalize](#morph-capitalize)
 
 ## Installation
 
