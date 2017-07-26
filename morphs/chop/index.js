@@ -1,19 +1,19 @@
 export default (Vue) => {
-    Vue.filter('morph-chop', (value, length, direction) => {
-        return chop(value, length, direction);
+    Vue.filter('morph-chop', (value, length, location) => {
+        return chop(value, length, location);
     });
 
-    Vue.prototype.$morphChop = (value, length, direction) => {
-        return chop(value, length, direction);
+    Vue.prototype.$morphChop = (value, length, location) => {
+        return chop(value, length, location);
     };
 
-    function chop(value, length, direction) {
-        if(!length) return 'Warn: argument length (number) is required. morph-chop(length, direction)'
-        if(!direction) direction = 'end';
+    function chop(value, length, location) {
+        if(!length) return 'Warn: option length (number) is required. morph-chop(length, location)'
+        if(!location) location = 'end';
         if(typeof value !== 'string') value = value.toString();
-        if(direction === 'end')
+        if(location === 'end')
             return value.toString().slice(0, ~length+1)
-        if(direction === 'start')
+        if(location === 'start')
             return value.toString().substring(length);
     }
 };
