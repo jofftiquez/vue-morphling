@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "moment": "^2.18.1"
+  },
+  "name": "morphling",
+  "version": "0.0.1",
+  "description": "A collection of VueJs filters.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jofftiquez/morphling.git"
+  },
+  "keywords": [
+    "filters",
+    "vue",
+    "vuejs"
+  ],
+  "author": "Jofferson R Tiquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jofftiquez/morphling/issues"
+  },
+  "homepage": "https://github.com/jofftiquez/morphling#readme"
+}
