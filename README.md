@@ -125,6 +125,8 @@ console.log(msg); // ₱100
 --- | ---
 `code` | Currency code of a country e.g. 'PHP', 'USD', 'AUD', 'GBP'. Default is `$` if not provided.
 
+See [currencies.js](https://github.com/jofftiquez/morphling/blob/master/lib/currencies.js) from lib folder.
+
 [Back to top](#filters)
 
 ------
@@ -281,8 +283,8 @@ console.log(msg); // SOMEWHERE I BELONG
 
 *July 28, 2017 PHT*
 
-- Added `morph-sandwich` filter.
-- Added `morph-curreny` filter.
+- Added [morph-sandwich](#morph-sandwich) filter.
+- Added [morph-curreny](#morph-curreny) filter.
 
 *"When my time comes,
 Forget the wrong that I've done,
