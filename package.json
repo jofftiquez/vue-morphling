@@ -3,7 +3,7 @@
     "moment": "^2.18.1"
   },
   "name": "morphling",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A collection of VueJs filters.",
   "main": "index.js",
   "devDependencies": {},
