@@ -4,12 +4,15 @@ A collection of VueJs filters.
 
 ## Filters
 
+- [Updates (always check the updates for new features)](#updates)
 - [morph-capitalize](#morph-capitalize)
 - [morph-chop](#morph-chop)
+- [morph-currency](#morph-currency)
 - [morph-date](#morph-date)
 - [morph-json](#morph-json)
 - [morph-lowercase](#morph-lowercase)
 - [morph-reverse](#morph-reverse)
+- [morph-sandwich](#morph-sandwich)
 - [morph-uppercase](#morph-uppercase)
 - [License](#License)
 
@@ -93,6 +96,34 @@ console.log(msg4); // ercut
 --- | --- | --- | --- | ---
 `length` | any number | N/A | YES | Indicates the length of the string to be chopped off. 
 `location` | `'start'`, `'end'` | `'end'` | NO | If NOT specified, `morph-chop` will chop off the string from the end.
+
+[Back to top](#filters)
+
+------
+
+### morph-currency
+
+Prepend a currency symbol to a value.
+
+*Syntax*
+
+`morph-currency(code)`
+
+```html
+<p>{{ 100 | morph-currency('PHP')}}</p>
+<!-- ₱100  -->
+```
+
+```javascript
+const msg = this.$morphLowercase(100, 'PHP');
+console.log(msg); // ₱100
+```
+
+**API**
+
+**option** | **description**
+--- | ---
+`code` | Currency code of a country e.g. 'PHP', 'USD', 'AUD', 'GBP'. Default is `$` if not provided.
 
 [Back to top](#filters)
 
@@ -208,6 +239,28 @@ console.log(msg); // yad eht fo wodahS
 
 ------
 
+### morph-sandwich
+
+Prepend and append data around a given value.
+
+*Syntax*
+
+`morph-sandwich(start, end)`
+
+```html
+<p>{{ 'the' | morph-sandwich('In ', ' end!') }}</p>
+<!-- In the end!  -->
+```
+
+```javascript
+const msg = this.$morphSandwich('the', 'In ', ' end!');
+console.log(msg); // In the end!
+```
+
+[Back to top](#filters)
+
+------
+
 ### morph-uppercase
 
 ```html
@@ -223,6 +276,13 @@ console.log(msg); // SOMEWHERE I BELONG
 [Back to top](#filters)
 
 ------
+
+## Updates
+
+*July 28, 2017 PHT*
+
+- Added `morph-sandwich` filter.
+- Added `morph-curreny` filter.
 
 *"When my time comes,
 Forget the wrong that I've done,
