@@ -365,11 +365,12 @@ console.log(msg); // SOMEWHERE I BELONG
 
 *July 28, 2017 PHT*
 
-- Added [morph-curreny](#morph-curreny) filter.
-- Added [morph-placeholder](#morph-placeholder) filter.
+- Updated [morph-sandwich](#morph-sandwich) filter.
 - Added [morph-replace](#morph-replace) filter.
-- Added [morph-sandwich](#morph-sandwich) filter.
 - Added [morph-truncate](#morph-truncate) filter.
+- Added [morph-placeholder](#morph-placeholder) filter.
+- Added [morph-curreny](#morph-curreny) filter.
+- Added [morph-sandwich](#morph-sandwich) filter.
 
 *"When my time comes,
 Forget the wrong that I've done,
