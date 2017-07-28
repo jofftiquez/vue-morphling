@@ -118,7 +118,7 @@ Prepend a currency symbol to a value.
 ```
 
 ```javascript
-const msg = this.$morphLowercase(100, 'PHP');
+const msg = this.$morphCurrency(100, 'PHP');
 console.log(msg); // ₱100
 ```
 
