@@ -11,8 +11,11 @@ A collection of VueJs filters.
 - [morph-date](#morph-date)
 - [morph-json](#morph-json)
 - [morph-lowercase](#morph-lowercase)
+- [morph-placeholder](#morph-placeholder)
+- [morph-replace](#morph-replace)
 - [morph-reverse](#morph-reverse)
 - [morph-sandwich](#morph-sandwich)
+- [morph-truncate](#morph-truncate)
 - [morph-uppercase](#morph-uppercase)
 - [License](#License)
 
@@ -225,6 +228,60 @@ console.log(msg); // lost in the echo
 
 ------
 
+### morph-placeholder
+
+Replaces the value with a give placeholder.
+
+*Syntax*
+
+`morph-truncate(placeholder)` 
+
+`this.$morphTruncate(value, placeholder)`
+
+```html
+<p>{{ "Battle Symphony" | morph-truncate('New Divide') }}</p>
+<!-- New Divide  -->
+```
+
+```javascript
+const msg = this.$morphTruncate('Battle Symphony', 'New Divide');
+console.log(msg); // New Divide
+```
+
+[Back to top](#filters)
+
+------
+
+### morph-replace
+
+Replaces characer/s on a string with a given 'replacer' string. Accepts `RegEx` for better matching.
+
+*Syntax*
+
+`morph-replace(replacee|regex, replacer)` 
+
+`this.$morphReplace(value, replacee|regex, replacer)`
+
+```html
+<!-- Plain String -->
+<p>{{ `I've given uuuuuup!!` | morph-replace('given', 'new word') }}</p>
+<!-- I've new word uuuuuup!!  -->
+
+<!-- With Regex -->
+<p>{{ `I've given uuuuuup!!` | morph-replace(/i've/i, 'I have') | morph-replace(/uuuuuup!!/i, 'up.') }}</p>
+<!-- I have given up.  -->
+```
+
+```javascript
+// replaced the word 'end' with 'start'.
+const msg = this.$morphReplace('In the end', /end/i, 'start.');
+console.log(msg); // In the start.
+```
+
+[Back to top](#filters)
+
+------
+
 ### morph-reverse
 
 ```html
@@ -263,6 +320,22 @@ console.log(msg); // In the end!
 
 ------
 
+### morph-truncate
+
+```html
+<p>{{ 'Leave out all the rest' | morph-truncate(11) }}</p>
+<!-- Leave out a...  -->
+```
+
+```javascript
+const msg = this.$morphTruncate('Leave out all the rest', 11);
+console.log(msg); // Leave out a...
+```
+
+[Back to top](#filters)
+
+------
+
 ### morph-uppercase
 
 ```html
@@ -283,8 +356,11 @@ console.log(msg); // SOMEWHERE I BELONG
 
 *July 28, 2017 PHT*
 
-- Added [morph-sandwich](#morph-sandwich) filter.
 - Added [morph-curreny](#morph-curreny) filter.
+- Added [morph-placeholder](#morph-placeholder) filter.
+- Added [morph-replace](#morph-replace) filter.
+- Added [morph-sandwich](#morph-sandwich) filter.
+- Added [morph-truncate](#morph-truncate) filter.
 
 *"When my time comes,
 Forget the wrong that I've done,
