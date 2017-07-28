@@ -1,6 +1,8 @@
+# CONTRIBUTING
+
 All sorts of contributions are welcome. Please help me add more helpful filters for VueJs.
 
-**Features**
+## Features
 
 For *Enhancement* or *New feature*.
 
