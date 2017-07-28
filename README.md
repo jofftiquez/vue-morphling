@@ -302,6 +302,9 @@ console.log(msg); // yad eht fo wodahS
 
 Prepend and append data around a given value.
 
+If only a single argument is given, it is used to surround the sandwiched
+content by matching open brackets for closed brackets, and so on.
+
 *Syntax*
 
 `morph-sandwich(start, end)`
@@ -309,11 +312,17 @@ Prepend and append data around a given value.
 ```html
 <p>{{ 'the' | morph-sandwich('In ', ' end!') }}</p>
 <!-- In the end!  -->
+
+<p>{{{ 'Numb' | morph-sandwich('<<< ') }}}</p>
+<!-- <<< Numb >>> -->
 ```
 
 ```javascript
-const msg = this.$morphSandwich('the', 'In ', ' end!');
-console.log(msg); // In the end!
+const msg1 = this.$morphSandwich('the', 'In ', ' end!');
+console.log(msg1); // In the end!
+
+const msg2 = this.$morphSandwich('Numb', '<<< ');
+console.log(msg2); // <<< Numb >>>
 ```
 
 [Back to top](#filters)
