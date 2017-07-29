@@ -1,10 +1,21 @@
 # Mophling
 
-A collection of VueJs filters.
+A collection of standard and custom VueJs filters and directives. 
+
+It's MORPHLING time! **plays power ranger theme song.* 😂
+
+## Contents
+
+- [Installation](#Installation)
+- [Usage](#Usage) (New updates as of July 29, 2017 PHT)
+- [Filters](#Filters)
+- [Directives](#Directives)
+- [Updates](#Updates)
+- [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
+- [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
 
 ## Filters
 
-- [Updates (always check the updates for new features)](#updates)
 - [morph-capitalize](#morph-capitalize)
 - [morph-chop](#morph-chop)
 - [morph-currency](#morph-currency)
@@ -17,7 +28,10 @@ A collection of VueJs filters.
 - [morph-sandwich](#morph-sandwich)
 - [morph-truncate](#morph-truncate)
 - [morph-uppercase](#morph-uppercase)
-- [License](#License)
+
+## Directives
+
+- [morph-url](#morph-url)
 
 ## Installation
 
@@ -40,7 +54,9 @@ Vue.use(Morphling);
 
 All filters are available in the Vue instance as well, so they can be use as `vm.$morphCapitalize` or `this.$morphCapitalize` if you are using single file component.
 
-------
+All directive name should be prepended with `v-`, `v-morph-url` like so.
+
+# Morphling Filters
 
 ### morph-capitalize
 
@@ -361,7 +377,36 @@ console.log(msg); // SOMEWHERE I BELONG
 
 ------
 
+# Morphling Directives
+
+## morph-url
+
+`morph-url` directive converts every link in a given element to an `<a>` tag.
+
+*Usage*
+
+`v-morph-url`, prepend `v-` to any directive name.
+
+*Before morphling*
+```html
+<p>
+  My favorite websites are https://9gag.com and https://greenfox.me
+</p>
+```
+
+*After morphling*
+```html
+<p v-morph-url>
+  My favorite websites are <a href="https://9gag.com" target="_blank">https://9gag.com</a> and <a href="https://greenfox.me" target="_blank">https://greenfox.me</a>
+</p>
+```
+
 ## Updates
+
+*July 29, 2017 PHT*
+
+- Added [v-morph-url](#v-morph-url) directive.
+- `morphs` folder remaned to `filters`.
 
 *July 28, 2017 PHT*
 
@@ -384,30 +429,6 @@ Leave out all the rest..."*
 *In Memory of Chester Bennington (1976-2017)*
 
 I used Linkin Park songs as example strings to pay tribute to the death of Chester Bennington. One of my inspirations in music. Depression is very real, we may not fully understand it but it is very, very real. Talk to your love ones, and cherish every moment with them. Happy coding.
-
-### License 
-
-**MIT**
-
-Copyright (c) 2017 Jofferson R Tiquez
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 
 `< >` with ❤️ by Jofferson Ramirez Tiquez
 
