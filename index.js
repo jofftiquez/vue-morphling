@@ -1,8 +1,10 @@
-import morphs from './morphs';
+import filters from './filters';
+import directives from './directives';
 
 const Morphling = {
     install(Vue, options) {
-       morphs(Vue, options);
+       filters(Vue, options);
+       directives(Vue);
     }
 }
 
