@@ -382,6 +382,10 @@ console.log(msg); // SOMEWHERE I BELONG
 
 ## morph-url
 
+*morph-url* is currently on experimental stage. The current version has some limitations: 
+
+1. When a link/url appears twice in the string it will mess up the tags.
+
 `morph-url` directive converts every link in a given element to an `<a>` tag.
 
 *Usage*
