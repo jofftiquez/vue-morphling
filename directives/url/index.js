@@ -11,6 +11,14 @@ export default (Vue) => {
         const m = s.match(re);
         const a = [];
         var prev;
+
+        if(!m) return;
+
+        if(m.length === 1){
+            el.innerHTML = s.replace(m[0], convertToA(m[0], binding));
+            return;  
+        }
+
         m.forEach((link, i, arr) => {
             if(i % 2 === 0) {
                 prev = s.replace(link, convertToA(link, binding))

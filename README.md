@@ -32,7 +32,7 @@ It's MORPHLING time! **plays power ranger theme song.* 😂
 
 ## Directives
 
-- [morph-url](#morph-url)
+- [morph-url](#morph-url) (exprimental)
 
 ## Installation
 
