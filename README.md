@@ -7,10 +7,11 @@ It's MORPHLING time! **plays power ranger theme song.* 😂
 ## Contents
 
 - [Installation](#Installation)
-- [Usage](#Usage) (New updates as of July 29, 2017 PHT)
+- [Usage](#Usage) 
 - [Filters](#Filters)
 - [Directives](#Directives)
-- [Updates](#Updates)
+- [Updates](#Updates) (New updates as of July 29, 2017 PHT)
+- [Debug](#Debug)
 - [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
 
@@ -416,6 +417,42 @@ console.log(msg); // SOMEWHERE I BELONG
 - Added [morph-placeholder](#morph-placeholder) filter.
 - Added [morph-curreny](#morph-curreny) filter.
 - Added [morph-sandwich](#morph-sandwich) filter.
+
+## Debug
+
+**ERROR in build.js from UglifyJs**
+
+There is a known error when building a **vue cli x webpack** project that is using `morphling`.
+
+> ERROR in build.js from UglifyJs
+
+> Unexpected token: punc (() [../morphling/index.js:5,4][build.js:15630,10]
+
+**Fix:**
+
+1. Add `es2015` and `stage-2` presets to the `.babelrc`
+2. Include `morphling` to the `babel-loader` in `build/webpack.base.conf.js`
+
+*build/webpack.base.conf.js*
+```javascript
+...
+module: {
+  rules: [
+    ...
+    {
+      test: /\.js$/,
+      loader: 'babel-loader',
+      include: [resolve('src'), resolve('test'), resolve('node_modules/morphling')]
+    }
+    ...
+  ]
+}
+...
+```
+
+Helpful links : 
+- [Stackoverflow](https://stackoverflow.com/a/43893311/2889614)
+- [GitHub](https://github.com/joeeames/WebpackFundamentalsCourse/issues/3)
 
 *"When my time comes,
 Forget the wrong that I've done,
