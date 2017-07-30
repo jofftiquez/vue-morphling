@@ -6,7 +6,7 @@ It's MORPHLING time! **plays power ranger theme song.* 😂
 
 ## Contents
 
-- [Installation](#Installation)
+- [Installation](#installation)
 - [Usage](#usage) 
 - [Filters](#filters)
 - [Directives](#directives)
