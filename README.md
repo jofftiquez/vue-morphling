@@ -7,11 +7,11 @@ It's MORPHLING time! **plays power ranger theme song.* 😂
 ## Contents
 
 - [Installation](#Installation)
-- [Usage](#Usage) 
-- [Filters](#Filters)
-- [Directives](#Directives)
-- [Updates](#Updates) (New updates as of July 29, 2017 PHT)
-- [Debug](#Debug)
+- [Usage](#usage) 
+- [Filters](#filters)
+- [Directives](#directives)
+- [Updates](#updates) (New updates as of July 29, 2017 PHT)
+- [Debug](#debug)
 - [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
 
