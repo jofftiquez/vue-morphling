@@ -2,6 +2,7 @@ import * as moment from 'moment';
 
 export default (Vue) => {
     Vue.filter('morph-date', (value, format) => {
+        if(!value) return;
         return morphDate(value, format);
     });
 

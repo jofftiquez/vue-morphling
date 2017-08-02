@@ -2,6 +2,7 @@ import currencies from '../../lib/currencies';
 
 export default (Vue) => {
     Vue.filter('morph-currency', (value, code, useSymbol) => {
+        if(!value) return;
         return sandwich(value, code, useSymbol);
     });
 

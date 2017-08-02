@@ -1,5 +1,6 @@
 export default (Vue) => {
     Vue.filter('morph-truncate', (value, length) => {
+        if(!value) return;
         return truncate(value, length);
     });
 

@@ -1,5 +1,6 @@
 export default (Vue) => {
     Vue.filter('morph-json', (value, indent) => {
+        if(!value) return;
         return json(value, indent);
     });
 

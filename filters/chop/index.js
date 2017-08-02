@@ -1,5 +1,6 @@
 export default (Vue) => {
     Vue.filter('morph-chop', (value, length, location) => {
+        if(!value) return;
         return chop(value, length, location);
     });
 

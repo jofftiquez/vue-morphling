@@ -1,5 +1,6 @@
 export default (Vue) => {
     Vue.filter('morph-replace', (value, replacee, replacer) => {
+        if(!value) return;
         return replace(value, replacee, replacer);
     });
 

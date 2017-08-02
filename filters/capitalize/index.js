@@ -1,5 +1,6 @@
 export default (Vue) => {
     Vue.filter('morph-capitalize', (value) => {
+        if(!value) return;
         return capitalize(value);
     });
 

@@ -1,5 +1,6 @@
 export default (Vue) => {
     Vue.filter('morph-placeholder', (value, placeholder) => {
+        if(!value) return;
         return replace(value, placeholder);
     });
 
