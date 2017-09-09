@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "compression-webpack-plugin": "^1.0.0",
     "moment": "^2.18.1"
   },
   "name": "morphling",
