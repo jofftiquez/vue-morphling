@@ -1,1 +1,1 @@
-export default require('./dist');
+export default require('./src');
