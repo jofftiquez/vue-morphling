@@ -12,16 +12,16 @@ import truncate from './truncate';
 import uppercase from './uppercase';
 
 export default (Vue) => {
-    capitalize(Vue);
-    chop(Vue);
-    currency(Vue);
-    date(Vue);
-    json(Vue);
-    lowercase(Vue);
-    placeholder(Vue);
-    replace(Vue);
-    reverse(Vue);
-    sandwich(Vue);
-    truncate(Vue);
-    uppercase(Vue);
+  capitalize(Vue);
+  chop(Vue);
+  currency(Vue);
+  date(Vue);
+  json(Vue);
+  lowercase(Vue);
+  placeholder(Vue);
+  replace(Vue);
+  reverse(Vue);
+  sandwich(Vue);
+  truncate(Vue);
+  uppercase(Vue);
 };
