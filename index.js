@@ -1,1 +1,3 @@
-export default require('./src');
+import Morphling from './dist';
+
+export default Morphling;
