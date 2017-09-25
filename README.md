@@ -2,7 +2,7 @@
 
 A collection of standard and custom VueJs filters and directives. 
 
-It's MORPHLING time! **plays power ranger theme song.* 😂
+It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 ## Contents
 
