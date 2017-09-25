@@ -408,6 +408,13 @@ console.log(msg); // SOMEWHERE I BELONG
 
 ## Updates
 
+*Sept 26, 2017 PHT*
+
+- Replaced `webpack` with plain `babel`
+- Changed indetion from 4 spaces to 2 spaces.
+- Fixed export error.
+- Fixed moment import bug.
+
 *July 29, 2017 PHT*
 
 - Added [v-morph-url](#v-morph-url) directive.
