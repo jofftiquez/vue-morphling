@@ -16103,7 +16103,6 @@ exports.default = function (Vue) {
   };
 
   function go(value) {
-    console.log(value);
     var num = +value;
     if (Number.isNaN(num)) {
       console.warn('Warn: value must be a number.');

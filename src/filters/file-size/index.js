@@ -11,7 +11,6 @@ export default (Vue) => {
   };
 
   function go(value) {
-    console.log(value)
     const num = +value;
     if(Number.isNaN(num)) {
       console.warn('Warn: value must be a number.');
