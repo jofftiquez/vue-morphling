@@ -1,4 +1,4 @@
-module.exports =
+var Morphling =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

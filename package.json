@@ -1,9 +1,12 @@
 {
   "dependencies": {
-    "moment": "^2.18.1"
+    "babel-loader": "^7.1.2",
+    "filesize.js": "^1.0.2",
+    "moment": "^2.18.1",
+    "utf8-length": "^0.0.1"
   },
   "name": "morphling",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "A collection of VueJs filters.",
   "main": "index.js",
   "devDependencies": {
@@ -14,9 +17,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "babel-node --presets es2015,stage-2",
-    "prebuild": "rm -rf dist",
-    "build": "babel src -d dist --copy-files"
+    "build": "rm -rf dist && webpack --progress --hide-modules",
+    "start:dev": "webpack --watch"
   },
   "repository": {
     "type": "git",

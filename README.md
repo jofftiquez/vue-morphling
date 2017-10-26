@@ -10,7 +10,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 - [Usage](#usage) 
 - [Filters](#filters)
 - [Directives](#directives)
-- [Updates](#updates) (New updates as of July 29, 2017 PHT)
+- [Updates](#updates) (New updates as of Oct 26, 2017 PHT)
 - [Debug](#debug)
 - [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
@@ -21,8 +21,10 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 - [morph-chop](#morph-chop)
 - [morph-currency](#morph-currency)
 - [morph-date](#morph-date)
+- [morph-file-size](#morph-file-size) **NEW**
 - [morph-json](#morph-json)
 - [morph-lowercase](#morph-lowercase)
+- [morph-object-size](#morph-object-size) **NEW**
 - [morph-placeholder](#morph-placeholder)
 - [morph-replace](#morph-replace)
 - [morph-reverse](#morph-reverse)
@@ -44,6 +46,10 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 `yarn add morphling`
 
+**CDN**
+
+`https://unpkg.com/morphling/dist/morphling.js`
+
 ## Usage
 
 ```
@@ -51,6 +57,18 @@ import Vue from 'vue';
 import Morphling from 'morphling';
 
 Vue.use(Morphling);
+```
+
+**or**
+
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
+<script src="https://unpkg.com/morphling/dist/morphling.js"></script>
+
+<script>
+  Vue.use(Morphling.default);
+  // Vue stuff here
+</script>
 ```
 
 All filters are available in the Vue instance as well, so they can be use as `vm.$morphCapitalize` or `this.$morphCapitalize` if you are using single file component.
@@ -187,6 +205,30 @@ All formats are available of course in the [moment documentation](https://moment
 
 ------
 
+### morph-file-size
+
+Converts any number (as bytes) to it's equivalent, `Kb`, `Mb`, `Gb`, `Tb`, `Pb`, `Eb`, `Zb` and `Yb`.
+
+```html
+<code>{{ 1024 | morph-file-size }}</code>
+<!-- 1.0 Kb -->
+
+<p>{{ 10000000000 | morph-file-size }}</p>
+<!-- 9.3 Gb -->
+```
+
+```javascript
+const date = new Date('1976-03-20');
+
+const a = this.$morphFileSize(1024);
+const b = this.$morphFileSize(10000000000);
+
+console.log(a); // 1.0 Kb
+console.log(b); // 9.3 Gb
+```
+
+------
+
 ### morph-json
 
 Pretty print JSON objects inside the `<pre>` tag.
@@ -242,6 +284,31 @@ console.log(msg); // lost in the echo
 ```
 
 [Back to top](#filters)
+
+------
+
+### morph-object-size
+
+Gets the bytes size (number) of any javascript object and converts it to it's equivalent `Kb`, `Mb`, `Gb`, `Tb`, `Pb`, `Eb`, `Zb` and `Yb`.
+
+```html
+<code>{{ {name:'Chester'} | morph-object-size }}</code>
+<!-- 18.0 b -->
+
+<p>{{ `Forget the wrong the i've done.` | morph-object-size }}</p>
+<!-- 33.0 b -->
+```
+
+```javascript
+const obj1 = {name:'Chester'};
+const obj2 = `Forget the wrong the i've done.`;
+
+const a = this.$morphObjectSize(1obj1024);
+const b = this.$morphObjectSize(obj2);
+
+console.log(a); // 18.0 b
+console.log(b); // 33.0 b
+```
 
 ------
 
@@ -408,6 +475,14 @@ console.log(msg); // SOMEWHERE I BELONG
 
 ## Updates
 
+*0.5.0 - Oct 26, 2017 PHT*
+
+- Added [morph-file-size](#morph-file-size).
+- Added [morph-object-size](#morph-object-size).
+- Used `webpack` AGAIN to build the dist.
+- Removed `babel`.
+- Added `var` build version for CDN.
+
 *Sept 26, 2017 PHT*
 
 - Replaced `webpack` with plain `babel`
@@ -478,7 +553,7 @@ Leave out all the rest..."*
 
 I used Linkin Park songs as example strings to pay tribute to the death of Chester Bennington. One of my inspirations in music. Depression is very real, we may not fully understand it but it is very, very real. Talk to your love ones, and cherish every moment with them. Happy coding.
 
-`< >` with ❤️ by Jofferson Ramirez Tiquez
+Made with ❤️ by Jofferson Ramirez Tiquez
 
 
 
