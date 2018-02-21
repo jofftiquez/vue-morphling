@@ -1,19 +1,20 @@
 {
   "dependencies": {
     "babel-loader": "^7.1.2",
+    "date-fns": "^1.29.0",
     "filesize.js": "^1.0.2",
-    "moment": "^2.18.1",
     "utf8-length": "^0.0.1"
   },
   "name": "morphling",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "A collection of VueJs filters.",
   "main": "index.js",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-preset-stage-2": "^6.24.1",
+    "webpack": "^3.11.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
