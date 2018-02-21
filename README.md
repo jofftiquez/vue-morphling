@@ -10,7 +10,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 - [Usage](#usage) 
 - [Filters](#filters)
 - [Directives](#directives)
-- [Updates](#updates) (New updates as of Oct 26, 2017 PHT)
+- [Updates](#updates) (New updates as of Feb 21, 2018 PHT)
 - [Debug](#debug)
 - [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
@@ -20,11 +20,11 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 - [morph-capitalize](#morph-capitalize)
 - [morph-chop](#morph-chop)
 - [morph-currency](#morph-currency)
-- [morph-date](#morph-date)
-- [morph-file-size](#morph-file-size) **NEW**
+- [morph-date](#morph-date) **UPDATED**
+- [morph-file-size](#morph-file-size)
 - [morph-json](#morph-json)
 - [morph-lowercase](#morph-lowercase)
-- [morph-object-size](#morph-object-size) **NEW**
+- [morph-object-size](#morph-object-size)
 - [morph-placeholder](#morph-placeholder)
 - [morph-replace](#morph-replace)
 - [morph-reverse](#morph-reverse)
@@ -297,7 +297,7 @@ console.log(msg); // lost in the echo
 Gets the bytes size (number) of any javascript object and converts it to it's equivalent `Kb`, `Mb`, `Gb`, `Tb`, `Pb`, `Eb`, `Zb` and `Yb`.
 
 ```html
-<code>{{ {name:'Chester'} | morph-object-size }}</code>
+<code>{{ obj1 | morph-object-size }}</code>
 <!-- 18.0 b -->
 
 <p>{{ `Forget the wrong the i've done.` | morph-object-size }}</p>
