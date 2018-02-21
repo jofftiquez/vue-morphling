@@ -177,12 +177,17 @@ Format any valid date using moment's `format()` function.
 
 `morph-date(format)`
 
+*Note* - `morph-date` is now using using [`date-fns`](https://date-fns.org/).
+
 ```html
 <p>{{ new Date() | morph-date('MMM DD, YYYY') }}</p>
 <!-- Jul 26, 2017 -->
 
 <p>{{ new Date() | morph-date('YYYY') }}</p>
 <!-- 2017 -->
+
+<p>{{ new Date() | morph-date('[Today is a] dddd') }}</p>
+<!-- Wednesday -->
 ```
 
 ```javascript
@@ -474,6 +479,10 @@ console.log(msg); // SOMEWHERE I BELONG
 ```
 
 ## Updates
+
+*0.6.0 - Feb 21, 2018 PHT*
+
+- Replaced moment with date-fns. I replaced moment with date-fns because [these reasons](https://github.com/date-fns/date-fns/issues/275#issuecomment-264934189). There are no breaking changes in terms of using `morph-date`.
 
 *0.5.0 - Oct 26, 2017 PHT*
 
