@@ -1,16 +1,16 @@
-import moment from 'moment';
+import { format } from 'date-fns';
 
 export default (Vue) => {
-  Vue.filter('morph-date', (value, format) => {
+  Vue.filter('morph-date', (value, formatting) => {
     if(!value) return;
-    return morphDate(value, format);
+    return morphDate(value, formatting);
   });
 
-  Vue.prototype.$morphDate = (value, format) => {
-    return morphDate(value, format);
+  Vue.prototype.$morphDate = (value, formatting) => {
+    return morphDate(value, formatting);
   };
 
-  function morphDate(value, format) {
-    return moment(value).format(format);
+  function morphDate(value, formatting) {
+    return format(value, formatting);
   }
 };
