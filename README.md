@@ -14,6 +14,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 - [Debug](#debug)
 - [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
+- [Filter or directive request](https://github.com/jofftiquez/morphling/issues/14)
 
 ## Filters
 
