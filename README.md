@@ -1,4 +1,6 @@
-# Mophling
+# IMPORTANT NOTE: morphling has been renamed to vue-mophling
+
+# VueMorphling
 
 A collection of standard and custom VueJs filters and directives. 
 
@@ -10,7 +12,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 - [Usage](#usage) 
 - [Filters](#filters)
 - [Directives](#directives)
-- [Updates](#updates) (New updates as of Feb 21, 2018 PHT)
+- [Updates](#updates) (Important updates as of March 6, 2018 PHT)
 - [Debug](#debug)
 - [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
@@ -41,33 +43,33 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 **NPM**
 
-`npm install morphling --save`
+`npm install vue-morphling --save`
 
 **Yarn**
 
-`yarn add morphling`
+`yarn add vue-morphling`
 
 **CDN**
 
-`https://unpkg.com/morphling/dist/morphling.js`
+`https://unpkg.com/vue-morphling/dist/vue-morphling.js`
 
 ## Usage
 
 ```
 import Vue from 'vue';
-import Morphling from 'morphling';
+import VueMorphling from 'vue-morphling';
 
-Vue.use(Morphling);
+Vue.use(VueMorphling);
 ```
 
 **or**
 
 ```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
-<script src="https://unpkg.com/morphling/dist/morphling.js"></script>
+<script src="https://unpkg.com/vue-morphling/dist/vue-morphling.js"></script>
 
 <script>
-  Vue.use(Morphling.default);
+  Vue.use(VueMorphling.default);
   // Vue stuff here
 </script>
 ```
@@ -480,6 +482,9 @@ console.log(msg); // SOMEWHERE I BELONG
 ```
 
 ## Updates
+
+*0.7.x - March 7, 2018 PHT*
+- I'm sorry for the trouble. But I had to depricate `morphling` and rename it to `vue-morphling` because I am working on a different version of this library. The new `mophling.js` is pure javascript version of this plugin which you can use in both nodejs or vanilla. [See updates here](https://github.com/jofftiquez/morphling.js)
 
 *0.6.0 - Feb 21, 2018 PHT*
 
