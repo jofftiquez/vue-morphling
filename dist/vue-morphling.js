@@ -1,4 +1,4 @@
-var Morphling =
+var VueMorphling =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -2615,14 +2615,14 @@ var _directives2 = _interopRequireDefault(_directives);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Morphling = {
+var VueMorphling = {
   install: function install(Vue, options) {
     (0, _filters2.default)(Vue, options);
     (0, _directives2.default)(Vue);
   }
 };
 
-exports.default = Morphling;
+exports.default = VueMorphling;
 
 /***/ }),
 /* 59 */

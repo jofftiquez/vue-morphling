@@ -1,11 +1,11 @@
 import filters from './filters';
 import directives from './directives';
 
-const Morphling = {
+const VueMorphling = {
   install(Vue, options) {
     filters(Vue, options);
     directives(Vue);
   }
 }
 
-export default Morphling;
+export default VueMorphling;

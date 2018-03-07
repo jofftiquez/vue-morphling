@@ -1,3 +1,3 @@
-import Morphling from './dist';
+import VueMorphling from './dist';
 
-export default Morphling;
+export default VueMorphling;
