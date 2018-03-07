@@ -5,18 +5,18 @@ function createConfig(target) {
   var name = 'index.js';
 
   if(target !== 'commonjs2') {
-    name = 'morphling.js'
+    name = 'vue-morphling.js'
   }
 
   var output = {
-    library: 'Morphling',
+    library: 'VueMorphling',
     libraryTarget: target,
     path: path.resolve(__dirname, 'dist'),
     filename: name
   }
 
   if(typeof target === 'undefined') {
-    name = 'morphling.js';
+    name = 'vue-morphling.js';
     output = {
       path: path.resolve(__dirname, 'dist'),
       filename: name

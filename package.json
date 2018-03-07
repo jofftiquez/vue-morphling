@@ -5,8 +5,8 @@
     "filesize.js": "^1.0.2",
     "utf8-length": "^0.0.1"
   },
-  "name": "morphling",
-  "version": "0.6.2",
+  "name": "vue-morphling",
+  "version": "0.7.1",
   "description": "A collection of VueJs filters.",
   "main": "index.js",
   "devDependencies": {
