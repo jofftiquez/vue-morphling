@@ -1,6 +1,7 @@
-# IMPORTANT NOTE: morphling has been renamed to vue-mophling
 
 # VueMorphling
+
+> IMPORTANT NOTE: morphling has been renamed to vue-mophling. The old morphling is now [framework agnostic](https://github.com/jofftiquez/morphling.js).
 
 A collection of standard and custom VueJs filters and directives. 
 
@@ -311,7 +312,7 @@ Gets the bytes size (number) of any javascript object and converts it to it's eq
 const obj1 = {name:'Chester'};
 const obj2 = `Forget the wrong the i've done.`;
 
-const a = this.$morphObjectSize(1obj1024);
+const a = this.$morphObjectSize(obj1);
 const b = this.$morphObjectSize(obj2);
 
 console.log(a); // 18.0 b
