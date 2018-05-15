@@ -8731,7 +8731,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function (Vue) {
   // email(Vue);
-  // url(Vue);
+  (0, _url2.default)(Vue);
   (0, _highlight2.default)(Vue);
 };
 
