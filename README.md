@@ -39,6 +39,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 ## Directives
 
 - [morph-url](#morph-url) (exprimental | read limitations)
+- [morph-highlight](#morph-highlight) **NEW**
 
 ## Installation
 
@@ -482,7 +483,36 @@ console.log(msg); // SOMEWHERE I BELONG
 </p>
 ```
 
+## morph-highlight
+
+This directive will highlight the any matching string with a color of your choice! Yep, just like a highlighter pen.
+
+*Usage*
+
+`v-morph-highlight`, prepend `v-` to any directive name.
+
+Pass the params as string, like, `'cats::#7fad33'` use `::` as separator for the string to be highlighted and color. *Syntax* `'string::color'` where string is any string and color is any color, hex color, rgb and rgba.
+
+*Before morphling*
+```html
+<p>
+  Cats are the best dogs! I love cats!
+</p>
+```
+
+*After morphling*
+```html
+<p v-morph-highlight="'cats::#7fad33'">
+  Cats are the best dogs! I love cats!
+</p>
+```
+![Screen Shot](https://i.imgur.com/LaIlRVJ.png)
+
+
 ## Updates
+
+*0.7.4 - May 15, 2018 PHT*
+- Added [morph-highlight](#morph-highlight)
 
 *0.7.x - March 7, 2018 PHT*
 - I'm sorry for the trouble. But I had to depricate `morphling` and rename it to `vue-morphling` because I am working on a different version of this library. The new `mophling.js` is pure javascript version of this plugin which you can use in both nodejs or vanilla. [See updates here](https://github.com/jofftiquez/morphling.js)
