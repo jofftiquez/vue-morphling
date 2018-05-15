@@ -8723,11 +8723,16 @@ var _email = __webpack_require__(182);
 
 var _email2 = _interopRequireDefault(_email);
 
+var _highlight = __webpack_require__(183);
+
+var _highlight2 = _interopRequireDefault(_highlight);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (Vue) {
-  (0, _url2.default)(Vue);
   // email(Vue);
+  // url(Vue);
+  (0, _highlight2.default)(Vue);
 };
 
 /***/ }),
@@ -8742,7 +8747,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (Vue) {
-  var re = /\b(https|http|ftp)?:\/\/\S+/gi;
+  var re = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/gi;
 
   Vue.directive('morph-url', {
     bind: bind
@@ -8752,7 +8757,9 @@ exports.default = function (Vue) {
     var s = vnode.elm.innerText;
     var m = s.match(re);
     var a = [];
-    var prev;
+    var prev = void 0;
+
+    console.log(m);
 
     if (!m) return;
 
@@ -8771,8 +8778,10 @@ exports.default = function (Vue) {
     el.innerHTML = s;
   }
 
-  function convertToA(link, binding) {
-    return '<a target="_blank" href="' + link + '" style="' + binding.value + '">' + link + '</a>';
+  function convertToA(link, _ref) {
+    var value = _ref.value;
+
+    return '<a target="_blank" href="' + link + '" style="' + value + '">' + link + '</a>';
   }
 };
 
@@ -8822,6 +8831,31 @@ exports.default = function (Vue) {
 
   function convertToA(email, binding) {
     return '<a target="_blank" href="mailto:' + email + '">' + email + '</a>';
+  }
+};
+
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function (Vue) {
+  Vue.directive('morph-highlight', {
+    bind: bind
+  });
+
+  function bind(el, binding, vnode) {
+    var str = vnode.elm.innerText;
+    var highlightee = binding.value.split('::')[0];
+    var highlighter = binding.value.split('::')[1];
+    var regex = new RegExp(highlightee, 'gi');
+    el.innerHTML = str.replace(regex, '<span style="background-color: ' + highlighter + '">' + highlightee + '</span>');
   }
 };
 
