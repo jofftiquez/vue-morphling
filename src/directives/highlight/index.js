@@ -3,7 +3,6 @@ export default (Vue) => {
   Vue.directive('morph-highlight', {
     bind
   });
-
   function bind(el, binding, vnode) {
     const str = vnode.elm.innerText;
     const highlightee = binding.value.split('::')[0];
