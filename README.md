@@ -45,11 +45,11 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 **NPM**
 
-`npm install vue-morphling --save`
+`npm install vue-morphling@0.8.0-alpha.1 --save`
 
 **Yarn**
 
-`yarn add vue-morphling`
+`yarn add vue-morphling@0.8.0-alpha.1`
 
 **CDN**
 
