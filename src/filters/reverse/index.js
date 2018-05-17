@@ -1,4 +1,4 @@
-export default (Vue) => {
+export const reverse = (Vue) => {
   Vue.filter('morph-reverse', (value) => {
     if(!value) return;
     return reverse(value);
