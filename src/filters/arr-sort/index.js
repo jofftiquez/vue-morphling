@@ -1,4 +1,4 @@
-export default (Vue) => {
+export const arrSort = (Vue) => {
   Vue.filter('morph-arr-sort', (value, key, direction) => {
     if(!value) return;
     return sort(value, key, direction);

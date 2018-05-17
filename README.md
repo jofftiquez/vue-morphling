@@ -13,7 +13,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 - [Usage](#usage) 
 - [Filters](#filters)
 - [Directives](#directives)
-- [Updates](#updates) (Important updates as of March 6, 2018 PHT)
+- [Updates](#updates) (Breaking update - March 17, 2018 PHT - See pre-release)
 - [Debug](#debug)
 - [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
@@ -45,11 +45,11 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 **NPM**
 
-`npm install vue-morphling --save`
+`npm install vue-morphling@0.8.0-alpha.1 --save`
 
 **Yarn**
 
-`yarn add vue-morphling`
+`yarn add vue-morphling@0.8.0-alpha.1`
 
 **CDN**
 
@@ -59,9 +59,22 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 ```
 import Vue from 'vue';
-import VueMorphling from 'vue-morphling';
+import { VueMorphling } from 'vue-morphling';
 
+// Use all filters and directives.
 Vue.use(VueMorphling);
+```
+
+**or**
+
+```
+import Vue from 'vue';
+import { morphDate, vMorphHighlight, morphLowerCase } from 'vue-morphling';
+
+// Import only what you need.
+Vue.use(morphDate);
+Vue.use(vMorphHighlight);
+Vue.use(morphLowerCase);
 ```
 
 **or**
@@ -71,7 +84,10 @@ Vue.use(VueMorphling);
 <script src="https://unpkg.com/vue-morphling/dist/vue-morphling.js"></script>
 
 <script>
-  Vue.use(VueMorphling.default);
+  Vue.use(VueMorphling.VueMorphling); // Use all
+  // Or
+  Vue.use(VueMorphling.morphDate); // Use morh-date filter only;
+  Vue.use(VueMorphling.vMorphHighlight); // Use v-morh-highlight directive only;
   // Vue stuff here
 </script>
 ```
@@ -83,6 +99,8 @@ All directive name should be prepended with `v-`, `v-morph-url` like so.
 # Morphling Filters
 
 ### morph-capitalize
+
+> > `import { morphCapitalize } from 'vue-morphling';`
 
 ```html
 <p>{{ 'numb' | morph-capitalize }}</p>
@@ -99,6 +117,8 @@ console.log(msg); // Numb
 ------
 
 ### morph-chop
+
+> `import { morphChop } from 'vue-morphling';`
 
 This filter chops off a `n` length of character in a give string using the `length` option.
 
@@ -146,6 +166,8 @@ console.log(msg4); // ercut
 
 ### morph-currency
 
+> `import { morphCurrency } from 'vue-morphling';`
+
 Prepend a currency symbol to a value.
 
 *Syntax*
@@ -175,6 +197,8 @@ See [currencies.js](https://github.com/jofftiquez/morphling/blob/master/lib/curr
 ------
 
 ### morph-date
+
+> `import { morphDate } from 'vue-morphling';`
 
 Format any valid date using moment's `format()` function. 
 
@@ -217,6 +241,8 @@ All formats are available of course in the [moment documentation](https://moment
 
 ### morph-file-size
 
+> `import { morphFileSize } from 'vue-morphling';`
+
 Converts any number (as bytes) to it's equivalent, `Kb`, `Mb`, `Gb`, `Tb`, `Pb`, `Eb`, `Zb` and `Yb`.
 
 ```html
@@ -240,6 +266,8 @@ console.log(b); // 9.3 Gb
 ------
 
 ### morph-json
+
+> `import { morphJson } from 'vue-morphling';`
 
 Pretty print JSON objects inside the `<pre>` tag.
 
@@ -283,6 +311,8 @@ console.log(msg);
 
 ### morph-lowercase
 
+> `import { morphLowerCase } from 'vue-morphling';`
+
 ```html
 <p>{{ "LOST IN THE ECHO" | morph-lowercase}}</p>
 <!-- lost in the echo  -->
@@ -298,6 +328,8 @@ console.log(msg); // lost in the echo
 ------
 
 ### morph-object-size
+
+> `import { morphObjectSize } from 'vue-morphling';`
 
 Gets the bytes size (number) of any javascript object and converts it to it's equivalent `Kb`, `Mb`, `Gb`, `Tb`, `Pb`, `Eb`, `Zb` and `Yb`.
 
@@ -324,6 +356,8 @@ console.log(b); // 33.0 b
 
 ### morph-placeholder
 
+> `import { morphPlaceholder } from 'vue-morphling';`
+
 Replaces the value with a give placeholder.
 
 *Syntax*
@@ -347,6 +381,8 @@ console.log(msg); // New Divide
 ------
 
 ### morph-replace
+
+> `import { morphReplace } from 'vue-morphling';`
 
 Replaces characer/s on a string with a given 'replacer' string. Accepts `RegEx` for better matching.
 
@@ -378,6 +414,8 @@ console.log(msg); // In the start.
 
 ### morph-reverse
 
+> `import { morphReverse } from 'vue-morphling';`
+
 ```html
 <p>{{ 'Shadow of the day' | morph-reverse}}</p>
 <!-- yad eht fo wodahS  -->
@@ -393,6 +431,8 @@ console.log(msg); // yad eht fo wodahS
 ------
 
 ### morph-sandwich
+
+> `import { morphSandwich } from 'vue-morphling';`
 
 Prepend and append data around a given value.
 
@@ -425,6 +465,8 @@ console.log(msg2); // <<< Numb >>>
 
 ### morph-truncate
 
+> `import { morphTruncate } from 'vue-morphling';`
+
 ```html
 <p>{{ 'Leave out all the rest' | morph-truncate(11) }}</p>
 <!-- Leave out a...  -->
@@ -440,6 +482,8 @@ console.log(msg); // Leave out a...
 ------
 
 ### morph-uppercase
+
+> `import { morphUpperCase } from 'vue-morphling';`
 
 ```html
 <p>{{ "somewhere i belong" | morph-uppercase}}</p>
@@ -458,6 +502,8 @@ console.log(msg); // SOMEWHERE I BELONG
 # Morphling Directives
 
 ## morph-url
+
+> `import { vMorphUrl } from 'vue-morphling';`
 
 *morph-url* is currently on experimental stage. The current version has some limitations: 
 
@@ -485,6 +531,8 @@ console.log(msg); // SOMEWHERE I BELONG
 
 ## morph-highlight
 
+> `import { vMorphHighlight } from 'vue-morphling';`
+
 This directive will highlight the any matching string with a color of your choice! Yep, just like a highlighter pen.
 
 *Usage*
@@ -510,6 +558,9 @@ Pass the params as string, like, `'cats::#7fad33'` use `::` as separator for the
 
 
 ## Updates
+
+*0.8.0-alpha.1 - May 17, 2018 PHT* 
+- Updated the way filters are imported for tree shaking purposes. See [usage](#usage).
 
 *0.7.4 - May 15, 2018 PHT*
 - Added [morph-highlight](#morph-highlight)

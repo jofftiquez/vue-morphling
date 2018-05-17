@@ -1,6 +1,6 @@
 import currencies from '../../lib/currencies';
 
-export default (Vue) => {
+export const currency = (Vue) => {
   Vue.filter('morph-currency', (value, code, useSymbol) => {
     if(!value) return;
     return sandwich(value, code, useSymbol);

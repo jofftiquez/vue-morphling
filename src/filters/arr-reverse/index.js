@@ -1,4 +1,4 @@
-export default (Vue) => {
+export const arrReverse = (Vue) => {
   Vue.filter('morph-arr-reverse', (value) => {
     if(!value) return;
     return reverse(value);

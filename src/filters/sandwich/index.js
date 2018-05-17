@@ -10,7 +10,7 @@ const corpus = {
 };
 const corpusRegex = /(<|>|\[|\]|\(|\)|\{|\})/g;
 
-export default (Vue) => {
+export const sandwich = (Vue) => {
   Vue.filter('morph-sandwich', (value, start, end) => {
     if(!value) return;
     return sandwich(value, start, end);

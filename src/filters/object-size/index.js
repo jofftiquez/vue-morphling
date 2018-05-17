@@ -1,7 +1,7 @@
 import bytes from 'utf8-length';
 import filesize from 'filesize.js';
 
-export default (Vue) => {
+export const objectSize = (Vue) => {
   Vue.filter('morph-object-size', (value, indent) => {
     if(!value) return;
     return go(value, indent);

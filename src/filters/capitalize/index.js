@@ -1,4 +1,4 @@
-export default (Vue) => {
+export const capitalize = (Vue) => {
   Vue.filter('morph-capitalize', (value) => {
     if(!value) return;
     return capitalize(value);

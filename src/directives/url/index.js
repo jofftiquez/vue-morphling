@@ -1,5 +1,5 @@
 
-export default (Vue) => {
+export const url = (Vue) => {
   const re = /\b(https|http|ftp)?:\/\/\S+/gi
 
   Vue.directive('morph-url', {
