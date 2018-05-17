@@ -13,7 +13,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 - [Usage](#usage) 
 - [Filters](#filters)
 - [Directives](#directives)
-- [Updates](#updates) (Breaking update - March 17, 2018 PHT - See pre-release)
+- [Updates](#updates) (Breaking update - March 17, 2018 PHT)
 - [Debug](#debug)
 - [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
@@ -45,11 +45,11 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 **NPM**
 
-`npm install vue-morphling@0.8.0-alpha.1 --save`
+`npm install vue-morphling --save`
 
 **Yarn**
 
-`yarn add vue-morphling@0.8.0-alpha.1`
+`yarn add vue-morphling`
 
 **CDN**
 
