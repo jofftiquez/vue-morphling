@@ -6,7 +6,7 @@
     "utf8-length": "^0.0.1"
   },
   "name": "vue-morphling",
-  "version": "0.7.4",
+  "version": "0.8.0-alpha.1",
   "description": "A collection of VueJs filters.",
   "main": "index.js",
   "devDependencies": {
