@@ -1,5 +1,5 @@
 
-export default (Vue) => {
+export const highlight = (Vue) => {
   Vue.directive('morph-highlight', {
     bind
   });
