@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 
-export default (Vue) => {
+export const date = (Vue) => {
   Vue.filter('morph-date', (value, formatting) => {
     if(!value) return;
     return morphDate(value, formatting);
