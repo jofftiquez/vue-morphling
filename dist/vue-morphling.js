@@ -2604,48 +2604,153 @@ module.exports = setMonth
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.VueMorphling = exports.morphUpperCase = exports.morphTruncate = exports.morphSandwich = exports.morphReverse = exports.morphReplace = exports.morphPlaceholder = exports.morphObjectSize = exports.morphLowerCase = exports.morphJson = exports.morphFileSize = exports.morphDate = exports.morphCurrency = exports.morphChop = exports.morphCapitalize = exports.morphArrSort = exports.morphArrReverse = exports.vMorphEmail = exports.vMorphUrl = exports.vMorphHighlight = undefined;
 
 var _filters = __webpack_require__(59);
 
-var _filters2 = _interopRequireDefault(_filters);
-
 var _directives = __webpack_require__(180);
 
-var _directives2 = _interopRequireDefault(_directives);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var VueMorphling = {
+// Directives
+var vMorphHighlight = exports.vMorphHighlight = {
   install: function install(Vue, options) {
-    if (options.only && options.only.directives && !!options.only.directives.length) {
-      options.only.directives.forEach(function (item) {
-        console.log(item);
-        console.log(_directives2.default[item]);
-        if (!!_directives2.default[item]) _directives2.default[item](Vue);
-      });
-    }
-
-    if (options.only && options.only.filters && !!options.only.filters.length) {
-      options.only.filters.forEach(function (item) {
-        console.log(item);
-        console.log(_filters2.default[item]);
-        if (!!_filters2.default[item]) _filters2.default[item](Vue);
-      });
-    }
-
-    if (options.only && (options.only.filters || options.only.directives)) return;
-
-    for (var key in _filters2.default) {
-      _filters2.default[key](Vue);
-    }
-
-    for (var _key in _directives2.default) {
-      _directives2.default[_key](Vue);
-    }
+    (0, _directives.highlight)(Vue, options);
   }
 };
 
-exports.default = VueMorphling;
+var vMorphUrl = exports.vMorphUrl = {
+  install: function install(Vue, options) {
+    (0, _directives.url)(Vue, options);
+  }
+};
+
+var vMorphEmail = exports.vMorphEmail = {
+  install: function install(Vue, options) {
+    (0, _directives.email)(Vue, options);
+  }
+};
+
+// Filters
+var morphArrReverse = exports.morphArrReverse = {
+  install: function install(Vue, options) {
+    (0, _filters.arrReverse)(Vue, options);
+  }
+};
+
+var morphArrSort = exports.morphArrSort = {
+  install: function install(Vue, options) {
+    (0, _filters.arrSort)(Vue, options);
+  }
+};
+
+var morphCapitalize = exports.morphCapitalize = {
+  install: function install(Vue, options) {
+    (0, _filters.capitalize)(Vue, options);
+  }
+};
+
+var morphChop = exports.morphChop = {
+  install: function install(Vue, options) {
+    (0, _filters.chop)(Vue, options);
+  }
+};
+
+var morphCurrency = exports.morphCurrency = {
+  install: function install(Vue, options) {
+    (0, _filters.currency)(Vue, options);
+  }
+};
+
+var morphDate = exports.morphDate = {
+  install: function install(Vue, options) {
+    (0, _filters.date)(Vue, options);
+  }
+};
+
+var morphFileSize = exports.morphFileSize = {
+  install: function install(Vue, options) {
+    (0, _filters.fileSize)(Vue, options);
+  }
+};
+
+var morphJson = exports.morphJson = {
+  install: function install(Vue, options) {
+    (0, _filters.json)(Vue, options);
+  }
+};
+
+var morphLowerCase = exports.morphLowerCase = {
+  install: function install(Vue, options) {
+    (0, _filters.lowerCase)(Vue, options);
+  }
+};
+
+var morphObjectSize = exports.morphObjectSize = {
+  install: function install(Vue, options) {
+    (0, _filters.objectSize)(Vue, options);
+  }
+};
+
+var morphPlaceholder = exports.morphPlaceholder = {
+  install: function install(Vue, options) {
+    (0, _filters.placeholder)(Vue, options);
+  }
+};
+
+var morphReplace = exports.morphReplace = {
+  install: function install(Vue, options) {
+    (0, _filters.replace)(Vue, options);
+  }
+};
+
+var morphReverse = exports.morphReverse = {
+  install: function install(Vue, options) {
+    (0, _filters.reverse)(Vue, options);
+  }
+};
+
+var morphSandwich = exports.morphSandwich = {
+  install: function install(Vue, options) {
+    (0, _filters.sandwich)(Vue, options);
+  }
+};
+
+var morphTruncate = exports.morphTruncate = {
+  install: function install(Vue, options) {
+    (0, _filters.truncate)(Vue, options);
+  }
+};
+
+var morphUpperCase = exports.morphUpperCase = {
+  install: function install(Vue, options) {
+    (0, _filters.uppercase)(Vue, options);
+  }
+};
+
+var VueMorphling = exports.VueMorphling = {
+  install: function install(Vue, options) {
+    // directives
+    (0, _directives.email)(Vue, options);
+    (0, _directives.highlight)(Vue, options);
+    (0, _directives.url)(Vue, options);
+    // filters
+    (0, _filters.arrReverse)(Vue, options);
+    (0, _filters.arrSort)(Vue, options);
+    (0, _filters.capitalize)(Vue, options);
+    (0, _filters.chop)(Vue, options);
+    (0, _filters.currency)(Vue, options);
+    (0, _filters.date)(Vue, options);
+    (0, _filters.fileSize)(Vue, options);
+    (0, _filters.json)(Vue, options);
+    (0, _filters.lowerCase)(Vue, options);
+    (0, _filters.objectSize)(Vue, options);
+    (0, _filters.placeholder)(Vue, options);
+    releaseEvents(Vue, options);
+    (0, _filters.reverse)(Vue, options);
+    (0, _filters.sandwich)(Vue, options);
+    (0, _filters.truncate)(Vue, options);
+    (0, _filters.uppercase)(Vue, options);
+  }
+};
 
 /***/ }),
 /* 59 */
@@ -2660,107 +2765,195 @@ Object.defineProperty(exports, "__esModule", {
 
 var _arrReverse = __webpack_require__(60);
 
-var _arrReverse2 = _interopRequireDefault(_arrReverse);
+Object.keys(_arrReverse).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _arrReverse[key];
+    }
+  });
+});
 
 var _arrSort = __webpack_require__(61);
 
-var _arrSort2 = _interopRequireDefault(_arrSort);
+Object.keys(_arrSort).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _arrSort[key];
+    }
+  });
+});
 
 var _capitalize = __webpack_require__(62);
 
-var _capitalize2 = _interopRequireDefault(_capitalize);
+Object.keys(_capitalize).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _capitalize[key];
+    }
+  });
+});
 
 var _chop = __webpack_require__(63);
 
-var _chop2 = _interopRequireDefault(_chop);
+Object.keys(_chop).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _chop[key];
+    }
+  });
+});
 
 var _currency = __webpack_require__(64);
 
-var _currency2 = _interopRequireDefault(_currency);
+Object.keys(_currency).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _currency[key];
+    }
+  });
+});
 
 var _date = __webpack_require__(66);
 
-var _date2 = _interopRequireDefault(_date);
+Object.keys(_date).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _date[key];
+    }
+  });
+});
 
 var _fileSize = __webpack_require__(169);
 
-var _fileSize2 = _interopRequireDefault(_fileSize);
+Object.keys(_fileSize).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _fileSize[key];
+    }
+  });
+});
 
 var _json = __webpack_require__(170);
 
-var _json2 = _interopRequireDefault(_json);
+Object.keys(_json).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _json[key];
+    }
+  });
+});
 
 var _lowercase = __webpack_require__(171);
 
-var _lowercase2 = _interopRequireDefault(_lowercase);
+Object.keys(_lowercase).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _lowercase[key];
+    }
+  });
+});
 
 var _objectSize = __webpack_require__(172);
 
-var _objectSize2 = _interopRequireDefault(_objectSize);
+Object.keys(_objectSize).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _objectSize[key];
+    }
+  });
+});
 
 var _placeholder = __webpack_require__(174);
 
-var _placeholder2 = _interopRequireDefault(_placeholder);
+Object.keys(_placeholder).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _placeholder[key];
+    }
+  });
+});
 
 var _replace = __webpack_require__(175);
 
-var _replace2 = _interopRequireDefault(_replace);
+Object.keys(_replace).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _replace[key];
+    }
+  });
+});
 
 var _reverse = __webpack_require__(176);
 
-var _reverse2 = _interopRequireDefault(_reverse);
+Object.keys(_reverse).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _reverse[key];
+    }
+  });
+});
 
 var _sandwich = __webpack_require__(177);
 
-var _sandwich2 = _interopRequireDefault(_sandwich);
+Object.keys(_sandwich).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _sandwich[key];
+    }
+  });
+});
 
 var _truncate = __webpack_require__(178);
 
-var _truncate2 = _interopRequireDefault(_truncate);
+Object.keys(_truncate).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _truncate[key];
+    }
+  });
+});
 
 var _uppercase = __webpack_require__(179);
 
-var _uppercase2 = _interopRequireDefault(_uppercase);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-  arrReverse: _arrReverse2.default,
-  arrSort: _arrSort2.default,
-  capitalize: _capitalize2.default,
-  chop: _chop2.default,
-  currency: _currency2.default,
-  date: _date2.default,
-  fileSize: _fileSize2.default,
-  json: _json2.default,
-  objectSize: _objectSize2.default,
-  lowercase: _lowercase2.default,
-  placeholder: _placeholder2.default,
-  replace: _replace2.default,
-  reverse: _reverse2.default,
-  sandwich: _sandwich2.default,
-  truncate: _truncate2.default,
-  uppercase: _uppercase2.default
-};
-
-// export default (Vue) => {
-//   arrReverse(Vue);
-//   arrSort(Vue);
-//   capitalize(Vue);
-//   chop(Vue);
-//   currency(Vue);
-//   date(Vue);
-//   filesize(Vue);
-//   json(Vue);
-//   objectsize(Vue);
-//   lowercase(Vue);
-//   placeholder(Vue);
-//   replace(Vue);
-//   reverse(Vue);
-//   sandwich(Vue);
-//   truncate(Vue);
-//   uppercase(Vue);
-// };
+Object.keys(_uppercase).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _uppercase[key];
+    }
+  });
+});
 
 /***/ }),
 /* 60 */
@@ -2772,8 +2965,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var arrReverse = exports.arrReverse = function arrReverse(Vue) {
   Vue.filter('morph-arr-reverse', function (value) {
     if (!value) return;
     return reverse(value);
@@ -2801,8 +2993,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var arrSort = exports.arrSort = function arrSort(Vue) {
   Vue.filter('morph-arr-sort', function (value, key, direction) {
     if (!value) return;
     return sort(value, key, direction);
@@ -2847,8 +3038,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var capitalize = exports.capitalize = function capitalize(Vue) {
   Vue.filter('morph-capitalize', function (value) {
     if (!value) return;
     return capitalize(value);
@@ -2874,8 +3064,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var chop = exports.chop = function chop(Vue) {
   Vue.filter('morph-chop', function (value, length, location) {
     if (!value) return;
     return chop(value, length, location);
@@ -2904,6 +3093,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.currency = undefined;
 
 var _currencies = __webpack_require__(65);
 
@@ -2911,7 +3101,7 @@ var _currencies2 = _interopRequireDefault(_currencies);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (Vue) {
+var currency = exports.currency = function currency(Vue) {
   Vue.filter('morph-currency', function (value, code, useSymbol) {
     if (!value) return;
     return sandwich(value, code, useSymbol);
@@ -4193,10 +4383,11 @@ exports.default = [{
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.date = undefined;
 
 var _dateFns = __webpack_require__(67);
 
-exports.default = function (Vue) {
+var date = exports.date = function date(Vue) {
   Vue.filter('morph-date', function (value, formatting) {
     if (!value) return;
     return morphDate(value, formatting);
@@ -8437,6 +8628,7 @@ module.exports = subYears
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.fileSize = undefined;
 
 var _filesize = __webpack_require__(57);
 
@@ -8444,7 +8636,7 @@ var _filesize2 = _interopRequireDefault(_filesize);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (Vue) {
+var fileSize = exports.fileSize = function fileSize(Vue) {
   Vue.filter('morph-file-size', function (value) {
     if (!value) return;
     return go(value);
@@ -8474,8 +8666,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var json = exports.json = function json(Vue) {
   Vue.filter('morph-json', function (value, indent) {
     if (!value) return;
     return json(value, indent);
@@ -8500,8 +8691,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var lowerCase = exports.lowerCase = function lowerCase(Vue) {
   Vue.filter('morph-lowercase', function (value) {
     if (!value) return;
     return lowercase(value);
@@ -8527,6 +8717,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.objectSize = undefined;
 
 var _utf8Length = __webpack_require__(173);
 
@@ -8538,7 +8729,7 @@ var _filesize2 = _interopRequireDefault(_filesize);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (Vue) {
+var objectSize = exports.objectSize = function objectSize(Vue) {
   Vue.filter('morph-object-size', function (value, indent) {
     if (!value) return;
     return go(value, indent);
@@ -8579,8 +8770,7 @@ module.exports = function(s) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var placeholder = exports.placeholder = function placeholder(Vue) {
   Vue.filter('morph-placeholder', function (value, placeholder) {
     if (!value) return;
     return replace(value, placeholder);
@@ -8606,8 +8796,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var replace = exports.replace = function replace(Vue) {
   Vue.filter('morph-replace', function (value, replacee, replacer) {
     if (!value) return;
     return replace(value, replacee, replacer);
@@ -8632,8 +8821,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var reverse = exports.reverse = function reverse(Vue) {
   Vue.filter('morph-reverse', function (value) {
     if (!value) return;
     return reverse(value);
@@ -8671,7 +8859,7 @@ var corpus = {
 };
 var corpusRegex = /(<|>|\[|\]|\(|\)|\{|\})/g;
 
-exports.default = function (Vue) {
+var sandwich = exports.sandwich = function sandwich(Vue) {
   Vue.filter('morph-sandwich', function (value, start, end) {
     if (!value) return;
     return sandwich(value, start, end);
@@ -8705,8 +8893,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var truncate = exports.truncate = function truncate(Vue) {
   Vue.filter('morph-truncate', function (value, length) {
     if (!value) return;
     return truncate(value, length);
@@ -8734,8 +8921,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var uppercase = exports.uppercase = function uppercase(Vue) {
   Vue.filter('morph-uppercase', function (value) {
     if (!value) return;
     return value.toUpperCase();
@@ -8759,23 +8945,39 @@ Object.defineProperty(exports, "__esModule", {
 
 var _url = __webpack_require__(181);
 
-var _url2 = _interopRequireDefault(_url);
+Object.keys(_url).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _url[key];
+    }
+  });
+});
 
 var _email = __webpack_require__(182);
 
-var _email2 = _interopRequireDefault(_email);
+Object.keys(_email).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _email[key];
+    }
+  });
+});
 
 var _highlight = __webpack_require__(183);
 
-var _highlight2 = _interopRequireDefault(_highlight);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-  url: _url2.default,
-  email: _email2.default,
-  highlight: _highlight2.default
-};
+Object.keys(_highlight).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _highlight[key];
+    }
+  });
+});
 
 /***/ }),
 /* 181 */
@@ -8787,8 +8989,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var url = exports.url = function url(Vue) {
   var re = /\b(https|http|ftp)?:\/\/\S+/gi;
 
   Vue.directive('morph-url', {
@@ -8833,8 +9034,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var email = exports.email = function email(Vue) {
   var re = /(?:[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gi;
 
   Vue.directive('morph-email', {
@@ -8882,8 +9082,7 @@ exports.default = function (Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-exports.default = function (Vue) {
+var highlight = exports.highlight = function highlight(Vue) {
   Vue.directive('morph-highlight', {
     bind: bind
   });
