@@ -2617,8 +2617,31 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var VueMorphling = {
   install: function install(Vue, options) {
-    (0, _filters2.default)(Vue, options);
-    (0, _directives2.default)(Vue);
+    if (options.only && options.only.directives && !!options.only.directives.length) {
+      options.only.directives.forEach(function (item) {
+        console.log(item);
+        console.log(_directives2.default[item]);
+        if (!!_directives2.default[item]) _directives2.default[item](Vue);
+      });
+    }
+
+    if (options.only && options.only.filters && !!options.only.filters.length) {
+      options.only.filters.forEach(function (item) {
+        console.log(item);
+        console.log(_filters2.default[item]);
+        if (!!_filters2.default[item]) _filters2.default[item](Vue);
+      });
+    }
+
+    if (options.only && (options.only.filters || options.only.directives)) return;
+
+    for (var key in _filters2.default) {
+      _filters2.default[key](Vue);
+    }
+
+    for (var _key in _directives2.default) {
+      _directives2.default[_key](Vue);
+    }
   }
 };
 
@@ -2701,24 +2724,43 @@ var _uppercase2 = _interopRequireDefault(_uppercase);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (Vue) {
-  (0, _arrReverse2.default)(Vue);
-  (0, _arrSort2.default)(Vue);
-  (0, _capitalize2.default)(Vue);
-  (0, _chop2.default)(Vue);
-  (0, _currency2.default)(Vue);
-  (0, _date2.default)(Vue);
-  (0, _fileSize2.default)(Vue);
-  (0, _json2.default)(Vue);
-  (0, _objectSize2.default)(Vue);
-  (0, _lowercase2.default)(Vue);
-  (0, _placeholder2.default)(Vue);
-  (0, _replace2.default)(Vue);
-  (0, _reverse2.default)(Vue);
-  (0, _sandwich2.default)(Vue);
-  (0, _truncate2.default)(Vue);
-  (0, _uppercase2.default)(Vue);
+exports.default = {
+  arrReverse: _arrReverse2.default,
+  arrSort: _arrSort2.default,
+  capitalize: _capitalize2.default,
+  chop: _chop2.default,
+  currency: _currency2.default,
+  date: _date2.default,
+  fileSize: _fileSize2.default,
+  json: _json2.default,
+  objectSize: _objectSize2.default,
+  lowercase: _lowercase2.default,
+  placeholder: _placeholder2.default,
+  replace: _replace2.default,
+  reverse: _reverse2.default,
+  sandwich: _sandwich2.default,
+  truncate: _truncate2.default,
+  uppercase: _uppercase2.default
 };
+
+// export default (Vue) => {
+//   arrReverse(Vue);
+//   arrSort(Vue);
+//   capitalize(Vue);
+//   chop(Vue);
+//   currency(Vue);
+//   date(Vue);
+//   filesize(Vue);
+//   json(Vue);
+//   objectsize(Vue);
+//   lowercase(Vue);
+//   placeholder(Vue);
+//   replace(Vue);
+//   reverse(Vue);
+//   sandwich(Vue);
+//   truncate(Vue);
+//   uppercase(Vue);
+// };
 
 /***/ }),
 /* 60 */
@@ -8729,10 +8771,10 @@ var _highlight2 = _interopRequireDefault(_highlight);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (Vue) {
-  // email(Vue);
-  (0, _url2.default)(Vue);
-  (0, _highlight2.default)(Vue);
+exports.default = {
+  url: _url2.default,
+  email: _email2.default,
+  highlight: _highlight2.default
 };
 
 /***/ }),
@@ -8747,7 +8789,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (Vue) {
-  var re = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/gi;
+  var re = /\b(https|http|ftp)?:\/\/\S+/gi;
 
   Vue.directive('morph-url', {
     bind: bind
@@ -8757,9 +8799,7 @@ exports.default = function (Vue) {
     var s = vnode.elm.innerText;
     var m = s.match(re);
     var a = [];
-    var prev = void 0;
-
-    console.log(m);
+    var prev;
 
     if (!m) return;
 
@@ -8778,10 +8818,8 @@ exports.default = function (Vue) {
     el.innerHTML = s;
   }
 
-  function convertToA(link, _ref) {
-    var value = _ref.value;
-
-    return '<a target="_blank" href="' + link + '" style="' + value + '">' + link + '</a>';
+  function convertToA(link, binding) {
+    return '<a target="_blank" href="' + link + '" style="' + binding.value + '">' + link + '</a>';
   }
 };
 
@@ -8849,7 +8887,6 @@ exports.default = function (Vue) {
   Vue.directive('morph-highlight', {
     bind: bind
   });
-
   function bind(el, binding, vnode) {
     var str = vnode.elm.innerText;
     var highlightee = binding.value.split('::')[0];
