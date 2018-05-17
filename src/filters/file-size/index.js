@@ -1,6 +1,6 @@
 import filesize from 'filesize.js';
 
-export default (Vue) => {
+export const fileSize = (Vue) => {
   Vue.filter('morph-file-size', (value) => {
     if(!value) return;
     return go(value);
