@@ -1,4 +1,4 @@
-export default (Vue) => {
+export const lowerCase = (Vue) => {
   Vue.filter('morph-lowercase', (value) => {
     if(!value) return;
     return lowercase(value);
