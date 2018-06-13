@@ -57,7 +57,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 ## Usage
 
-```
+```javascript
 import Vue from 'vue';
 import { VueMorphling } from 'vue-morphling';
 
