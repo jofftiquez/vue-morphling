@@ -67,7 +67,7 @@ Vue.use(VueMorphling);
 
 **or**
 
-```
+```javascript
 import Vue from 'vue';
 import { morphDate, vMorphHighlight, morphLowerCase } from 'vue-morphling';
 
@@ -79,7 +79,7 @@ Vue.use(morphLowerCase);
 
 **or**
 
-```
+```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.4/vue.js"></script>
 <script src="https://unpkg.com/vue-morphling/dist/vue-morphling.js"></script>
 
@@ -100,7 +100,7 @@ All directive name should be prepended with `v-`, `v-morph-url` like so.
 
 ### morph-capitalize
 
-> > `import { morphCapitalize } from 'vue-morphling';`
+> `import { morphCapitalize } from 'vue-morphling';`
 
 ```html
 <p>{{ 'numb' | morph-capitalize }}</p>
