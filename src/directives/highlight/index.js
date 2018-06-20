@@ -8,6 +8,6 @@ export const highlight = (Vue) => {
     const highlightee = binding.value.split('::')[0];
     const highlighter = binding.value.split('::')[1];
     const regex = new RegExp(highlightee, 'gi');
-    el.innerHTML = str.replace(regex, `<span style="background-color: ${ highlighter }">${ highlightee }</span>`)
+    el.innerHTML = str.replace(regex, `<mark style="background-color: ${ highlighter }">${ highlightee }</mark>`)
   }
 };
