@@ -384,7 +384,7 @@ console.log(msg); // New Divide
 
 > `import { morphReplace } from 'vue-morphling';`
 
-Replaces characer/s on a string with a given 'replacer' string. Accepts `RegEx` for better matching.
+Replaces character/s on a string with a given 'replacer' string. Accepts `RegEx` for better matching.
 
 *Syntax*
 
