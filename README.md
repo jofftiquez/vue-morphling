@@ -98,6 +98,25 @@ All directive name should be prepended with `v-`, `v-morph-url` like so.
 
 # Morphling Filters
 
+### morph-age
+
+> `import { morphAge } from 'vue-morphling';`
+
+```html
+<p>{{ new Date(1984, 8, 25) | morph-age }}</p>
+<!-- Numb -->
+```
+
+```javascript
+const birthday = new Date(1984, 8, 25);
+const age = this.$morphAge(birthday);
+console.log(age); // 34 (if is still 2018)
+```
+
+[Back to top](#filters)
+
+------
+
 ### morph-capitalize
 
 > `import { morphCapitalize } from 'vue-morphling';`
