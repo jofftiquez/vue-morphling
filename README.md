@@ -21,6 +21,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 ## Filters
 
+- [morph-age](#morph-age)
 - [morph-capitalize](#morph-capitalize)
 - [morph-chop](#morph-chop)
 - [morph-currency](#morph-currency)
