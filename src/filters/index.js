@@ -1,3 +1,4 @@
+export * from './age';
 export * from './arr-reverse';
 export * from './arr-sort';
 export * from './capitalize';

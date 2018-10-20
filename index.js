@@ -6,6 +6,7 @@ export {
   vMorphUrl,
   vMorphEmail,
   // filters
+  morphAge,
   morphArrReverse,
   morphArrSort,
   morphCapitalize,

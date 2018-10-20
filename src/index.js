@@ -1,4 +1,5 @@
 import {
+  age,
   arrReverse,
   arrSort,
   capitalize,
@@ -43,6 +44,12 @@ export const vMorphEmail = {
 }
 
 // Filters
+export const morphAge = {
+  install(Vue, options) {
+    age(Vue, options);
+  }
+}
+
 export const morphArrReverse = {
   install(Vue, options) {
     arrReverse(Vue, options);
@@ -146,6 +153,7 @@ export const VueMorphling = {
     highlight(Vue, options);
     url(Vue, options);
     // filters
+    age(Vue, options);
     arrReverse(Vue, options);
     arrSort(Vue, options);
     capitalize(Vue, options);
