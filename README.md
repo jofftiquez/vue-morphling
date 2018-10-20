@@ -21,11 +21,11 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 ## Filters
 
-- [morph-age](#morph-age)
+- [morph-age](#morph-age) **NEW**
 - [morph-capitalize](#morph-capitalize)
 - [morph-chop](#morph-chop)
 - [morph-currency](#morph-currency)
-- [morph-date](#morph-date) **UPDATED**
+- [morph-date](#morph-date) 
 - [morph-file-size](#morph-file-size)
 - [morph-json](#morph-json)
 - [morph-lowercase](#morph-lowercase)
