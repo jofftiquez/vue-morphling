@@ -382,17 +382,17 @@ Replaces the value with a give placeholder.
 
 *Syntax*
 
-`morph-truncate(placeholder)` 
+`morph-placeholder(placeholder)` 
 
-`this.$morphTruncate(value, placeholder)`
+`this.$morphPlaceholder(value, placeholder)`
 
 ```html
-<p>{{ "Battle Symphony" | morph-truncate('New Divide') }}</p>
+<p>{{ "Battle Symphony" | morph-placeholder('New Divide') }}</p>
 <!-- New Divide  -->
 ```
 
 ```javascript
-const msg = this.$morphTruncate('Battle Symphony', 'New Divide');
+const msg = this.$morphPlaceholder('Battle Symphony', 'New Divide');
 console.log(msg); // New Divide
 ```
 
