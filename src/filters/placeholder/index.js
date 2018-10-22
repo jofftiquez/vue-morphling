@@ -5,7 +5,6 @@ export const placeholder = (Vue) => {
   });
 
   Vue.prototype.$morphPlaceholder = (value, placeholder) => {
-    console.log(placeholder)
     return replace(value, placeholder);
   };
 
