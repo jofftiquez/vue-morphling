@@ -1,4 +1,6 @@
 
+[![CircleCI](https://circleci.com/gh/jofftiquez/vue-morphling.svg?style=shield)](https://circleci.com/gh/jofftiquez/vue-morphling)
+
 # VueMorphling
 
 > IMPORTANT NOTE: morphling has been renamed to vue-mophling. The old morphling is now [framework agnostic](https://github.com/jofftiquez/morphling.js).
