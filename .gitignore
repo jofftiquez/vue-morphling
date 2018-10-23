@@ -13,3 +13,5 @@ index.html
 *.sln
 .npmignore
 index.html
+
+coverage
