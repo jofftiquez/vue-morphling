@@ -1,6 +1,6 @@
 {
   "name": "vue-morphling",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "A collection of VueJs filters.",
   "main": "index.js",
   "semistandard": {
@@ -21,7 +21,7 @@
   "scripts": {
     "test": "jest --watch --coverage",
     "lint": "semistandard --fix | snazzy",
-    "prebuild": "npm run lint",
+    "prebuild": "yarn lint",
     "build": "rm -rf dist && webpack --progress --hide-modules",
     "start:dev": "webpack --watch"
   },
