@@ -61,7 +61,7 @@ var VueMorphling =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 58);
+/******/ 	return __webpack_require__(__webpack_require__.s = 59);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -980,7 +980,7 @@ module.exports = compareDesc
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
-var differenceInCalendarMonths = __webpack_require__(30)
+var differenceInCalendarMonths = __webpack_require__(31)
 var compareAsc = __webpack_require__(7)
 
 /**
@@ -1057,8 +1057,8 @@ module.exports = differenceInSeconds
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var buildDistanceInWordsLocale = __webpack_require__(80)
-var buildFormatLocale = __webpack_require__(81)
+var buildDistanceInWordsLocale = __webpack_require__(74)
+var buildFormatLocale = __webpack_require__(75)
 
 /**
  * @category Locales
@@ -1192,6 +1192,168 @@ module.exports = isSameWeek
 /* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
+module.exports = {
+  addDays: __webpack_require__(4),
+  addHours: __webpack_require__(23),
+  addISOYears: __webpack_require__(24),
+  addMilliseconds: __webpack_require__(5),
+  addMinutes: __webpack_require__(26),
+  addMonths: __webpack_require__(10),
+  addQuarters: __webpack_require__(27),
+  addSeconds: __webpack_require__(28),
+  addWeeks: __webpack_require__(14),
+  addYears: __webpack_require__(29),
+  areRangesOverlapping: __webpack_require__(62),
+  closestIndexTo: __webpack_require__(63),
+  closestTo: __webpack_require__(64),
+  compareAsc: __webpack_require__(7),
+  compareDesc: __webpack_require__(15),
+  differenceInCalendarDays: __webpack_require__(9),
+  differenceInCalendarISOWeeks: __webpack_require__(65),
+  differenceInCalendarISOYears: __webpack_require__(30),
+  differenceInCalendarMonths: __webpack_require__(31),
+  differenceInCalendarQuarters: __webpack_require__(66),
+  differenceInCalendarWeeks: __webpack_require__(67),
+  differenceInCalendarYears: __webpack_require__(33),
+  differenceInDays: __webpack_require__(34),
+  differenceInHours: __webpack_require__(68),
+  differenceInISOYears: __webpack_require__(69),
+  differenceInMilliseconds: __webpack_require__(11),
+  differenceInMinutes: __webpack_require__(70),
+  differenceInMonths: __webpack_require__(16),
+  differenceInQuarters: __webpack_require__(71),
+  differenceInSeconds: __webpack_require__(17),
+  differenceInWeeks: __webpack_require__(72),
+  differenceInYears: __webpack_require__(73),
+  distanceInWords: __webpack_require__(36),
+  distanceInWordsStrict: __webpack_require__(77),
+  distanceInWordsToNow: __webpack_require__(78),
+  eachDay: __webpack_require__(79),
+  endOfDay: __webpack_require__(19),
+  endOfHour: __webpack_require__(80),
+  endOfISOWeek: __webpack_require__(81),
+  endOfISOYear: __webpack_require__(82),
+  endOfMinute: __webpack_require__(83),
+  endOfMonth: __webpack_require__(38),
+  endOfQuarter: __webpack_require__(84),
+  endOfSecond: __webpack_require__(85),
+  endOfToday: __webpack_require__(86),
+  endOfTomorrow: __webpack_require__(87),
+  endOfWeek: __webpack_require__(37),
+  endOfYear: __webpack_require__(88),
+  endOfYesterday: __webpack_require__(89),
+  format: __webpack_require__(90),
+  getDate: __webpack_require__(91),
+  getDay: __webpack_require__(92),
+  getDayOfYear: __webpack_require__(39),
+  getDaysInMonth: __webpack_require__(13),
+  getDaysInYear: __webpack_require__(93),
+  getHours: __webpack_require__(94),
+  getISODay: __webpack_require__(43),
+  getISOWeek: __webpack_require__(20),
+  getISOWeeksInYear: __webpack_require__(95),
+  getISOYear: __webpack_require__(1),
+  getMilliseconds: __webpack_require__(96),
+  getMinutes: __webpack_require__(97),
+  getMonth: __webpack_require__(98),
+  getOverlappingDaysInRanges: __webpack_require__(99),
+  getQuarter: __webpack_require__(32),
+  getSeconds: __webpack_require__(100),
+  getTime: __webpack_require__(101),
+  getYear: __webpack_require__(102),
+  isAfter: __webpack_require__(103),
+  isBefore: __webpack_require__(104),
+  isDate: __webpack_require__(12),
+  isEqual: __webpack_require__(105),
+  isFirstDayOfMonth: __webpack_require__(106),
+  isFriday: __webpack_require__(107),
+  isFuture: __webpack_require__(108),
+  isLastDayOfMonth: __webpack_require__(109),
+  isLeapYear: __webpack_require__(42),
+  isMonday: __webpack_require__(110),
+  isPast: __webpack_require__(111),
+  isSameDay: __webpack_require__(112),
+  isSameHour: __webpack_require__(44),
+  isSameISOWeek: __webpack_require__(46),
+  isSameISOYear: __webpack_require__(47),
+  isSameMinute: __webpack_require__(48),
+  isSameMonth: __webpack_require__(50),
+  isSameQuarter: __webpack_require__(51),
+  isSameSecond: __webpack_require__(53),
+  isSameWeek: __webpack_require__(21),
+  isSameYear: __webpack_require__(55),
+  isSaturday: __webpack_require__(113),
+  isSunday: __webpack_require__(114),
+  isThisHour: __webpack_require__(115),
+  isThisISOWeek: __webpack_require__(116),
+  isThisISOYear: __webpack_require__(117),
+  isThisMinute: __webpack_require__(118),
+  isThisMonth: __webpack_require__(119),
+  isThisQuarter: __webpack_require__(120),
+  isThisSecond: __webpack_require__(121),
+  isThisWeek: __webpack_require__(122),
+  isThisYear: __webpack_require__(123),
+  isThursday: __webpack_require__(124),
+  isToday: __webpack_require__(125),
+  isTomorrow: __webpack_require__(126),
+  isTuesday: __webpack_require__(127),
+  isValid: __webpack_require__(41),
+  isWednesday: __webpack_require__(128),
+  isWeekend: __webpack_require__(129),
+  isWithinRange: __webpack_require__(130),
+  isYesterday: __webpack_require__(131),
+  lastDayOfISOWeek: __webpack_require__(132),
+  lastDayOfISOYear: __webpack_require__(133),
+  lastDayOfMonth: __webpack_require__(134),
+  lastDayOfQuarter: __webpack_require__(135),
+  lastDayOfWeek: __webpack_require__(56),
+  lastDayOfYear: __webpack_require__(136),
+  max: __webpack_require__(137),
+  min: __webpack_require__(138),
+  parse: __webpack_require__(0),
+  setDate: __webpack_require__(139),
+  setDay: __webpack_require__(140),
+  setDayOfYear: __webpack_require__(141),
+  setHours: __webpack_require__(142),
+  setISODay: __webpack_require__(143),
+  setISOWeek: __webpack_require__(144),
+  setISOYear: __webpack_require__(25),
+  setMilliseconds: __webpack_require__(145),
+  setMinutes: __webpack_require__(146),
+  setMonth: __webpack_require__(57),
+  setQuarter: __webpack_require__(147),
+  setSeconds: __webpack_require__(148),
+  setYear: __webpack_require__(149),
+  startOfDay: __webpack_require__(3),
+  startOfHour: __webpack_require__(45),
+  startOfISOWeek: __webpack_require__(2),
+  startOfISOYear: __webpack_require__(6),
+  startOfMinute: __webpack_require__(49),
+  startOfMonth: __webpack_require__(150),
+  startOfQuarter: __webpack_require__(52),
+  startOfSecond: __webpack_require__(54),
+  startOfToday: __webpack_require__(151),
+  startOfTomorrow: __webpack_require__(152),
+  startOfWeek: __webpack_require__(8),
+  startOfYear: __webpack_require__(40),
+  startOfYesterday: __webpack_require__(153),
+  subDays: __webpack_require__(154),
+  subHours: __webpack_require__(155),
+  subISOYears: __webpack_require__(35),
+  subMilliseconds: __webpack_require__(156),
+  subMinutes: __webpack_require__(157),
+  subMonths: __webpack_require__(158),
+  subQuarters: __webpack_require__(159),
+  subSeconds: __webpack_require__(160),
+  subWeeks: __webpack_require__(161),
+  subYears: __webpack_require__(162)
+}
+
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var addMilliseconds = __webpack_require__(5)
 
 var MILLISECONDS_IN_HOUR = 3600000
@@ -1221,11 +1383,11 @@ module.exports = addHours
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getISOYear = __webpack_require__(1)
-var setISOYear = __webpack_require__(24)
+var setISOYear = __webpack_require__(25)
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -1254,7 +1416,7 @@ module.exports = addISOYears
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -1296,7 +1458,7 @@ module.exports = setISOYear
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var addMilliseconds = __webpack_require__(5)
@@ -1328,7 +1490,7 @@ module.exports = addMinutes
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var addMonths = __webpack_require__(10)
@@ -1359,7 +1521,7 @@ module.exports = addQuarters
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var addMilliseconds = __webpack_require__(5)
@@ -1389,7 +1551,7 @@ module.exports = addSeconds
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var addMonths = __webpack_require__(10)
@@ -1419,7 +1581,7 @@ module.exports = addYears
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getISOYear = __webpack_require__(1)
@@ -1453,7 +1615,7 @@ module.exports = differenceInCalendarISOYears
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -1491,7 +1653,7 @@ module.exports = differenceInCalendarMonths
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -1521,7 +1683,7 @@ module.exports = getQuarter
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -1556,7 +1718,7 @@ module.exports = differenceInCalendarYears
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -1601,10 +1763,10 @@ module.exports = differenceInDays
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var addISOYears = __webpack_require__(23)
+var addISOYears = __webpack_require__(24)
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -1633,7 +1795,7 @@ module.exports = subISOYears
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var compareDesc = __webpack_require__(15)
@@ -1842,7 +2004,7 @@ module.exports = distanceInWords
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -1886,7 +2048,7 @@ module.exports = endOfWeek
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -1919,11 +2081,11 @@ module.exports = endOfMonth
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
-var startOfYear = __webpack_require__(39)
+var startOfYear = __webpack_require__(40)
 var differenceInCalendarDays = __webpack_require__(9)
 
 /**
@@ -1952,7 +2114,7 @@ module.exports = getDayOfYear
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -1985,7 +2147,7 @@ module.exports = startOfYear
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isDate = __webpack_require__(12)
@@ -2026,7 +2188,7 @@ module.exports = isValid
 
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2056,7 +2218,7 @@ module.exports = isLeapYear
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2094,10 +2256,10 @@ module.exports = getISODay
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var startOfHour = __webpack_require__(44)
+var startOfHour = __webpack_require__(45)
 
 /**
  * @category Hour Helpers
@@ -2129,7 +2291,7 @@ module.exports = isSameHour
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2160,7 +2322,7 @@ module.exports = startOfHour
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isSameWeek = __webpack_require__(21)
@@ -2194,7 +2356,7 @@ module.exports = isSameISOWeek
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfISOYear = __webpack_require__(6)
@@ -2231,10 +2393,10 @@ module.exports = isSameISOYear
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var startOfMinute = __webpack_require__(48)
+var startOfMinute = __webpack_require__(49)
 
 /**
  * @category Minute Helpers
@@ -2267,7 +2429,7 @@ module.exports = isSameMinute
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2298,7 +2460,7 @@ module.exports = startOfMinute
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2333,10 +2495,10 @@ module.exports = isSameMonth
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var startOfQuarter = __webpack_require__(51)
+var startOfQuarter = __webpack_require__(52)
 
 /**
  * @category Quarter Helpers
@@ -2368,7 +2530,7 @@ module.exports = isSameQuarter
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2402,10 +2564,10 @@ module.exports = startOfQuarter
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var startOfSecond = __webpack_require__(53)
+var startOfSecond = __webpack_require__(54)
 
 /**
  * @category Second Helpers
@@ -2438,7 +2600,7 @@ module.exports = isSameSecond
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2469,7 +2631,7 @@ module.exports = startOfSecond
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2503,7 +2665,7 @@ module.exports = isSameYear
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2547,7 +2709,7 @@ module.exports = lastDayOfWeek
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -2589,13 +2751,13 @@ module.exports = setMonth
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports) {
 
 !function(i,e){"object"==typeof module&&module.exports?module.exports=e():i.filesize=e()}("undefined"!=typeof window?window:this,function(){var i={iec:"_Ki_Mi_Gi_Ti_Pi_Ei_Zi_Yi",si:"_K_M_G_T_P_E_Z_Y"};return function(e,_,o){e=Math.abs(e),_||0===_||(_=1);var t="si"==o?1e3:1024,n=0;for(i[o]||(o="si");e>=t;)e/=t,++n;return e.toFixed(_)+" "+i[o].split("_")[n]+"b"}});
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2604,11 +2766,11 @@ module.exports = setMonth
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.VueMorphling = exports.morphUpperCase = exports.morphTruncate = exports.morphSandwich = exports.morphReverse = exports.morphReplace = exports.morphPlaceholder = exports.morphObjectSize = exports.morphLowerCase = exports.morphJson = exports.morphFileSize = exports.morphDate = exports.morphCurrency = exports.morphChop = exports.morphCapitalize = exports.morphArrSort = exports.morphArrReverse = exports.vMorphEmail = exports.vMorphUrl = exports.vMorphHighlight = undefined;
+exports.VueMorphling = exports.morphUpperCase = exports.morphTruncate = exports.morphSandwich = exports.morphReverse = exports.morphReplace = exports.morphPlaceholder = exports.morphObjectSize = exports.morphLowerCase = exports.morphJson = exports.morphFileSize = exports.morphDate = exports.morphCurrency = exports.morphChop = exports.morphCapitalize = exports.morphArrSort = exports.morphArrReverse = exports.morphAge = exports.vMorphEmail = exports.vMorphUrl = exports.vMorphHighlight = undefined;
 
-var _filters = __webpack_require__(59);
+var _filters = __webpack_require__(60);
 
-var _directives = __webpack_require__(180);
+var _directives = __webpack_require__(181);
 
 // Directives
 var vMorphHighlight = exports.vMorphHighlight = {
@@ -2630,6 +2792,12 @@ var vMorphEmail = exports.vMorphEmail = {
 };
 
 // Filters
+var morphAge = exports.morphAge = {
+  install: function install(Vue, options) {
+    (0, _filters.age)(Vue, options);
+  }
+};
+
 var morphArrReverse = exports.morphArrReverse = {
   install: function install(Vue, options) {
     (0, _filters.arrReverse)(Vue, options);
@@ -2733,6 +2901,7 @@ var VueMorphling = exports.VueMorphling = {
     (0, _directives.highlight)(Vue, options);
     (0, _directives.url)(Vue, options);
     // filters
+    (0, _filters.age)(Vue, options);
     (0, _filters.arrReverse)(Vue, options);
     (0, _filters.arrSort)(Vue, options);
     (0, _filters.capitalize)(Vue, options);
@@ -2744,7 +2913,6 @@ var VueMorphling = exports.VueMorphling = {
     (0, _filters.lowerCase)(Vue, options);
     (0, _filters.objectSize)(Vue, options);
     (0, _filters.placeholder)(Vue, options);
-    releaseEvents(Vue, options);
     (0, _filters.reverse)(Vue, options);
     (0, _filters.sandwich)(Vue, options);
     (0, _filters.truncate)(Vue, options);
@@ -2753,7 +2921,7 @@ var VueMorphling = exports.VueMorphling = {
 };
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2763,7 +2931,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _arrReverse = __webpack_require__(60);
+var _age = __webpack_require__(61);
+
+Object.keys(_age).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _age[key];
+    }
+  });
+});
+
+var _arrReverse = __webpack_require__(163);
 
 Object.keys(_arrReverse).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2775,7 +2955,7 @@ Object.keys(_arrReverse).forEach(function (key) {
   });
 });
 
-var _arrSort = __webpack_require__(61);
+var _arrSort = __webpack_require__(164);
 
 Object.keys(_arrSort).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2787,7 +2967,7 @@ Object.keys(_arrSort).forEach(function (key) {
   });
 });
 
-var _capitalize = __webpack_require__(62);
+var _capitalize = __webpack_require__(165);
 
 Object.keys(_capitalize).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2799,7 +2979,7 @@ Object.keys(_capitalize).forEach(function (key) {
   });
 });
 
-var _chop = __webpack_require__(63);
+var _chop = __webpack_require__(166);
 
 Object.keys(_chop).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2811,7 +2991,7 @@ Object.keys(_chop).forEach(function (key) {
   });
 });
 
-var _currency = __webpack_require__(64);
+var _currency = __webpack_require__(167);
 
 Object.keys(_currency).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2823,7 +3003,7 @@ Object.keys(_currency).forEach(function (key) {
   });
 });
 
-var _date = __webpack_require__(66);
+var _date = __webpack_require__(169);
 
 Object.keys(_date).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2835,7 +3015,7 @@ Object.keys(_date).forEach(function (key) {
   });
 });
 
-var _fileSize = __webpack_require__(169);
+var _fileSize = __webpack_require__(170);
 
 Object.keys(_fileSize).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2847,7 +3027,7 @@ Object.keys(_fileSize).forEach(function (key) {
   });
 });
 
-var _json = __webpack_require__(170);
+var _json = __webpack_require__(171);
 
 Object.keys(_json).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2859,7 +3039,7 @@ Object.keys(_json).forEach(function (key) {
   });
 });
 
-var _lowercase = __webpack_require__(171);
+var _lowercase = __webpack_require__(172);
 
 Object.keys(_lowercase).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2871,7 +3051,7 @@ Object.keys(_lowercase).forEach(function (key) {
   });
 });
 
-var _objectSize = __webpack_require__(172);
+var _objectSize = __webpack_require__(173);
 
 Object.keys(_objectSize).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2883,7 +3063,7 @@ Object.keys(_objectSize).forEach(function (key) {
   });
 });
 
-var _placeholder = __webpack_require__(174);
+var _placeholder = __webpack_require__(175);
 
 Object.keys(_placeholder).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2895,7 +3075,7 @@ Object.keys(_placeholder).forEach(function (key) {
   });
 });
 
-var _replace = __webpack_require__(175);
+var _replace = __webpack_require__(176);
 
 Object.keys(_replace).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2907,7 +3087,7 @@ Object.keys(_replace).forEach(function (key) {
   });
 });
 
-var _reverse = __webpack_require__(176);
+var _reverse = __webpack_require__(177);
 
 Object.keys(_reverse).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2919,7 +3099,7 @@ Object.keys(_reverse).forEach(function (key) {
   });
 });
 
-var _sandwich = __webpack_require__(177);
+var _sandwich = __webpack_require__(178);
 
 Object.keys(_sandwich).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2931,7 +3111,7 @@ Object.keys(_sandwich).forEach(function (key) {
   });
 });
 
-var _truncate = __webpack_require__(178);
+var _truncate = __webpack_require__(179);
 
 Object.keys(_truncate).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2943,7 +3123,7 @@ Object.keys(_truncate).forEach(function (key) {
   });
 });
 
-var _uppercase = __webpack_require__(179);
+var _uppercase = __webpack_require__(180);
 
 Object.keys(_uppercase).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -2956,34 +3136,6 @@ Object.keys(_uppercase).forEach(function (key) {
 });
 
 /***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var arrReverse = exports.arrReverse = function arrReverse(Vue) {
-  Vue.filter('morph-arr-reverse', function (value) {
-    if (!value) return;
-    return reverse(value);
-  });
-
-  Vue.prototype.$morphArrReverse = function (value) {
-    return reverse(value);
-  };
-
-  function reverse(value) {
-    if (!Array.isArray(value)) console.warn('arg should be array');
-
-    var arr = value.reverse();
-    return arr;
-  }
-};
-
-/***/ }),
 /* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2993,1579 +3145,27 @@ var arrReverse = exports.arrReverse = function arrReverse(Vue) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var arrSort = exports.arrSort = function arrSort(Vue) {
-  Vue.filter('morph-arr-sort', function (value, key, direction) {
+exports.age = undefined;
+
+var _dateFns = __webpack_require__(22);
+
+var age = exports.age = function age(Vue) {
+  Vue.filter('morph-age', function (value) {
     if (!value) return;
-    return sort(value, key, direction);
+    return calculateAge(value);
   });
 
-  Vue.prototype.$morphArrSort = function (value, key, direction) {
-    return sort(value, key, direction);
+  Vue.prototype.$morphAge = function (value) {
+    return calculateAge(value);
   };
 
-  function sort(value, key, direction) {
-    if (!Array.isArray(value)) console.warn('arg should be array');
-
-    console.log(value);
-
-    console.log('2', value);
-
-    if (direction === 'asc') {
-      console.warn('asc');
-      var arr = value.sort(function (a, b) {
-        return a[key] - b[key];
-      });
-      return arr;
-    }
-
-    if (direction === 'desc') {
-      console.warn('desc');
-      var _arr = value.sort(function (a, b) {
-        return b[key] - a[key];
-      });
-      return _arr;
-    }
+  function calculateAge(birthday) {
+    return (0, _dateFns.differenceInYears)(Date.now(), birthday);
   }
 };
 
 /***/ }),
 /* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var capitalize = exports.capitalize = function capitalize(Vue) {
-  Vue.filter('morph-capitalize', function (value) {
-    if (!value) return;
-    return capitalize(value);
-  });
-
-  Vue.prototype.$morphCapitalize = function (value) {
-    return capitalize(value);
-  };
-
-  function capitalize(value) {
-    if (typeof value !== 'string') value = value.toString();
-    return '' + value.charAt(0).toUpperCase() + value.substring(1);
-  }
-};
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var chop = exports.chop = function chop(Vue) {
-  Vue.filter('morph-chop', function (value, length, location) {
-    if (!value) return;
-    return chop(value, length, location);
-  });
-
-  Vue.prototype.$morphChop = function (value, length, location) {
-    return chop(value, length, location);
-  };
-
-  function chop(value, length, location) {
-    if (!length) return 'Warn: option length (number) is required. morph-chop(length, location)';
-    if (!location) location = 'end';
-    if (typeof value !== 'string') value = value.toString();
-    if (location === 'end') return value.toString().slice(0, ~length + 1);
-    if (location === 'start') return value.toString().substring(length);
-  }
-};
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.currency = undefined;
-
-var _currencies = __webpack_require__(65);
-
-var _currencies2 = _interopRequireDefault(_currencies);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var currency = exports.currency = function currency(Vue) {
-  Vue.filter('morph-currency', function (value, code, useSymbol) {
-    if (!value) return;
-    return sandwich(value, code, useSymbol);
-  });
-
-  Vue.prototype.$morphCurrency = function (value, code, useSymbol) {
-    return sandwich(value, code, useSymbol);
-  };
-
-  function sandwich(value, code, useSymbol) {
-    var preffix = '';
-    if (!code) code = 'USD';
-    var match = _currencies2.default.filter(function (item) {
-      return code === item.code;
-    });
-    if (match.length === 0) {
-      preffix = '$';
-      console.warn('Morphling Warn: The provided code \'' + code + '\' does not exist. Replaced with default $ symbol.');
-    } else {
-      preffix = match[0].symbol;
-    }
-    return '' + preffix + value;
-  }
-};
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = [{
-  "code": "AED",
-  "decimals": 2,
-  "name": "United Arab Emirates dirham",
-  "number": "United Arab Emirates dirham",
-  "symbol": "AED",
-  "text": "AED"
-}, {
-  "code": "AFN",
-  "decimals": 2,
-  "name": "Afghan afghani",
-  "number": "Afghan afghani",
-  "symbol": "؋",
-  "text": "AFN"
-}, {
-  "code": "ALL",
-  "decimals": 2,
-  "name": "Albanian lek",
-  "number": "Albanian lek",
-  "symbol": "L",
-  "text": "ALL"
-}, {
-  "code": "AMD",
-  "decimals": 2,
-  "name": "Armenian dram",
-  "number": "Armenian dram",
-  "symbol": "AMD",
-  "text": "AMD"
-}, {
-  "code": "ANG",
-  "decimals": 2,
-  "name": "Netherlands Antillean guilder",
-  "number": "Netherlands Antillean guilder",
-  "symbol": "ƒ",
-  "text": "ANG"
-}, {
-  "code": "AOA",
-  "decimals": 2,
-  "name": "Angolan kwanza",
-  "number": "Angolan kwanza",
-  "symbol": "AOA",
-  "text": "AOA"
-}, {
-  "code": "ARS",
-  "decimals": 2,
-  "name": "Argentine peso",
-  "number": "Argentine peso",
-  "symbol": "$",
-  "text": "ARS"
-}, {
-  "code": "AUD",
-  "decimals": 2,
-  "name": "Australian dollar",
-  "number": "Australian dollar",
-  "symbol": "$",
-  "text": "AUD"
-}, {
-  "code": "AWG",
-  "decimals": 2,
-  "name": "Aruban florin",
-  "number": "Aruban florin",
-  "symbol": "ƒ",
-  "text": "AWG"
-}, {
-  "code": "AZN",
-  "decimals": 2,
-  "name": "Azerbaijani manat",
-  "number": "Azerbaijani manat",
-  "symbol": "₼",
-  "text": "AZN"
-}, {
-  "code": "BAM",
-  "decimals": 2,
-  "name": "Bosnia and Herzegovina convertible mark",
-  "number": "Bosnia and Herzegovina convertible mark",
-  "symbol": "KM",
-  "text": "BAM"
-}, {
-  "code": "BBD",
-  "decimals": 2,
-  "name": "Barbados dollar",
-  "number": "Barbados dollar",
-  "symbol": "$",
-  "text": "BBD"
-}, {
-  "code": "BDT",
-  "decimals": 2,
-  "name": "Bangladeshi taka",
-  "number": "Bangladeshi taka",
-  "symbol": "BDT",
-  "text": "BDT"
-}, {
-  "code": "BGN",
-  "decimals": 2,
-  "name": "Bulgarian lev",
-  "number": "Bulgarian lev",
-  "symbol": "лв",
-  "text": "BGN"
-}, {
-  "code": "BHD",
-  "decimals": 3,
-  "name": "Bahraini dinar",
-  "number": "Bahraini dinar",
-  "symbol": "BHD",
-  "text": "BHD"
-}, {
-  "code": "BIF",
-  "decimals": 0,
-  "name": "Burundian franc",
-  "number": "Burundian franc",
-  "symbol": "BIF",
-  "text": "BIF"
-}, {
-  "code": "BMD",
-  "decimals": 2,
-  "name": "Bermudian dollar (customarily known as Bermuda dollar)",
-  "number": "Bermudian dollar (customarily known as Bermuda dollar)",
-  "symbol": "$",
-  "text": "BMD"
-}, {
-  "code": "BND",
-  "decimals": 2,
-  "name": "Brunei dollar",
-  "number": "Brunei dollar",
-  "symbol": "$",
-  "text": "BND"
-}, {
-  "code": "BOB",
-  "decimals": 2,
-  "name": "Boliviano",
-  "number": "Boliviano",
-  "symbol": "Bs.",
-  "text": "BOB"
-}, {
-  "code": "BOV",
-  "decimals": 2,
-  "name": "Bolivian Mvdol (funds code)",
-  "number": "Bolivian Mvdol (funds code)",
-  "symbol": "BOV",
-  "text": "BOV"
-}, {
-  "code": "BRL",
-  "decimals": 2,
-  "name": "Brazilian real",
-  "number": "Brazilian real",
-  "symbol": "R$",
-  "text": "BRL"
-}, {
-  "code": "BSD",
-  "decimals": 2,
-  "name": "Bahamian dollar",
-  "number": "Bahamian dollar",
-  "symbol": "$",
-  "text": "BSD"
-}, {
-  "code": "BTN",
-  "decimals": 2,
-  "name": "Bhutanese ngultrum",
-  "number": "Bhutanese ngultrum",
-  "symbol": "BTN",
-  "text": "BTN"
-}, {
-  "code": "BWP",
-  "decimals": 2,
-  "name": "Botswana pula",
-  "number": "Botswana pula",
-  "symbol": "P",
-  "text": "BWP"
-}, {
-  "code": "BYR",
-  "decimals": 0,
-  "name": "Belarusian ruble",
-  "number": "Belarusian ruble",
-  "symbol": "p.",
-  "text": "BYR"
-}, {
-  "code": "BZD",
-  "decimals": 2,
-  "name": "Belize dollar",
-  "number": "Belize dollar",
-  "symbol": "BZ$",
-  "text": "BZD"
-}, {
-  "code": "CAD",
-  "decimals": 2,
-  "name": "Canadian dollar",
-  "number": "Canadian dollar",
-  "symbol": "$",
-  "text": "CAD"
-}, {
-  "code": "CDF",
-  "decimals": 2,
-  "name": "Congolese franc",
-  "number": "Congolese franc",
-  "symbol": "CDF",
-  "text": "CDF"
-}, {
-  "code": "CHE",
-  "decimals": 2,
-  "name": "WIR Euro (complementary currency)",
-  "number": "WIR Euro (complementary currency)",
-  "symbol": "CHE",
-  "text": "CHE"
-}, {
-  "code": "CHF",
-  "decimals": 2,
-  "name": "Swiss franc",
-  "number": "Swiss franc",
-  "symbol": "CHF",
-  "text": "CHF"
-}, {
-  "code": "CHW",
-  "decimals": 2,
-  "name": "WIR Franc (complementary currency)",
-  "number": "WIR Franc (complementary currency)",
-  "symbol": "CHW",
-  "text": "CHW"
-}, {
-  "code": "CLF",
-  "decimals": 0,
-  "name": "Unidad de Fomento (funds code)",
-  "number": "Unidad de Fomento (funds code)",
-  "symbol": "CLF",
-  "text": "CLF"
-}, {
-  "code": "CLP",
-  "decimals": 0,
-  "name": "Chilean peso",
-  "number": "Chilean peso",
-  "symbol": "$",
-  "text": "CLP"
-}, {
-  "code": "CNY",
-  "decimals": 2,
-  "name": "Chinese yuan",
-  "number": "Chinese yuan",
-  "symbol": "¥",
-  "text": "CNY"
-}, {
-  "code": "COP",
-  "decimals": 2,
-  "name": "Colombian peso",
-  "number": "Colombian peso",
-  "symbol": "$",
-  "text": "COP"
-}, {
-  "code": "COU",
-  "decimals": 2,
-  "name": "Unidad de Valor Real",
-  "number": "Unidad de Valor Real",
-  "symbol": "COU",
-  "text": "COU"
-}, {
-  "code": "CRC",
-  "decimals": 2,
-  "name": "Costa Rican colon",
-  "number": "Costa Rican colon",
-  "symbol": "₡",
-  "text": "CRC"
-}, {
-  "code": "CUC",
-  "decimals": 2,
-  "name": "Cuban convertible peso",
-  "number": "Cuban convertible peso",
-  "symbol": "CUC",
-  "text": "CUC"
-}, {
-  "code": "CUP",
-  "decimals": 2,
-  "name": "Cuban peso",
-  "number": "Cuban peso",
-  "symbol": "₱",
-  "text": "CUP"
-}, {
-  "code": "CVE",
-  "decimals": 0,
-  "name": "Cape Verde escudo",
-  "number": "Cape Verde escudo",
-  "symbol": "CVE",
-  "text": "CVE"
-}, {
-  "code": "CZK",
-  "decimals": 2,
-  "name": "Czech koruna",
-  "number": "Czech koruna",
-  "symbol": "Kč",
-  "text": "CZK"
-}, {
-  "code": "DJF",
-  "decimals": 0,
-  "name": "Djiboutian franc",
-  "number": "Djiboutian franc",
-  "symbol": "DJF",
-  "text": "DJF"
-}, {
-  "code": "DKK",
-  "decimals": 2,
-  "name": "Danish krone",
-  "number": "Danish krone",
-  "symbol": "kr",
-  "text": "DKK"
-}, {
-  "code": "DOP",
-  "decimals": 2,
-  "name": "Dominican peso",
-  "number": "Dominican peso",
-  "symbol": "RD$",
-  "text": "DOP"
-}, {
-  "code": "DZD",
-  "decimals": 2,
-  "name": "Algerian dinar",
-  "number": "Algerian dinar",
-  "symbol": "DZD",
-  "text": "DZD"
-}, {
-  "code": "EGP",
-  "decimals": 2,
-  "name": "Egyptian pound",
-  "number": "Egyptian pound",
-  "symbol": "£",
-  "text": "EGP"
-}, {
-  "code": "ERN",
-  "decimals": 2,
-  "name": "Eritrean nakfa",
-  "number": "Eritrean nakfa",
-  "symbol": "ERN",
-  "text": "ERN"
-}, {
-  "code": "ETB",
-  "decimals": 2,
-  "name": "Ethiopian birr",
-  "number": "Ethiopian birr",
-  "symbol": "ETB",
-  "text": "ETB"
-}, {
-  "code": "EUR",
-  "decimals": 2,
-  "name": "Euro",
-  "number": "Euro",
-  "symbol": "€",
-  "text": "EUR"
-}, {
-  "code": "FJD",
-  "decimals": 2,
-  "name": "Fiji dollar",
-  "number": "Fiji dollar",
-  "symbol": "$",
-  "text": "FJD"
-}, {
-  "code": "FKP",
-  "decimals": 2,
-  "name": "Falkland Islands pound",
-  "number": "Falkland Islands pound",
-  "symbol": "£",
-  "text": "FKP"
-}, {
-  "code": "GBP",
-  "decimals": 2,
-  "name": "Pound sterling",
-  "number": "Pound sterling",
-  "symbol": "£",
-  "text": "GBP"
-}, {
-  "code": "GEL",
-  "decimals": 2,
-  "name": "Georgian lari",
-  "number": "Georgian lari",
-  "symbol": "GEL",
-  "text": "GEL"
-}, {
-  "code": "GHS",
-  "decimals": 2,
-  "name": "Ghanaian cedi",
-  "number": "Ghanaian cedi",
-  "symbol": "GHS",
-  "text": "GHS"
-}, {
-  "code": "GIP",
-  "decimals": 2,
-  "name": "Gibraltar pound",
-  "number": "Gibraltar pound",
-  "symbol": "£",
-  "text": "GIP"
-}, {
-  "code": "GMD",
-  "decimals": 2,
-  "name": "Gambian dalasi",
-  "number": "Gambian dalasi",
-  "symbol": "GMD",
-  "text": "GMD"
-}, {
-  "code": "GNF",
-  "decimals": 0,
-  "name": "Guinean franc",
-  "number": "Guinean franc",
-  "symbol": "GNF",
-  "text": "GNF"
-}, {
-  "code": "GTQ",
-  "decimals": 2,
-  "name": "Guatemalan quetzal",
-  "number": "Guatemalan quetzal",
-  "symbol": "Q",
-  "text": "GTQ"
-}, {
-  "code": "GYD",
-  "decimals": 2,
-  "name": "Guyanese dollar",
-  "number": "Guyanese dollar",
-  "symbol": "$",
-  "text": "GYD"
-}, {
-  "code": "HKD",
-  "decimals": 2,
-  "name": "Hong Kong dollar",
-  "number": "Hong Kong dollar",
-  "symbol": "$",
-  "text": "HKD"
-}, {
-  "code": "HNL",
-  "decimals": 2,
-  "name": "Honduran lempira",
-  "number": "Honduran lempira",
-  "symbol": "L",
-  "text": "HNL"
-}, {
-  "code": "HRK",
-  "decimals": 2,
-  "name": "Croatian kuna",
-  "number": "Croatian kuna",
-  "symbol": "kn",
-  "text": "HRK"
-}, {
-  "code": "HTG",
-  "decimals": 2,
-  "name": "Haitian gourde",
-  "number": "Haitian gourde",
-  "symbol": "HTG",
-  "text": "HTG"
-}, {
-  "code": "HUF",
-  "decimals": 2,
-  "name": "Hungarian forint",
-  "number": "Hungarian forint",
-  "symbol": "Ft",
-  "text": "HUF"
-}, {
-  "code": "IDR",
-  "decimals": 2,
-  "name": "Indonesian rupiah",
-  "number": "Indonesian rupiah",
-  "symbol": "Rp",
-  "text": "IDR"
-}, {
-  "code": "ILS",
-  "decimals": 2,
-  "name": "Israeli new shekel",
-  "number": "Israeli new shekel",
-  "symbol": "₪",
-  "text": "ILS"
-}, {
-  "code": "INR",
-  "decimals": 2,
-  "name": "Indian rupee",
-  "number": "Indian rupee",
-  "symbol": "₹",
-  "text": "INR"
-}, {
-  "code": "IQD",
-  "decimals": 3,
-  "name": "Iraqi dinar",
-  "number": "Iraqi dinar",
-  "symbol": "IQD",
-  "text": "IQD"
-}, {
-  "code": "IRR",
-  "decimals": 0,
-  "name": "Iranian rial",
-  "number": "Iranian rial",
-  "symbol": "﷼",
-  "text": "IRR"
-}, {
-  "code": "ISK",
-  "decimals": 0,
-  "name": "Icelandic króna",
-  "number": "Icelandic króna",
-  "symbol": "kr",
-  "text": "ISK"
-}, {
-  "code": "JMD",
-  "decimals": 2,
-  "name": "Jamaican dollar",
-  "number": "Jamaican dollar",
-  "symbol": "J$",
-  "text": "JMD"
-}, {
-  "code": "JOD",
-  "decimals": 3,
-  "name": "Jordanian dinar",
-  "number": "Jordanian dinar",
-  "symbol": "JOD",
-  "text": "JOD"
-}, {
-  "code": "JPY",
-  "decimals": 0,
-  "name": "Japanese yen",
-  "number": "Japanese yen",
-  "symbol": "¥",
-  "text": "JPY"
-}, {
-  "code": "KES",
-  "decimals": 2,
-  "name": "Kenyan shilling",
-  "number": "Kenyan shilling",
-  "symbol": "KSh",
-  "text": "KES"
-}, {
-  "code": "KGS",
-  "decimals": 2,
-  "name": "Kyrgyzstani som",
-  "number": "Kyrgyzstani som",
-  "symbol": "лв",
-  "text": "KGS"
-}, {
-  "code": "KHR",
-  "decimals": 2,
-  "name": "Cambodian riel",
-  "number": "Cambodian riel",
-  "symbol": "៛",
-  "text": "KHR"
-}, {
-  "code": "KMF",
-  "decimals": 0,
-  "name": "Comoro franc",
-  "number": "Comoro franc",
-  "symbol": "KMF",
-  "text": "KMF"
-}, {
-  "code": "KPW",
-  "decimals": 0,
-  "name": "North Korean won",
-  "number": "North Korean won",
-  "symbol": "₩",
-  "text": "KPW"
-}, {
-  "code": "KRW",
-  "decimals": 0,
-  "name": "South Korean won",
-  "number": "South Korean won",
-  "symbol": "₩",
-  "text": "KRW"
-}, {
-  "code": "KWD",
-  "decimals": 3,
-  "name": "Kuwaiti dinar",
-  "number": "Kuwaiti dinar",
-  "symbol": "KWD",
-  "text": "KWD"
-}, {
-  "code": "KYD",
-  "decimals": 2,
-  "name": "Cayman Islands dollar",
-  "number": "Cayman Islands dollar",
-  "symbol": "$",
-  "text": "KYD"
-}, {
-  "code": "KZT",
-  "decimals": 2,
-  "name": "Kazakhstani tenge",
-  "number": "Kazakhstani tenge",
-  "symbol": "лв",
-  "text": "KZT"
-}, {
-  "code": "LAK",
-  "decimals": 0,
-  "name": "Lao kip",
-  "number": "Lao kip",
-  "symbol": "₭",
-  "text": "LAK"
-}, {
-  "code": "LBP",
-  "decimals": 0,
-  "name": "Lebanese pound",
-  "number": "Lebanese pound",
-  "symbol": "£",
-  "text": "LBP"
-}, {
-  "code": "LKR",
-  "decimals": 2,
-  "name": "Sri Lankan rupee",
-  "number": "Sri Lankan rupee",
-  "symbol": "₨",
-  "text": "LKR"
-}, {
-  "code": "LRD",
-  "decimals": 2,
-  "name": "Liberian dollar",
-  "number": "Liberian dollar",
-  "symbol": "$",
-  "text": "LRD"
-}, {
-  "code": "LSL",
-  "decimals": 2,
-  "name": "Lesotho loti",
-  "number": "Lesotho loti",
-  "symbol": "LSL",
-  "text": "LSL"
-}, {
-  "code": "LTL",
-  "decimals": 2,
-  "name": "Lithuanian litas",
-  "number": "Lithuanian litas",
-  "symbol": "Lt",
-  "text": "LTL"
-}, {
-  "code": "LVL",
-  "decimals": 2,
-  "name": "Latvian lats",
-  "number": "Latvian lats",
-  "symbol": "Ls",
-  "text": "LVL"
-}, {
-  "code": "LYD",
-  "decimals": 3,
-  "name": "Libyan dinar",
-  "number": "Libyan dinar",
-  "symbol": "LYD",
-  "text": "LYD"
-}, {
-  "code": "MAD",
-  "decimals": 2,
-  "name": "Moroccan dirham",
-  "number": "Moroccan dirham",
-  "symbol": "MAD",
-  "text": "MAD"
-}, {
-  "code": "MDL",
-  "decimals": 2,
-  "name": "Moldovan leu",
-  "number": "Moldovan leu",
-  "symbol": "MDL",
-  "text": "MDL"
-}, {
-  "code": "MGA",
-  "decimals": 0,
-  "name": "Malagasy ariary",
-  "number": "Malagasy ariary",
-  "symbol": "MGA",
-  "text": "MGA"
-}, {
-  "code": "MKD",
-  "decimals": 0,
-  "name": "Macedonian denar",
-  "number": "Macedonian denar",
-  "symbol": "ден",
-  "text": "MKD"
-}, {
-  "code": "MMK",
-  "decimals": 0,
-  "name": "Myanma kyat",
-  "number": "Myanma kyat",
-  "symbol": "MMK",
-  "text": "MMK"
-}, {
-  "code": "MNT",
-  "decimals": 2,
-  "name": "Mongolian tugrik",
-  "number": "Mongolian tugrik",
-  "symbol": "₮",
-  "text": "MNT"
-}, {
-  "code": "MOP",
-  "decimals": 2,
-  "name": "Macanese pataca",
-  "number": "Macanese pataca",
-  "symbol": "MOP",
-  "text": "MOP"
-}, {
-  "code": "MRO",
-  "decimals": 0,
-  "name": "Mauritanian ouguiya",
-  "number": "Mauritanian ouguiya",
-  "symbol": "MRO",
-  "text": "MRO"
-}, {
-  "code": "MUR",
-  "decimals": 2,
-  "name": "Mauritian rupee",
-  "number": "Mauritian rupee",
-  "symbol": "₨",
-  "text": "MUR"
-}, {
-  "code": "MVR",
-  "decimals": 2,
-  "name": "Maldivian rufiyaa",
-  "number": "Maldivian rufiyaa",
-  "symbol": "MVR",
-  "text": "MVR"
-}, {
-  "code": "MWK",
-  "decimals": 2,
-  "name": "Malawian kwacha",
-  "number": "Malawian kwacha",
-  "symbol": "MWK",
-  "text": "MWK"
-}, {
-  "code": "MXN",
-  "decimals": 2,
-  "name": "Mexican peso",
-  "number": "Mexican peso",
-  "symbol": "$",
-  "text": "MXN"
-}, {
-  "code": "MXV",
-  "decimals": 2,
-  "name": "Mexican Unidad de Inversion (UDI) (funds code)",
-  "number": "Mexican Unidad de Inversion (UDI) (funds code)",
-  "symbol": "MXV",
-  "text": "MXV"
-}, {
-  "code": "MYR",
-  "decimals": 2,
-  "name": "Malaysian ringgit",
-  "number": "Malaysian ringgit",
-  "symbol": "RM",
-  "text": "MYR"
-}, {
-  "code": "MZN",
-  "decimals": 2,
-  "name": "Mozambican metical",
-  "number": "Mozambican metical",
-  "symbol": "MT",
-  "text": "MZN"
-}, {
-  "code": "NAD",
-  "decimals": 2,
-  "name": "Namibian dollar",
-  "number": "Namibian dollar",
-  "symbol": "$",
-  "text": "NAD"
-}, {
-  "code": "NGN",
-  "decimals": 2,
-  "name": "Nigerian naira",
-  "number": "Nigerian naira",
-  "symbol": "₦",
-  "text": "NGN"
-}, {
-  "code": "NIO",
-  "decimals": 2,
-  "name": "Nicaraguan córdoba",
-  "number": "Nicaraguan córdoba",
-  "symbol": "C$",
-  "text": "NIO"
-}, {
-  "code": "NOK",
-  "decimals": 2,
-  "name": "Norwegian krone",
-  "number": "Norwegian krone",
-  "symbol": "kr",
-  "text": "NOK"
-}, {
-  "code": "NPR",
-  "decimals": 2,
-  "name": "Nepalese rupee",
-  "number": "Nepalese rupee",
-  "symbol": "₨",
-  "text": "NPR"
-}, {
-  "code": "NZD",
-  "decimals": 2,
-  "name": "New Zealand dollar",
-  "number": "New Zealand dollar",
-  "symbol": "$",
-  "text": "NZD"
-}, {
-  "code": "OMR",
-  "decimals": 3,
-  "name": "Omani rial",
-  "number": "Omani rial",
-  "symbol": "﷼",
-  "text": "OMR"
-}, {
-  "code": "PAB",
-  "decimals": 2,
-  "name": "Panamanian balboa",
-  "number": "Panamanian balboa",
-  "symbol": "B/.",
-  "text": "PAB"
-}, {
-  "code": "PEN",
-  "decimals": 2,
-  "name": "Peruvian nuevo sol",
-  "number": "Peruvian nuevo sol",
-  "symbol": "S/.",
-  "text": "PEN"
-}, {
-  "code": "PGK",
-  "decimals": 2,
-  "name": "Papua New Guinean kina",
-  "number": "Papua New Guinean kina",
-  "symbol": "PGK",
-  "text": "PGK"
-}, {
-  "code": "PHP",
-  "decimals": 2,
-  "name": "Philippine peso",
-  "number": "Philippine peso",
-  "symbol": "₱",
-  "text": "PHP"
-}, {
-  "code": "PKR",
-  "decimals": 2,
-  "name": "Pakistani rupee",
-  "number": "Pakistani rupee",
-  "symbol": "₨",
-  "text": "PKR"
-}, {
-  "code": "PLN",
-  "decimals": 2,
-  "name": "Polish złoty",
-  "number": "Polish złoty",
-  "symbol": "zł",
-  "text": "PLN"
-}, {
-  "code": "PYG",
-  "decimals": 0,
-  "name": "Paraguayan guaraní",
-  "number": "Paraguayan guaraní",
-  "symbol": "Gs",
-  "text": "PYG"
-}, {
-  "code": "QAR",
-  "decimals": 2,
-  "name": "Qatari riyal",
-  "number": "Qatari riyal",
-  "symbol": "﷼",
-  "text": "QAR"
-}, {
-  "code": "RON",
-  "decimals": 2,
-  "name": "Romanian new leu",
-  "number": "Romanian new leu",
-  "symbol": "lei",
-  "text": "RON"
-}, {
-  "code": "RSD",
-  "decimals": 2,
-  "name": "Serbian dinar",
-  "number": "Serbian dinar",
-  "symbol": "Дин.",
-  "text": "RSD"
-}, {
-  "code": "RUB",
-  "decimals": 2,
-  "name": "Russian rouble",
-  "number": "Russian rouble",
-  "symbol": "₽",
-  "text": "RUB"
-}, {
-  "code": "RWF",
-  "decimals": 0,
-  "name": "Rwandan franc",
-  "number": "Rwandan franc",
-  "symbol": "RWF",
-  "text": "RWF"
-}, {
-  "code": "SAR",
-  "decimals": 2,
-  "name": "Saudi riyal",
-  "number": "Saudi riyal",
-  "symbol": "﷼",
-  "text": "SAR"
-}, {
-  "code": "SBD",
-  "decimals": 2,
-  "name": "Solomon Islands dollar",
-  "number": "Solomon Islands dollar",
-  "symbol": "$",
-  "text": "SBD"
-}, {
-  "code": "SCR",
-  "decimals": 2,
-  "name": "Seychelles rupee",
-  "number": "Seychelles rupee",
-  "symbol": "₨",
-  "text": "SCR"
-}, {
-  "code": "SDG",
-  "decimals": 2,
-  "name": "Sudanese pound",
-  "number": "Sudanese pound",
-  "symbol": "SDG",
-  "text": "SDG"
-}, {
-  "code": "SEK",
-  "decimals": 2,
-  "name": "Swedish krona/kronor",
-  "number": "Swedish krona/kronor",
-  "symbol": "kr",
-  "text": "SEK"
-}, {
-  "code": "SGD",
-  "decimals": 2,
-  "name": "Singapore dollar",
-  "number": "Singapore dollar",
-  "symbol": "$",
-  "text": "SGD"
-}, {
-  "code": "SHP",
-  "decimals": 2,
-  "name": "Saint Helena pound",
-  "number": "Saint Helena pound",
-  "symbol": "£",
-  "text": "SHP"
-}, {
-  "code": "SLL",
-  "decimals": 0,
-  "name": "Sierra Leonean leone",
-  "number": "Sierra Leonean leone",
-  "symbol": "SLL",
-  "text": "SLL"
-}, {
-  "code": "SOS",
-  "decimals": 2,
-  "name": "Somali shilling",
-  "number": "Somali shilling",
-  "symbol": "S",
-  "text": "SOS"
-}, {
-  "code": "SRD",
-  "decimals": 2,
-  "name": "Surinamese dollar",
-  "number": "Surinamese dollar",
-  "symbol": "$",
-  "text": "SRD"
-}, {
-  "code": "SSP",
-  "decimals": 2,
-  "name": "South Sudanese pound",
-  "number": "South Sudanese pound",
-  "symbol": "SSP",
-  "text": "SSP"
-}, {
-  "code": "STD",
-  "decimals": 0,
-  "name": "São Tomé and Príncipe dobra",
-  "number": "São Tomé and Príncipe dobra",
-  "symbol": "STD",
-  "text": "STD"
-}, {
-  "code": "SYP",
-  "decimals": 2,
-  "name": "Syrian pound",
-  "number": "Syrian pound",
-  "symbol": "£",
-  "text": "SYP"
-}, {
-  "code": "SZL",
-  "decimals": 2,
-  "name": "Swazi lilangeni",
-  "number": "Swazi lilangeni",
-  "symbol": "SZL",
-  "text": "SZL"
-}, {
-  "code": "THB",
-  "decimals": 2,
-  "name": "Thai baht",
-  "number": "Thai baht",
-  "symbol": "฿",
-  "text": "THB"
-}, {
-  "code": "TJS",
-  "decimals": 2,
-  "name": "Tajikistani somoni",
-  "number": "Tajikistani somoni",
-  "symbol": "TJS",
-  "text": "TJS"
-}, {
-  "code": "TMT",
-  "decimals": 2,
-  "name": "Turkmenistani manat",
-  "number": "Turkmenistani manat",
-  "symbol": "TMT",
-  "text": "TMT"
-}, {
-  "code": "TND",
-  "decimals": 3,
-  "name": "Tunisian dinar",
-  "number": "Tunisian dinar",
-  "symbol": "TND",
-  "text": "TND"
-}, {
-  "code": "TOP",
-  "decimals": 2,
-  "name": "Tongan paʻanga",
-  "number": "Tongan paʻanga",
-  "symbol": "TOP",
-  "text": "TOP"
-}, {
-  "code": "TRY",
-  "decimals": 2,
-  "name": "Turkish lira",
-  "number": "Turkish lira",
-  "symbol": "",
-  "text": "TRY"
-}, {
-  "code": "TTD",
-  "decimals": 2,
-  "name": "Trinidad and Tobago dollar",
-  "number": "Trinidad and Tobago dollar",
-  "symbol": "TT$",
-  "text": "TTD"
-}, {
-  "code": "TWD",
-  "decimals": 2,
-  "name": "New Taiwan dollar",
-  "number": "New Taiwan dollar",
-  "symbol": "NT$",
-  "text": "TWD"
-}, {
-  "code": "TZS",
-  "decimals": 2,
-  "name": "Tanzanian shilling",
-  "number": "Tanzanian shilling",
-  "symbol": "TSh",
-  "text": "TZS"
-}, {
-  "code": "UAH",
-  "decimals": 2,
-  "name": "Ukrainian hryvnia",
-  "number": "Ukrainian hryvnia",
-  "symbol": "₴",
-  "text": "UAH"
-}, {
-  "code": "UGX",
-  "decimals": 2,
-  "name": "Ugandan shilling",
-  "number": "Ugandan shilling",
-  "symbol": "USh",
-  "text": "UGX"
-}, {
-  "code": "USD",
-  "decimals": 2,
-  "name": "United States dollar",
-  "number": "United States dollar",
-  "symbol": "$",
-  "text": "USD"
-}, {
-  "code": "USN",
-  "decimals": 2,
-  "name": "United States dollar (next day) (funds code)",
-  "number": "United States dollar (next day) (funds code)",
-  "symbol": "USN",
-  "text": "USN"
-}, {
-  "code": "USS",
-  "decimals": 2,
-  "name": "United States dollar (same day) (funds code) (one source[who?] claims it is no longer used, but it is still on the ISO 4217-MA list)",
-  "number": "United States dollar (same day) (funds code) (one source[who?] claims it is no longer used, but it is still on the ISO 4217-MA list)",
-  "symbol": "USS",
-  "text": "USS"
-}, {
-  "code": "UYI",
-  "decimals": 0,
-  "name": "Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code)",
-  "number": "Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code)",
-  "symbol": "UYI",
-  "text": "UYI"
-}, {
-  "code": "UYU",
-  "decimals": 2,
-  "name": "Uruguayan peso",
-  "number": "Uruguayan peso",
-  "symbol": "$U",
-  "text": "UYU"
-}, {
-  "code": "UZS",
-  "decimals": 2,
-  "name": "Uzbekistan som",
-  "number": "Uzbekistan som",
-  "symbol": "лв",
-  "text": "UZS"
-}, {
-  "code": "VEF",
-  "decimals": 2,
-  "name": "Venezuelan bolívar fuerte",
-  "number": "Venezuelan bolívar fuerte",
-  "symbol": "Bs",
-  "text": "VEF"
-}, {
-  "code": "VND",
-  "decimals": 0,
-  "name": "Vietnamese dong",
-  "number": "Vietnamese dong",
-  "symbol": "₫",
-  "text": "VND"
-}, {
-  "code": "VUV",
-  "decimals": 0,
-  "name": "Vanuatu vatu",
-  "number": "Vanuatu vatu",
-  "symbol": "VUV",
-  "text": "VUV"
-}, {
-  "code": "WST",
-  "decimals": 2,
-  "name": "Samoan tala",
-  "number": "Samoan tala",
-  "symbol": "WST",
-  "text": "WST"
-}, {
-  "code": "XAF",
-  "decimals": 0,
-  "name": "CFA franc BEAC",
-  "number": "CFA franc BEAC",
-  "symbol": "XAF",
-  "text": "XAF"
-}, {
-  "code": "XAG",
-  "name": "Silver (one troy ounce)",
-  "number": "Silver (one troy ounce)",
-  "symbol": "XAG",
-  "text": "XAG"
-}, {
-  "code": "XAU",
-  "name": "Gold (one troy ounce)",
-  "number": "Gold (one troy ounce)",
-  "symbol": "XAU",
-  "text": "XAU"
-}, {
-  "code": "XBA",
-  "name": "European Composite Unit (EURCO) (bond market unit)",
-  "number": "European Composite Unit (EURCO) (bond market unit)",
-  "symbol": "XBA",
-  "text": "XBA"
-}, {
-  "code": "XBB",
-  "name": "European Monetary Unit (E.M.U.-6) (bond market unit)",
-  "number": "European Monetary Unit (E.M.U.-6) (bond market unit)",
-  "symbol": "XBB",
-  "text": "XBB"
-}, {
-  "code": "XBC",
-  "name": "European Unit of Account 9 (E.U.A.-9) (bond market unit)",
-  "number": "European Unit of Account 9 (E.U.A.-9) (bond market unit)",
-  "symbol": "XBC",
-  "text": "XBC"
-}, {
-  "code": "XBD",
-  "name": "European Unit of Account 17 (E.U.A.-17) (bond market unit)",
-  "number": "European Unit of Account 17 (E.U.A.-17) (bond market unit)",
-  "symbol": "XBD",
-  "text": "XBD"
-}, {
-  "code": "XCD",
-  "decimals": 2,
-  "name": "East Caribbean dollar",
-  "number": "East Caribbean dollar",
-  "symbol": "$",
-  "text": "XCD"
-}, {
-  "code": "XDR",
-  "name": "Special drawing rights",
-  "number": "Special drawing rights",
-  "symbol": "XDR",
-  "text": "XDR"
-}, {
-  "code": "XFU",
-  "name": "UIC franc (special settlement currency)",
-  "number": "UIC franc (special settlement currency)",
-  "symbol": "XFU",
-  "text": "XFU"
-}, {
-  "code": "XOF",
-  "decimals": 0,
-  "name": "CFA franc BCEAO",
-  "number": "CFA franc BCEAO",
-  "symbol": "XOF",
-  "text": "XOF"
-}, {
-  "code": "XPD",
-  "name": "Palladium (one troy ounce)",
-  "number": "Palladium (one troy ounce)",
-  "symbol": "XPD",
-  "text": "XPD"
-}, {
-  "code": "XPF",
-  "decimals": 0,
-  "name": "CFP franc",
-  "number": "CFP franc",
-  "symbol": "XPF",
-  "text": "XPF"
-}, {
-  "code": "XPT",
-  "name": "Platinum (one troy ounce)",
-  "number": "Platinum (one troy ounce)",
-  "symbol": "XPT",
-  "text": "XPT"
-}, {
-  "code": "XTS",
-  "name": "Code reserved for testing purposes",
-  "number": "Code reserved for testing purposes",
-  "symbol": "XTS",
-  "text": "XTS"
-}, {
-  "code": "XXX",
-  "name": "No currency",
-  "number": "No currency",
-  "symbol": "XXX",
-  "text": "XXX"
-}, {
-  "code": "YER",
-  "decimals": 2,
-  "name": "Yemeni rial",
-  "number": "Yemeni rial",
-  "symbol": "﷼",
-  "text": "YER"
-}, {
-  "code": "ZAR",
-  "decimals": 2,
-  "name": "South African rand",
-  "number": "South African rand",
-  "symbol": "R",
-  "text": "ZAR"
-}, {
-  "code": "ZMW",
-  "decimals": 2,
-  "name": "Zambian kwacha",
-  "number": "Zambian kwacha",
-  "symbol": "ZMW",
-  "text": "ZMW"
-}];
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.date = undefined;
-
-var _dateFns = __webpack_require__(67);
-
-var date = exports.date = function date(Vue) {
-  Vue.filter('morph-date', function (value, formatting) {
-    if (!value) return;
-    return morphDate(value, formatting);
-  });
-
-  Vue.prototype.$morphDate = function (value, formatting) {
-    return morphDate(value, formatting);
-  };
-
-  function morphDate(value, formatting) {
-    return (0, _dateFns.format)(value, formatting);
-  }
-};
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = {
-  addDays: __webpack_require__(4),
-  addHours: __webpack_require__(22),
-  addISOYears: __webpack_require__(23),
-  addMilliseconds: __webpack_require__(5),
-  addMinutes: __webpack_require__(25),
-  addMonths: __webpack_require__(10),
-  addQuarters: __webpack_require__(26),
-  addSeconds: __webpack_require__(27),
-  addWeeks: __webpack_require__(14),
-  addYears: __webpack_require__(28),
-  areRangesOverlapping: __webpack_require__(68),
-  closestIndexTo: __webpack_require__(69),
-  closestTo: __webpack_require__(70),
-  compareAsc: __webpack_require__(7),
-  compareDesc: __webpack_require__(15),
-  differenceInCalendarDays: __webpack_require__(9),
-  differenceInCalendarISOWeeks: __webpack_require__(71),
-  differenceInCalendarISOYears: __webpack_require__(29),
-  differenceInCalendarMonths: __webpack_require__(30),
-  differenceInCalendarQuarters: __webpack_require__(72),
-  differenceInCalendarWeeks: __webpack_require__(73),
-  differenceInCalendarYears: __webpack_require__(32),
-  differenceInDays: __webpack_require__(33),
-  differenceInHours: __webpack_require__(74),
-  differenceInISOYears: __webpack_require__(75),
-  differenceInMilliseconds: __webpack_require__(11),
-  differenceInMinutes: __webpack_require__(76),
-  differenceInMonths: __webpack_require__(16),
-  differenceInQuarters: __webpack_require__(77),
-  differenceInSeconds: __webpack_require__(17),
-  differenceInWeeks: __webpack_require__(78),
-  differenceInYears: __webpack_require__(79),
-  distanceInWords: __webpack_require__(35),
-  distanceInWordsStrict: __webpack_require__(83),
-  distanceInWordsToNow: __webpack_require__(84),
-  eachDay: __webpack_require__(85),
-  endOfDay: __webpack_require__(19),
-  endOfHour: __webpack_require__(86),
-  endOfISOWeek: __webpack_require__(87),
-  endOfISOYear: __webpack_require__(88),
-  endOfMinute: __webpack_require__(89),
-  endOfMonth: __webpack_require__(37),
-  endOfQuarter: __webpack_require__(90),
-  endOfSecond: __webpack_require__(91),
-  endOfToday: __webpack_require__(92),
-  endOfTomorrow: __webpack_require__(93),
-  endOfWeek: __webpack_require__(36),
-  endOfYear: __webpack_require__(94),
-  endOfYesterday: __webpack_require__(95),
-  format: __webpack_require__(96),
-  getDate: __webpack_require__(97),
-  getDay: __webpack_require__(98),
-  getDayOfYear: __webpack_require__(38),
-  getDaysInMonth: __webpack_require__(13),
-  getDaysInYear: __webpack_require__(99),
-  getHours: __webpack_require__(100),
-  getISODay: __webpack_require__(42),
-  getISOWeek: __webpack_require__(20),
-  getISOWeeksInYear: __webpack_require__(101),
-  getISOYear: __webpack_require__(1),
-  getMilliseconds: __webpack_require__(102),
-  getMinutes: __webpack_require__(103),
-  getMonth: __webpack_require__(104),
-  getOverlappingDaysInRanges: __webpack_require__(105),
-  getQuarter: __webpack_require__(31),
-  getSeconds: __webpack_require__(106),
-  getTime: __webpack_require__(107),
-  getYear: __webpack_require__(108),
-  isAfter: __webpack_require__(109),
-  isBefore: __webpack_require__(110),
-  isDate: __webpack_require__(12),
-  isEqual: __webpack_require__(111),
-  isFirstDayOfMonth: __webpack_require__(112),
-  isFriday: __webpack_require__(113),
-  isFuture: __webpack_require__(114),
-  isLastDayOfMonth: __webpack_require__(115),
-  isLeapYear: __webpack_require__(41),
-  isMonday: __webpack_require__(116),
-  isPast: __webpack_require__(117),
-  isSameDay: __webpack_require__(118),
-  isSameHour: __webpack_require__(43),
-  isSameISOWeek: __webpack_require__(45),
-  isSameISOYear: __webpack_require__(46),
-  isSameMinute: __webpack_require__(47),
-  isSameMonth: __webpack_require__(49),
-  isSameQuarter: __webpack_require__(50),
-  isSameSecond: __webpack_require__(52),
-  isSameWeek: __webpack_require__(21),
-  isSameYear: __webpack_require__(54),
-  isSaturday: __webpack_require__(119),
-  isSunday: __webpack_require__(120),
-  isThisHour: __webpack_require__(121),
-  isThisISOWeek: __webpack_require__(122),
-  isThisISOYear: __webpack_require__(123),
-  isThisMinute: __webpack_require__(124),
-  isThisMonth: __webpack_require__(125),
-  isThisQuarter: __webpack_require__(126),
-  isThisSecond: __webpack_require__(127),
-  isThisWeek: __webpack_require__(128),
-  isThisYear: __webpack_require__(129),
-  isThursday: __webpack_require__(130),
-  isToday: __webpack_require__(131),
-  isTomorrow: __webpack_require__(132),
-  isTuesday: __webpack_require__(133),
-  isValid: __webpack_require__(40),
-  isWednesday: __webpack_require__(134),
-  isWeekend: __webpack_require__(135),
-  isWithinRange: __webpack_require__(136),
-  isYesterday: __webpack_require__(137),
-  lastDayOfISOWeek: __webpack_require__(138),
-  lastDayOfISOYear: __webpack_require__(139),
-  lastDayOfMonth: __webpack_require__(140),
-  lastDayOfQuarter: __webpack_require__(141),
-  lastDayOfWeek: __webpack_require__(55),
-  lastDayOfYear: __webpack_require__(142),
-  max: __webpack_require__(143),
-  min: __webpack_require__(144),
-  parse: __webpack_require__(0),
-  setDate: __webpack_require__(145),
-  setDay: __webpack_require__(146),
-  setDayOfYear: __webpack_require__(147),
-  setHours: __webpack_require__(148),
-  setISODay: __webpack_require__(149),
-  setISOWeek: __webpack_require__(150),
-  setISOYear: __webpack_require__(24),
-  setMilliseconds: __webpack_require__(151),
-  setMinutes: __webpack_require__(152),
-  setMonth: __webpack_require__(56),
-  setQuarter: __webpack_require__(153),
-  setSeconds: __webpack_require__(154),
-  setYear: __webpack_require__(155),
-  startOfDay: __webpack_require__(3),
-  startOfHour: __webpack_require__(44),
-  startOfISOWeek: __webpack_require__(2),
-  startOfISOYear: __webpack_require__(6),
-  startOfMinute: __webpack_require__(48),
-  startOfMonth: __webpack_require__(156),
-  startOfQuarter: __webpack_require__(51),
-  startOfSecond: __webpack_require__(53),
-  startOfToday: __webpack_require__(157),
-  startOfTomorrow: __webpack_require__(158),
-  startOfWeek: __webpack_require__(8),
-  startOfYear: __webpack_require__(39),
-  startOfYesterday: __webpack_require__(159),
-  subDays: __webpack_require__(160),
-  subHours: __webpack_require__(161),
-  subISOYears: __webpack_require__(34),
-  subMilliseconds: __webpack_require__(162),
-  subMinutes: __webpack_require__(163),
-  subMonths: __webpack_require__(164),
-  subQuarters: __webpack_require__(165),
-  subSeconds: __webpack_require__(166),
-  subWeeks: __webpack_require__(167),
-  subYears: __webpack_require__(168)
-}
-
-
-/***/ }),
-/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -4615,7 +3215,7 @@ module.exports = areRangesOverlapping
 
 
 /***/ }),
-/* 69 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -4670,7 +3270,7 @@ module.exports = closestIndexTo
 
 
 /***/ }),
-/* 70 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -4723,7 +3323,7 @@ module.exports = closestTo
 
 
 /***/ }),
-/* 71 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfISOWeek = __webpack_require__(2)
@@ -4771,10 +3371,10 @@ module.exports = differenceInCalendarISOWeeks
 
 
 /***/ }),
-/* 72 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getQuarter = __webpack_require__(31)
+var getQuarter = __webpack_require__(32)
 var parse = __webpack_require__(0)
 
 /**
@@ -4810,7 +3410,7 @@ module.exports = differenceInCalendarQuarters
 
 
 /***/ }),
-/* 73 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfWeek = __webpack_require__(8)
@@ -4868,7 +3468,7 @@ module.exports = differenceInCalendarWeeks
 
 
 /***/ }),
-/* 74 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var differenceInMilliseconds = __webpack_require__(11)
@@ -4903,13 +3503,13 @@ module.exports = differenceInHours
 
 
 /***/ }),
-/* 75 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
-var differenceInCalendarISOYears = __webpack_require__(29)
+var differenceInCalendarISOYears = __webpack_require__(30)
 var compareAsc = __webpack_require__(7)
-var subISOYears = __webpack_require__(34)
+var subISOYears = __webpack_require__(35)
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -4951,7 +3551,7 @@ module.exports = differenceInISOYears
 
 
 /***/ }),
-/* 76 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var differenceInMilliseconds = __webpack_require__(11)
@@ -4986,7 +3586,7 @@ module.exports = differenceInMinutes
 
 
 /***/ }),
-/* 77 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var differenceInMonths = __webpack_require__(16)
@@ -5019,10 +3619,10 @@ module.exports = differenceInQuarters
 
 
 /***/ }),
-/* 78 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var differenceInDays = __webpack_require__(33)
+var differenceInDays = __webpack_require__(34)
 
 /**
  * @category Week Helpers
@@ -5052,11 +3652,11 @@ module.exports = differenceInWeeks
 
 
 /***/ }),
-/* 79 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
-var differenceInCalendarYears = __webpack_require__(32)
+var differenceInCalendarYears = __webpack_require__(33)
 var compareAsc = __webpack_require__(7)
 
 /**
@@ -5096,7 +3696,7 @@ module.exports = differenceInYears
 
 
 /***/ }),
-/* 80 */
+/* 74 */
 /***/ (function(module, exports) {
 
 function buildDistanceInWordsLocale () {
@@ -5201,10 +3801,10 @@ module.exports = buildDistanceInWordsLocale
 
 
 /***/ }),
-/* 81 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var buildFormattingTokensRegExp = __webpack_require__(82)
+var buildFormattingTokensRegExp = __webpack_require__(76)
 
 function buildFormatLocale () {
   // Note: in English, the names of days of the week and months are capitalized.
@@ -5295,7 +3895,7 @@ module.exports = buildFormatLocale
 
 
 /***/ }),
-/* 82 */
+/* 76 */
 /***/ (function(module, exports) {
 
 var commonFormatterKeys = [
@@ -5329,7 +3929,7 @@ module.exports = buildFormattingTokensRegExp
 
 
 /***/ }),
-/* 83 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var compareDesc = __webpack_require__(15)
@@ -5511,10 +4111,10 @@ module.exports = distanceInWordsStrict
 
 
 /***/ }),
-/* 84 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var distanceInWords = __webpack_require__(35)
+var distanceInWords = __webpack_require__(36)
 
 /**
  * @category Common Helpers
@@ -5602,7 +4202,7 @@ module.exports = distanceInWordsToNow
 
 
 /***/ }),
-/* 85 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -5662,7 +4262,7 @@ module.exports = eachDay
 
 
 /***/ }),
-/* 86 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -5693,10 +4293,10 @@ module.exports = endOfHour
 
 
 /***/ }),
-/* 87 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var endOfWeek = __webpack_require__(36)
+var endOfWeek = __webpack_require__(37)
 
 /**
  * @category ISO Week Helpers
@@ -5724,7 +4324,7 @@ module.exports = endOfISOWeek
 
 
 /***/ }),
-/* 88 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getISOYear = __webpack_require__(1)
@@ -5763,7 +4363,7 @@ module.exports = endOfISOYear
 
 
 /***/ }),
-/* 89 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -5794,7 +4394,7 @@ module.exports = endOfMinute
 
 
 /***/ }),
-/* 90 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -5828,7 +4428,7 @@ module.exports = endOfQuarter
 
 
 /***/ }),
-/* 91 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -5859,7 +4459,7 @@ module.exports = endOfSecond
 
 
 /***/ }),
-/* 92 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var endOfDay = __webpack_require__(19)
@@ -5886,7 +4486,7 @@ module.exports = endOfToday
 
 
 /***/ }),
-/* 93 */
+/* 87 */
 /***/ (function(module, exports) {
 
 /**
@@ -5919,7 +4519,7 @@ module.exports = endOfTomorrow
 
 
 /***/ }),
-/* 94 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -5952,7 +4552,7 @@ module.exports = endOfYear
 
 
 /***/ }),
-/* 95 */
+/* 89 */
 /***/ (function(module, exports) {
 
 /**
@@ -5985,14 +4585,14 @@ module.exports = endOfYesterday
 
 
 /***/ }),
-/* 96 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getDayOfYear = __webpack_require__(38)
+var getDayOfYear = __webpack_require__(39)
 var getISOWeek = __webpack_require__(20)
 var getISOYear = __webpack_require__(1)
 var parse = __webpack_require__(0)
-var isValid = __webpack_require__(40)
+var isValid = __webpack_require__(41)
 var enLocale = __webpack_require__(18)
 
 /**
@@ -6319,7 +4919,7 @@ module.exports = format
 
 
 /***/ }),
-/* 97 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6349,7 +4949,7 @@ module.exports = getDate
 
 
 /***/ }),
-/* 98 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6379,10 +4979,10 @@ module.exports = getDay
 
 
 /***/ }),
-/* 99 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isLeapYear = __webpack_require__(41)
+var isLeapYear = __webpack_require__(42)
 
 /**
  * @category Year Helpers
@@ -6407,7 +5007,7 @@ module.exports = getDaysInYear
 
 
 /***/ }),
-/* 100 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6437,7 +5037,7 @@ module.exports = getHours
 
 
 /***/ }),
-/* 101 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfISOYear = __webpack_require__(6)
@@ -6476,7 +5076,7 @@ module.exports = getISOWeeksInYear
 
 
 /***/ }),
-/* 102 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6506,7 +5106,7 @@ module.exports = getMilliseconds
 
 
 /***/ }),
-/* 103 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6536,7 +5136,7 @@ module.exports = getMinutes
 
 
 /***/ }),
-/* 104 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6566,7 +5166,7 @@ module.exports = getMonth
 
 
 /***/ }),
-/* 105 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6634,7 +5234,7 @@ module.exports = getOverlappingDaysInRanges
 
 
 /***/ }),
-/* 106 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6664,7 +5264,7 @@ module.exports = getSeconds
 
 
 /***/ }),
-/* 107 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6694,7 +5294,7 @@ module.exports = getTime
 
 
 /***/ }),
-/* 108 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6724,7 +5324,7 @@ module.exports = getYear
 
 
 /***/ }),
-/* 109 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6755,7 +5355,7 @@ module.exports = isAfter
 
 
 /***/ }),
-/* 110 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6786,7 +5386,7 @@ module.exports = isBefore
 
 
 /***/ }),
-/* 111 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6820,7 +5420,7 @@ module.exports = isEqual
 
 
 /***/ }),
-/* 112 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6848,7 +5448,7 @@ module.exports = isFirstDayOfMonth
 
 
 /***/ }),
-/* 113 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6876,7 +5476,7 @@ module.exports = isFriday
 
 
 /***/ }),
-/* 114 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6904,12 +5504,12 @@ module.exports = isFuture
 
 
 /***/ }),
-/* 115 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
 var endOfDay = __webpack_require__(19)
-var endOfMonth = __webpack_require__(37)
+var endOfMonth = __webpack_require__(38)
 
 /**
  * @category Month Helpers
@@ -6935,7 +5535,7 @@ module.exports = isLastDayOfMonth
 
 
 /***/ }),
-/* 116 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6963,7 +5563,7 @@ module.exports = isMonday
 
 
 /***/ }),
-/* 117 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -6991,7 +5591,7 @@ module.exports = isPast
 
 
 /***/ }),
-/* 118 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfDay = __webpack_require__(3)
@@ -7026,7 +5626,7 @@ module.exports = isSameDay
 
 
 /***/ }),
-/* 119 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7054,7 +5654,7 @@ module.exports = isSaturday
 
 
 /***/ }),
-/* 120 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7082,10 +5682,10 @@ module.exports = isSunday
 
 
 /***/ }),
-/* 121 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSameHour = __webpack_require__(43)
+var isSameHour = __webpack_require__(44)
 
 /**
  * @category Hour Helpers
@@ -7111,10 +5711,10 @@ module.exports = isThisHour
 
 
 /***/ }),
-/* 122 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSameISOWeek = __webpack_require__(45)
+var isSameISOWeek = __webpack_require__(46)
 
 /**
  * @category ISO Week Helpers
@@ -7141,10 +5741,10 @@ module.exports = isThisISOWeek
 
 
 /***/ }),
-/* 123 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSameISOYear = __webpack_require__(46)
+var isSameISOYear = __webpack_require__(47)
 
 /**
  * @category ISO Week-Numbering Year Helpers
@@ -7172,10 +5772,10 @@ module.exports = isThisISOYear
 
 
 /***/ }),
-/* 124 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSameMinute = __webpack_require__(47)
+var isSameMinute = __webpack_require__(48)
 
 /**
  * @category Minute Helpers
@@ -7201,10 +5801,10 @@ module.exports = isThisMinute
 
 
 /***/ }),
-/* 125 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSameMonth = __webpack_require__(49)
+var isSameMonth = __webpack_require__(50)
 
 /**
  * @category Month Helpers
@@ -7229,10 +5829,10 @@ module.exports = isThisMonth
 
 
 /***/ }),
-/* 126 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSameQuarter = __webpack_require__(50)
+var isSameQuarter = __webpack_require__(51)
 
 /**
  * @category Quarter Helpers
@@ -7257,10 +5857,10 @@ module.exports = isThisQuarter
 
 
 /***/ }),
-/* 127 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSameSecond = __webpack_require__(52)
+var isSameSecond = __webpack_require__(53)
 
 /**
  * @category Second Helpers
@@ -7286,7 +5886,7 @@ module.exports = isThisSecond
 
 
 /***/ }),
-/* 128 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isSameWeek = __webpack_require__(21)
@@ -7322,10 +5922,10 @@ module.exports = isThisWeek
 
 
 /***/ }),
-/* 129 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSameYear = __webpack_require__(54)
+var isSameYear = __webpack_require__(55)
 
 /**
  * @category Year Helpers
@@ -7350,7 +5950,7 @@ module.exports = isThisYear
 
 
 /***/ }),
-/* 130 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7378,7 +5978,7 @@ module.exports = isThursday
 
 
 /***/ }),
-/* 131 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfDay = __webpack_require__(3)
@@ -7406,7 +6006,7 @@ module.exports = isToday
 
 
 /***/ }),
-/* 132 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfDay = __webpack_require__(3)
@@ -7436,7 +6036,7 @@ module.exports = isTomorrow
 
 
 /***/ }),
-/* 133 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7464,7 +6064,7 @@ module.exports = isTuesday
 
 
 /***/ }),
-/* 134 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7492,7 +6092,7 @@ module.exports = isWednesday
 
 
 /***/ }),
-/* 135 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7522,7 +6122,7 @@ module.exports = isWeekend
 
 
 /***/ }),
-/* 136 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7570,7 +6170,7 @@ module.exports = isWithinRange
 
 
 /***/ }),
-/* 137 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfDay = __webpack_require__(3)
@@ -7600,10 +6200,10 @@ module.exports = isYesterday
 
 
 /***/ }),
-/* 138 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var lastDayOfWeek = __webpack_require__(55)
+var lastDayOfWeek = __webpack_require__(56)
 
 /**
  * @category ISO Week Helpers
@@ -7631,7 +6231,7 @@ module.exports = lastDayOfISOWeek
 
 
 /***/ }),
-/* 139 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var getISOYear = __webpack_require__(1)
@@ -7670,7 +6270,7 @@ module.exports = lastDayOfISOYear
 
 
 /***/ }),
-/* 140 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7703,7 +6303,7 @@ module.exports = lastDayOfMonth
 
 
 /***/ }),
-/* 141 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7737,7 +6337,7 @@ module.exports = lastDayOfQuarter
 
 
 /***/ }),
-/* 142 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7770,7 +6370,7 @@ module.exports = lastDayOfYear
 
 
 /***/ }),
-/* 143 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7808,7 +6408,7 @@ module.exports = max
 
 
 /***/ }),
-/* 144 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7846,7 +6446,7 @@ module.exports = min
 
 
 /***/ }),
-/* 145 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7878,7 +6478,7 @@ module.exports = setDate
 
 
 /***/ }),
-/* 146 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7924,7 +6524,7 @@ module.exports = setDay
 
 
 /***/ }),
-/* 147 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7957,7 +6557,7 @@ module.exports = setDayOfYear
 
 
 /***/ }),
-/* 148 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -7989,12 +6589,12 @@ module.exports = setHours
 
 
 /***/ }),
-/* 149 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
 var addDays = __webpack_require__(4)
-var getISODay = __webpack_require__(42)
+var getISODay = __webpack_require__(43)
 
 /**
  * @category Weekday Helpers
@@ -8026,7 +6626,7 @@ module.exports = setISODay
 
 
 /***/ }),
-/* 150 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -8062,7 +6662,7 @@ module.exports = setISOWeek
 
 
 /***/ }),
-/* 151 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -8094,7 +6694,7 @@ module.exports = setMilliseconds
 
 
 /***/ }),
-/* 152 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -8126,11 +6726,11 @@ module.exports = setMinutes
 
 
 /***/ }),
-/* 153 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
-var setMonth = __webpack_require__(56)
+var setMonth = __webpack_require__(57)
 
 /**
  * @category Quarter Helpers
@@ -8160,7 +6760,7 @@ module.exports = setQuarter
 
 
 /***/ }),
-/* 154 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -8192,7 +6792,7 @@ module.exports = setSeconds
 
 
 /***/ }),
-/* 155 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -8224,7 +6824,7 @@ module.exports = setYear
 
 
 /***/ }),
-/* 156 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(0)
@@ -8256,7 +6856,7 @@ module.exports = startOfMonth
 
 
 /***/ }),
-/* 157 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var startOfDay = __webpack_require__(3)
@@ -8283,7 +6883,7 @@ module.exports = startOfToday
 
 
 /***/ }),
-/* 158 */
+/* 152 */
 /***/ (function(module, exports) {
 
 /**
@@ -8316,7 +6916,7 @@ module.exports = startOfTomorrow
 
 
 /***/ }),
-/* 159 */
+/* 153 */
 /***/ (function(module, exports) {
 
 /**
@@ -8349,7 +6949,7 @@ module.exports = startOfYesterday
 
 
 /***/ }),
-/* 160 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var addDays = __webpack_require__(4)
@@ -8379,10 +6979,10 @@ module.exports = subDays
 
 
 /***/ }),
-/* 161 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var addHours = __webpack_require__(22)
+var addHours = __webpack_require__(23)
 
 /**
  * @category Hour Helpers
@@ -8409,7 +7009,7 @@ module.exports = subHours
 
 
 /***/ }),
-/* 162 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var addMilliseconds = __webpack_require__(5)
@@ -8439,10 +7039,10 @@ module.exports = subMilliseconds
 
 
 /***/ }),
-/* 163 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var addMinutes = __webpack_require__(25)
+var addMinutes = __webpack_require__(26)
 
 /**
  * @category Minute Helpers
@@ -8469,7 +7069,7 @@ module.exports = subMinutes
 
 
 /***/ }),
-/* 164 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var addMonths = __webpack_require__(10)
@@ -8499,10 +7099,10 @@ module.exports = subMonths
 
 
 /***/ }),
-/* 165 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var addQuarters = __webpack_require__(26)
+var addQuarters = __webpack_require__(27)
 
 /**
  * @category Quarter Helpers
@@ -8529,10 +7129,10 @@ module.exports = subQuarters
 
 
 /***/ }),
-/* 166 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var addSeconds = __webpack_require__(27)
+var addSeconds = __webpack_require__(28)
 
 /**
  * @category Second Helpers
@@ -8559,7 +7159,7 @@ module.exports = subSeconds
 
 
 /***/ }),
-/* 167 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var addWeeks = __webpack_require__(14)
@@ -8589,10 +7189,10 @@ module.exports = subWeeks
 
 
 /***/ }),
-/* 168 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var addYears = __webpack_require__(28)
+var addYears = __webpack_require__(29)
 
 /**
  * @category Year Helpers
@@ -8619,7 +7219,1457 @@ module.exports = subYears
 
 
 /***/ }),
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var arrReverse = exports.arrReverse = function arrReverse(Vue) {
+  Vue.filter('morph-arr-reverse', function (value) {
+    if (!value) return;
+    return reverse(value);
+  });
+
+  Vue.prototype.$morphArrReverse = function (value) {
+    return reverse(value);
+  };
+
+  function reverse(value) {
+    if (!Array.isArray(value)) {
+      console.warn('arg should be array');
+    }
+
+    var arr = value.reverse();
+    return arr;
+  }
+};
+
+/***/ }),
+/* 164 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var arrSort = exports.arrSort = function arrSort(Vue) {
+  Vue.filter('morph-arr-sort', function (value, key, direction) {
+    if (!value) return;
+    return sort(value, key, direction);
+  });
+
+  Vue.prototype.$morphArrSort = function (value, key, direction) {
+    return sort(value, key, direction);
+  };
+
+  function sort(value, key, direction) {
+    if (!Array.isArray(value)) {
+      console.warn('arg should be array');
+    }
+
+    if (direction === 'asc') {
+      var arr = value.sort(function (a, b) {
+        return a[key] - b[key];
+      });
+      return arr;
+    }
+
+    if (direction === 'desc') {
+      console.warn('desc');
+      var _arr = value.sort(function (a, b) {
+        return b[key] - a[key];
+      });
+      return _arr;
+    }
+  }
+};
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var capitalize = exports.capitalize = function capitalize(Vue) {
+  Vue.filter('morph-capitalize', function (value) {
+    if (!value) return;
+    return capitalize(value);
+  });
+
+  Vue.prototype.$morphCapitalize = function (value) {
+    return capitalize(value);
+  };
+
+  function capitalize(value) {
+    if (typeof value !== 'string') value = value.toString();
+    return '' + value.charAt(0).toUpperCase() + value.substring(1);
+  }
+};
+
+/***/ }),
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var chop = exports.chop = function chop(Vue) {
+  Vue.filter('morph-chop', function (value, length, location) {
+    if (!value) return;
+    return chop(value, length, location);
+  });
+
+  Vue.prototype.$morphChop = function (value, length, location) {
+    return chop(value, length, location);
+  };
+
+  function chop(value, length, location) {
+    if (!length) return 'Warn: option length (number) is required. morph-chop(length, location)';
+    if (!location) location = 'end';
+    if (typeof value !== 'string') value = value.toString();
+    if (location === 'end') {
+      return value.toString().slice(0, ~length + 1);
+    }
+    if (location === 'start') {
+      return value.toString().substring(length);
+    }
+  }
+};
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.currency = undefined;
+
+var _currencies = __webpack_require__(168);
+
+var _currencies2 = _interopRequireDefault(_currencies);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var currency = exports.currency = function currency(Vue) {
+  Vue.filter('morph-currency', function (value, code, useSymbol) {
+    if (!value) return;
+    return sandwich(value, code, useSymbol);
+  });
+
+  Vue.prototype.$morphCurrency = function (value, code, useSymbol) {
+    return sandwich(value, code, useSymbol);
+  };
+
+  function sandwich(value, code, useSymbol) {
+    var preffix = '';
+    if (!code) code = 'USD';
+    var match = _currencies2.default.filter(function (item) {
+      return code === item.code;
+    });
+    if (match.length === 0) {
+      preffix = '$';
+      console.warn('Morphling Warn: The provided code \'' + code + '\' does not exist. Replaced with default $ symbol.');
+    } else {
+      preffix = match[0].symbol;
+    }
+    return '' + preffix + value;
+  }
+};
+
+/***/ }),
+/* 168 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = [{
+  'code': 'AED',
+  'decimals': 2,
+  'name': 'United Arab Emirates dirham',
+  'number': 'United Arab Emirates dirham',
+  'symbol': 'AED',
+  'text': 'AED'
+}, {
+  'code': 'AFN',
+  'decimals': 2,
+  'name': 'Afghan afghani',
+  'number': 'Afghan afghani',
+  'symbol': '؋',
+  'text': 'AFN'
+}, {
+  'code': 'ALL',
+  'decimals': 2,
+  'name': 'Albanian lek',
+  'number': 'Albanian lek',
+  'symbol': 'L',
+  'text': 'ALL'
+}, {
+  'code': 'AMD',
+  'decimals': 2,
+  'name': 'Armenian dram',
+  'number': 'Armenian dram',
+  'symbol': 'AMD',
+  'text': 'AMD'
+}, {
+  'code': 'ANG',
+  'decimals': 2,
+  'name': 'Netherlands Antillean guilder',
+  'number': 'Netherlands Antillean guilder',
+  'symbol': 'ƒ',
+  'text': 'ANG'
+}, {
+  'code': 'AOA',
+  'decimals': 2,
+  'name': 'Angolan kwanza',
+  'number': 'Angolan kwanza',
+  'symbol': 'AOA',
+  'text': 'AOA'
+}, {
+  'code': 'ARS',
+  'decimals': 2,
+  'name': 'Argentine peso',
+  'number': 'Argentine peso',
+  'symbol': '$',
+  'text': 'ARS'
+}, {
+  'code': 'AUD',
+  'decimals': 2,
+  'name': 'Australian dollar',
+  'number': 'Australian dollar',
+  'symbol': '$',
+  'text': 'AUD'
+}, {
+  'code': 'AWG',
+  'decimals': 2,
+  'name': 'Aruban florin',
+  'number': 'Aruban florin',
+  'symbol': 'ƒ',
+  'text': 'AWG'
+}, {
+  'code': 'AZN',
+  'decimals': 2,
+  'name': 'Azerbaijani manat',
+  'number': 'Azerbaijani manat',
+  'symbol': '₼',
+  'text': 'AZN'
+}, {
+  'code': 'BAM',
+  'decimals': 2,
+  'name': 'Bosnia and Herzegovina convertible mark',
+  'number': 'Bosnia and Herzegovina convertible mark',
+  'symbol': 'KM',
+  'text': 'BAM'
+}, {
+  'code': 'BBD',
+  'decimals': 2,
+  'name': 'Barbados dollar',
+  'number': 'Barbados dollar',
+  'symbol': '$',
+  'text': 'BBD'
+}, {
+  'code': 'BDT',
+  'decimals': 2,
+  'name': 'Bangladeshi taka',
+  'number': 'Bangladeshi taka',
+  'symbol': 'BDT',
+  'text': 'BDT'
+}, {
+  'code': 'BGN',
+  'decimals': 2,
+  'name': 'Bulgarian lev',
+  'number': 'Bulgarian lev',
+  'symbol': 'лв',
+  'text': 'BGN'
+}, {
+  'code': 'BHD',
+  'decimals': 3,
+  'name': 'Bahraini dinar',
+  'number': 'Bahraini dinar',
+  'symbol': 'BHD',
+  'text': 'BHD'
+}, {
+  'code': 'BIF',
+  'decimals': 0,
+  'name': 'Burundian franc',
+  'number': 'Burundian franc',
+  'symbol': 'BIF',
+  'text': 'BIF'
+}, {
+  'code': 'BMD',
+  'decimals': 2,
+  'name': 'Bermudian dollar (customarily known as Bermuda dollar)',
+  'number': 'Bermudian dollar (customarily known as Bermuda dollar)',
+  'symbol': '$',
+  'text': 'BMD'
+}, {
+  'code': 'BND',
+  'decimals': 2,
+  'name': 'Brunei dollar',
+  'number': 'Brunei dollar',
+  'symbol': '$',
+  'text': 'BND'
+}, {
+  'code': 'BOB',
+  'decimals': 2,
+  'name': 'Boliviano',
+  'number': 'Boliviano',
+  'symbol': 'Bs.',
+  'text': 'BOB'
+}, {
+  'code': 'BOV',
+  'decimals': 2,
+  'name': 'Bolivian Mvdol (funds code)',
+  'number': 'Bolivian Mvdol (funds code)',
+  'symbol': 'BOV',
+  'text': 'BOV'
+}, {
+  'code': 'BRL',
+  'decimals': 2,
+  'name': 'Brazilian real',
+  'number': 'Brazilian real',
+  'symbol': 'R$',
+  'text': 'BRL'
+}, {
+  'code': 'BSD',
+  'decimals': 2,
+  'name': 'Bahamian dollar',
+  'number': 'Bahamian dollar',
+  'symbol': '$',
+  'text': 'BSD'
+}, {
+  'code': 'BTN',
+  'decimals': 2,
+  'name': 'Bhutanese ngultrum',
+  'number': 'Bhutanese ngultrum',
+  'symbol': 'BTN',
+  'text': 'BTN'
+}, {
+  'code': 'BWP',
+  'decimals': 2,
+  'name': 'Botswana pula',
+  'number': 'Botswana pula',
+  'symbol': 'P',
+  'text': 'BWP'
+}, {
+  'code': 'BYR',
+  'decimals': 0,
+  'name': 'Belarusian ruble',
+  'number': 'Belarusian ruble',
+  'symbol': 'p.',
+  'text': 'BYR'
+}, {
+  'code': 'BZD',
+  'decimals': 2,
+  'name': 'Belize dollar',
+  'number': 'Belize dollar',
+  'symbol': 'BZ$',
+  'text': 'BZD'
+}, {
+  'code': 'CAD',
+  'decimals': 2,
+  'name': 'Canadian dollar',
+  'number': 'Canadian dollar',
+  'symbol': '$',
+  'text': 'CAD'
+}, {
+  'code': 'CDF',
+  'decimals': 2,
+  'name': 'Congolese franc',
+  'number': 'Congolese franc',
+  'symbol': 'CDF',
+  'text': 'CDF'
+}, {
+  'code': 'CHE',
+  'decimals': 2,
+  'name': 'WIR Euro (complementary currency)',
+  'number': 'WIR Euro (complementary currency)',
+  'symbol': 'CHE',
+  'text': 'CHE'
+}, {
+  'code': 'CHF',
+  'decimals': 2,
+  'name': 'Swiss franc',
+  'number': 'Swiss franc',
+  'symbol': 'CHF',
+  'text': 'CHF'
+}, {
+  'code': 'CHW',
+  'decimals': 2,
+  'name': 'WIR Franc (complementary currency)',
+  'number': 'WIR Franc (complementary currency)',
+  'symbol': 'CHW',
+  'text': 'CHW'
+}, {
+  'code': 'CLF',
+  'decimals': 0,
+  'name': 'Unidad de Fomento (funds code)',
+  'number': 'Unidad de Fomento (funds code)',
+  'symbol': 'CLF',
+  'text': 'CLF'
+}, {
+  'code': 'CLP',
+  'decimals': 0,
+  'name': 'Chilean peso',
+  'number': 'Chilean peso',
+  'symbol': '$',
+  'text': 'CLP'
+}, {
+  'code': 'CNY',
+  'decimals': 2,
+  'name': 'Chinese yuan',
+  'number': 'Chinese yuan',
+  'symbol': '¥',
+  'text': 'CNY'
+}, {
+  'code': 'COP',
+  'decimals': 2,
+  'name': 'Colombian peso',
+  'number': 'Colombian peso',
+  'symbol': '$',
+  'text': 'COP'
+}, {
+  'code': 'COU',
+  'decimals': 2,
+  'name': 'Unidad de Valor Real',
+  'number': 'Unidad de Valor Real',
+  'symbol': 'COU',
+  'text': 'COU'
+}, {
+  'code': 'CRC',
+  'decimals': 2,
+  'name': 'Costa Rican colon',
+  'number': 'Costa Rican colon',
+  'symbol': '₡',
+  'text': 'CRC'
+}, {
+  'code': 'CUC',
+  'decimals': 2,
+  'name': 'Cuban convertible peso',
+  'number': 'Cuban convertible peso',
+  'symbol': 'CUC',
+  'text': 'CUC'
+}, {
+  'code': 'CUP',
+  'decimals': 2,
+  'name': 'Cuban peso',
+  'number': 'Cuban peso',
+  'symbol': '₱',
+  'text': 'CUP'
+}, {
+  'code': 'CVE',
+  'decimals': 0,
+  'name': 'Cape Verde escudo',
+  'number': 'Cape Verde escudo',
+  'symbol': 'CVE',
+  'text': 'CVE'
+}, {
+  'code': 'CZK',
+  'decimals': 2,
+  'name': 'Czech koruna',
+  'number': 'Czech koruna',
+  'symbol': 'Kč',
+  'text': 'CZK'
+}, {
+  'code': 'DJF',
+  'decimals': 0,
+  'name': 'Djiboutian franc',
+  'number': 'Djiboutian franc',
+  'symbol': 'DJF',
+  'text': 'DJF'
+}, {
+  'code': 'DKK',
+  'decimals': 2,
+  'name': 'Danish krone',
+  'number': 'Danish krone',
+  'symbol': 'kr',
+  'text': 'DKK'
+}, {
+  'code': 'DOP',
+  'decimals': 2,
+  'name': 'Dominican peso',
+  'number': 'Dominican peso',
+  'symbol': 'RD$',
+  'text': 'DOP'
+}, {
+  'code': 'DZD',
+  'decimals': 2,
+  'name': 'Algerian dinar',
+  'number': 'Algerian dinar',
+  'symbol': 'DZD',
+  'text': 'DZD'
+}, {
+  'code': 'EGP',
+  'decimals': 2,
+  'name': 'Egyptian pound',
+  'number': 'Egyptian pound',
+  'symbol': '£',
+  'text': 'EGP'
+}, {
+  'code': 'ERN',
+  'decimals': 2,
+  'name': 'Eritrean nakfa',
+  'number': 'Eritrean nakfa',
+  'symbol': 'ERN',
+  'text': 'ERN'
+}, {
+  'code': 'ETB',
+  'decimals': 2,
+  'name': 'Ethiopian birr',
+  'number': 'Ethiopian birr',
+  'symbol': 'ETB',
+  'text': 'ETB'
+}, {
+  'code': 'EUR',
+  'decimals': 2,
+  'name': 'Euro',
+  'number': 'Euro',
+  'symbol': '€',
+  'text': 'EUR'
+}, {
+  'code': 'FJD',
+  'decimals': 2,
+  'name': 'Fiji dollar',
+  'number': 'Fiji dollar',
+  'symbol': '$',
+  'text': 'FJD'
+}, {
+  'code': 'FKP',
+  'decimals': 2,
+  'name': 'Falkland Islands pound',
+  'number': 'Falkland Islands pound',
+  'symbol': '£',
+  'text': 'FKP'
+}, {
+  'code': 'GBP',
+  'decimals': 2,
+  'name': 'Pound sterling',
+  'number': 'Pound sterling',
+  'symbol': '£',
+  'text': 'GBP'
+}, {
+  'code': 'GEL',
+  'decimals': 2,
+  'name': 'Georgian lari',
+  'number': 'Georgian lari',
+  'symbol': 'GEL',
+  'text': 'GEL'
+}, {
+  'code': 'GHS',
+  'decimals': 2,
+  'name': 'Ghanaian cedi',
+  'number': 'Ghanaian cedi',
+  'symbol': 'GHS',
+  'text': 'GHS'
+}, {
+  'code': 'GIP',
+  'decimals': 2,
+  'name': 'Gibraltar pound',
+  'number': 'Gibraltar pound',
+  'symbol': '£',
+  'text': 'GIP'
+}, {
+  'code': 'GMD',
+  'decimals': 2,
+  'name': 'Gambian dalasi',
+  'number': 'Gambian dalasi',
+  'symbol': 'GMD',
+  'text': 'GMD'
+}, {
+  'code': 'GNF',
+  'decimals': 0,
+  'name': 'Guinean franc',
+  'number': 'Guinean franc',
+  'symbol': 'GNF',
+  'text': 'GNF'
+}, {
+  'code': 'GTQ',
+  'decimals': 2,
+  'name': 'Guatemalan quetzal',
+  'number': 'Guatemalan quetzal',
+  'symbol': 'Q',
+  'text': 'GTQ'
+}, {
+  'code': 'GYD',
+  'decimals': 2,
+  'name': 'Guyanese dollar',
+  'number': 'Guyanese dollar',
+  'symbol': '$',
+  'text': 'GYD'
+}, {
+  'code': 'HKD',
+  'decimals': 2,
+  'name': 'Hong Kong dollar',
+  'number': 'Hong Kong dollar',
+  'symbol': '$',
+  'text': 'HKD'
+}, {
+  'code': 'HNL',
+  'decimals': 2,
+  'name': 'Honduran lempira',
+  'number': 'Honduran lempira',
+  'symbol': 'L',
+  'text': 'HNL'
+}, {
+  'code': 'HRK',
+  'decimals': 2,
+  'name': 'Croatian kuna',
+  'number': 'Croatian kuna',
+  'symbol': 'kn',
+  'text': 'HRK'
+}, {
+  'code': 'HTG',
+  'decimals': 2,
+  'name': 'Haitian gourde',
+  'number': 'Haitian gourde',
+  'symbol': 'HTG',
+  'text': 'HTG'
+}, {
+  'code': 'HUF',
+  'decimals': 2,
+  'name': 'Hungarian forint',
+  'number': 'Hungarian forint',
+  'symbol': 'Ft',
+  'text': 'HUF'
+}, {
+  'code': 'IDR',
+  'decimals': 2,
+  'name': 'Indonesian rupiah',
+  'number': 'Indonesian rupiah',
+  'symbol': 'Rp',
+  'text': 'IDR'
+}, {
+  'code': 'ILS',
+  'decimals': 2,
+  'name': 'Israeli new shekel',
+  'number': 'Israeli new shekel',
+  'symbol': '₪',
+  'text': 'ILS'
+}, {
+  'code': 'INR',
+  'decimals': 2,
+  'name': 'Indian rupee',
+  'number': 'Indian rupee',
+  'symbol': '₹',
+  'text': 'INR'
+}, {
+  'code': 'IQD',
+  'decimals': 3,
+  'name': 'Iraqi dinar',
+  'number': 'Iraqi dinar',
+  'symbol': 'IQD',
+  'text': 'IQD'
+}, {
+  'code': 'IRR',
+  'decimals': 0,
+  'name': 'Iranian rial',
+  'number': 'Iranian rial',
+  'symbol': '﷼',
+  'text': 'IRR'
+}, {
+  'code': 'ISK',
+  'decimals': 0,
+  'name': 'Icelandic króna',
+  'number': 'Icelandic króna',
+  'symbol': 'kr',
+  'text': 'ISK'
+}, {
+  'code': 'JMD',
+  'decimals': 2,
+  'name': 'Jamaican dollar',
+  'number': 'Jamaican dollar',
+  'symbol': 'J$',
+  'text': 'JMD'
+}, {
+  'code': 'JOD',
+  'decimals': 3,
+  'name': 'Jordanian dinar',
+  'number': 'Jordanian dinar',
+  'symbol': 'JOD',
+  'text': 'JOD'
+}, {
+  'code': 'JPY',
+  'decimals': 0,
+  'name': 'Japanese yen',
+  'number': 'Japanese yen',
+  'symbol': '¥',
+  'text': 'JPY'
+}, {
+  'code': 'KES',
+  'decimals': 2,
+  'name': 'Kenyan shilling',
+  'number': 'Kenyan shilling',
+  'symbol': 'KSh',
+  'text': 'KES'
+}, {
+  'code': 'KGS',
+  'decimals': 2,
+  'name': 'Kyrgyzstani som',
+  'number': 'Kyrgyzstani som',
+  'symbol': 'лв',
+  'text': 'KGS'
+}, {
+  'code': 'KHR',
+  'decimals': 2,
+  'name': 'Cambodian riel',
+  'number': 'Cambodian riel',
+  'symbol': '៛',
+  'text': 'KHR'
+}, {
+  'code': 'KMF',
+  'decimals': 0,
+  'name': 'Comoro franc',
+  'number': 'Comoro franc',
+  'symbol': 'KMF',
+  'text': 'KMF'
+}, {
+  'code': 'KPW',
+  'decimals': 0,
+  'name': 'North Korean won',
+  'number': 'North Korean won',
+  'symbol': '₩',
+  'text': 'KPW'
+}, {
+  'code': 'KRW',
+  'decimals': 0,
+  'name': 'South Korean won',
+  'number': 'South Korean won',
+  'symbol': '₩',
+  'text': 'KRW'
+}, {
+  'code': 'KWD',
+  'decimals': 3,
+  'name': 'Kuwaiti dinar',
+  'number': 'Kuwaiti dinar',
+  'symbol': 'KWD',
+  'text': 'KWD'
+}, {
+  'code': 'KYD',
+  'decimals': 2,
+  'name': 'Cayman Islands dollar',
+  'number': 'Cayman Islands dollar',
+  'symbol': '$',
+  'text': 'KYD'
+}, {
+  'code': 'KZT',
+  'decimals': 2,
+  'name': 'Kazakhstani tenge',
+  'number': 'Kazakhstani tenge',
+  'symbol': 'лв',
+  'text': 'KZT'
+}, {
+  'code': 'LAK',
+  'decimals': 0,
+  'name': 'Lao kip',
+  'number': 'Lao kip',
+  'symbol': '₭',
+  'text': 'LAK'
+}, {
+  'code': 'LBP',
+  'decimals': 0,
+  'name': 'Lebanese pound',
+  'number': 'Lebanese pound',
+  'symbol': '£',
+  'text': 'LBP'
+}, {
+  'code': 'LKR',
+  'decimals': 2,
+  'name': 'Sri Lankan rupee',
+  'number': 'Sri Lankan rupee',
+  'symbol': '₨',
+  'text': 'LKR'
+}, {
+  'code': 'LRD',
+  'decimals': 2,
+  'name': 'Liberian dollar',
+  'number': 'Liberian dollar',
+  'symbol': '$',
+  'text': 'LRD'
+}, {
+  'code': 'LSL',
+  'decimals': 2,
+  'name': 'Lesotho loti',
+  'number': 'Lesotho loti',
+  'symbol': 'LSL',
+  'text': 'LSL'
+}, {
+  'code': 'LTL',
+  'decimals': 2,
+  'name': 'Lithuanian litas',
+  'number': 'Lithuanian litas',
+  'symbol': 'Lt',
+  'text': 'LTL'
+}, {
+  'code': 'LVL',
+  'decimals': 2,
+  'name': 'Latvian lats',
+  'number': 'Latvian lats',
+  'symbol': 'Ls',
+  'text': 'LVL'
+}, {
+  'code': 'LYD',
+  'decimals': 3,
+  'name': 'Libyan dinar',
+  'number': 'Libyan dinar',
+  'symbol': 'LYD',
+  'text': 'LYD'
+}, {
+  'code': 'MAD',
+  'decimals': 2,
+  'name': 'Moroccan dirham',
+  'number': 'Moroccan dirham',
+  'symbol': 'MAD',
+  'text': 'MAD'
+}, {
+  'code': 'MDL',
+  'decimals': 2,
+  'name': 'Moldovan leu',
+  'number': 'Moldovan leu',
+  'symbol': 'MDL',
+  'text': 'MDL'
+}, {
+  'code': 'MGA',
+  'decimals': 0,
+  'name': 'Malagasy ariary',
+  'number': 'Malagasy ariary',
+  'symbol': 'MGA',
+  'text': 'MGA'
+}, {
+  'code': 'MKD',
+  'decimals': 0,
+  'name': 'Macedonian denar',
+  'number': 'Macedonian denar',
+  'symbol': 'ден',
+  'text': 'MKD'
+}, {
+  'code': 'MMK',
+  'decimals': 0,
+  'name': 'Myanma kyat',
+  'number': 'Myanma kyat',
+  'symbol': 'MMK',
+  'text': 'MMK'
+}, {
+  'code': 'MNT',
+  'decimals': 2,
+  'name': 'Mongolian tugrik',
+  'number': 'Mongolian tugrik',
+  'symbol': '₮',
+  'text': 'MNT'
+}, {
+  'code': 'MOP',
+  'decimals': 2,
+  'name': 'Macanese pataca',
+  'number': 'Macanese pataca',
+  'symbol': 'MOP',
+  'text': 'MOP'
+}, {
+  'code': 'MRO',
+  'decimals': 0,
+  'name': 'Mauritanian ouguiya',
+  'number': 'Mauritanian ouguiya',
+  'symbol': 'MRO',
+  'text': 'MRO'
+}, {
+  'code': 'MUR',
+  'decimals': 2,
+  'name': 'Mauritian rupee',
+  'number': 'Mauritian rupee',
+  'symbol': '₨',
+  'text': 'MUR'
+}, {
+  'code': 'MVR',
+  'decimals': 2,
+  'name': 'Maldivian rufiyaa',
+  'number': 'Maldivian rufiyaa',
+  'symbol': 'MVR',
+  'text': 'MVR'
+}, {
+  'code': 'MWK',
+  'decimals': 2,
+  'name': 'Malawian kwacha',
+  'number': 'Malawian kwacha',
+  'symbol': 'MWK',
+  'text': 'MWK'
+}, {
+  'code': 'MXN',
+  'decimals': 2,
+  'name': 'Mexican peso',
+  'number': 'Mexican peso',
+  'symbol': '$',
+  'text': 'MXN'
+}, {
+  'code': 'MXV',
+  'decimals': 2,
+  'name': 'Mexican Unidad de Inversion (UDI) (funds code)',
+  'number': 'Mexican Unidad de Inversion (UDI) (funds code)',
+  'symbol': 'MXV',
+  'text': 'MXV'
+}, {
+  'code': 'MYR',
+  'decimals': 2,
+  'name': 'Malaysian ringgit',
+  'number': 'Malaysian ringgit',
+  'symbol': 'RM',
+  'text': 'MYR'
+}, {
+  'code': 'MZN',
+  'decimals': 2,
+  'name': 'Mozambican metical',
+  'number': 'Mozambican metical',
+  'symbol': 'MT',
+  'text': 'MZN'
+}, {
+  'code': 'NAD',
+  'decimals': 2,
+  'name': 'Namibian dollar',
+  'number': 'Namibian dollar',
+  'symbol': '$',
+  'text': 'NAD'
+}, {
+  'code': 'NGN',
+  'decimals': 2,
+  'name': 'Nigerian naira',
+  'number': 'Nigerian naira',
+  'symbol': '₦',
+  'text': 'NGN'
+}, {
+  'code': 'NIO',
+  'decimals': 2,
+  'name': 'Nicaraguan córdoba',
+  'number': 'Nicaraguan córdoba',
+  'symbol': 'C$',
+  'text': 'NIO'
+}, {
+  'code': 'NOK',
+  'decimals': 2,
+  'name': 'Norwegian krone',
+  'number': 'Norwegian krone',
+  'symbol': 'kr',
+  'text': 'NOK'
+}, {
+  'code': 'NPR',
+  'decimals': 2,
+  'name': 'Nepalese rupee',
+  'number': 'Nepalese rupee',
+  'symbol': '₨',
+  'text': 'NPR'
+}, {
+  'code': 'NZD',
+  'decimals': 2,
+  'name': 'New Zealand dollar',
+  'number': 'New Zealand dollar',
+  'symbol': '$',
+  'text': 'NZD'
+}, {
+  'code': 'OMR',
+  'decimals': 3,
+  'name': 'Omani rial',
+  'number': 'Omani rial',
+  'symbol': '﷼',
+  'text': 'OMR'
+}, {
+  'code': 'PAB',
+  'decimals': 2,
+  'name': 'Panamanian balboa',
+  'number': 'Panamanian balboa',
+  'symbol': 'B/.',
+  'text': 'PAB'
+}, {
+  'code': 'PEN',
+  'decimals': 2,
+  'name': 'Peruvian nuevo sol',
+  'number': 'Peruvian nuevo sol',
+  'symbol': 'S/.',
+  'text': 'PEN'
+}, {
+  'code': 'PGK',
+  'decimals': 2,
+  'name': 'Papua New Guinean kina',
+  'number': 'Papua New Guinean kina',
+  'symbol': 'PGK',
+  'text': 'PGK'
+}, {
+  'code': 'PHP',
+  'decimals': 2,
+  'name': 'Philippine peso',
+  'number': 'Philippine peso',
+  'symbol': '₱',
+  'text': 'PHP'
+}, {
+  'code': 'PKR',
+  'decimals': 2,
+  'name': 'Pakistani rupee',
+  'number': 'Pakistani rupee',
+  'symbol': '₨',
+  'text': 'PKR'
+}, {
+  'code': 'PLN',
+  'decimals': 2,
+  'name': 'Polish złoty',
+  'number': 'Polish złoty',
+  'symbol': 'zł',
+  'text': 'PLN'
+}, {
+  'code': 'PYG',
+  'decimals': 0,
+  'name': 'Paraguayan guaraní',
+  'number': 'Paraguayan guaraní',
+  'symbol': 'Gs',
+  'text': 'PYG'
+}, {
+  'code': 'QAR',
+  'decimals': 2,
+  'name': 'Qatari riyal',
+  'number': 'Qatari riyal',
+  'symbol': '﷼',
+  'text': 'QAR'
+}, {
+  'code': 'RON',
+  'decimals': 2,
+  'name': 'Romanian new leu',
+  'number': 'Romanian new leu',
+  'symbol': 'lei',
+  'text': 'RON'
+}, {
+  'code': 'RSD',
+  'decimals': 2,
+  'name': 'Serbian dinar',
+  'number': 'Serbian dinar',
+  'symbol': 'Дин.',
+  'text': 'RSD'
+}, {
+  'code': 'RUB',
+  'decimals': 2,
+  'name': 'Russian rouble',
+  'number': 'Russian rouble',
+  'symbol': '₽',
+  'text': 'RUB'
+}, {
+  'code': 'RWF',
+  'decimals': 0,
+  'name': 'Rwandan franc',
+  'number': 'Rwandan franc',
+  'symbol': 'RWF',
+  'text': 'RWF'
+}, {
+  'code': 'SAR',
+  'decimals': 2,
+  'name': 'Saudi riyal',
+  'number': 'Saudi riyal',
+  'symbol': '﷼',
+  'text': 'SAR'
+}, {
+  'code': 'SBD',
+  'decimals': 2,
+  'name': 'Solomon Islands dollar',
+  'number': 'Solomon Islands dollar',
+  'symbol': '$',
+  'text': 'SBD'
+}, {
+  'code': 'SCR',
+  'decimals': 2,
+  'name': 'Seychelles rupee',
+  'number': 'Seychelles rupee',
+  'symbol': '₨',
+  'text': 'SCR'
+}, {
+  'code': 'SDG',
+  'decimals': 2,
+  'name': 'Sudanese pound',
+  'number': 'Sudanese pound',
+  'symbol': 'SDG',
+  'text': 'SDG'
+}, {
+  'code': 'SEK',
+  'decimals': 2,
+  'name': 'Swedish krona/kronor',
+  'number': 'Swedish krona/kronor',
+  'symbol': 'kr',
+  'text': 'SEK'
+}, {
+  'code': 'SGD',
+  'decimals': 2,
+  'name': 'Singapore dollar',
+  'number': 'Singapore dollar',
+  'symbol': '$',
+  'text': 'SGD'
+}, {
+  'code': 'SHP',
+  'decimals': 2,
+  'name': 'Saint Helena pound',
+  'number': 'Saint Helena pound',
+  'symbol': '£',
+  'text': 'SHP'
+}, {
+  'code': 'SLL',
+  'decimals': 0,
+  'name': 'Sierra Leonean leone',
+  'number': 'Sierra Leonean leone',
+  'symbol': 'SLL',
+  'text': 'SLL'
+}, {
+  'code': 'SOS',
+  'decimals': 2,
+  'name': 'Somali shilling',
+  'number': 'Somali shilling',
+  'symbol': 'S',
+  'text': 'SOS'
+}, {
+  'code': 'SRD',
+  'decimals': 2,
+  'name': 'Surinamese dollar',
+  'number': 'Surinamese dollar',
+  'symbol': '$',
+  'text': 'SRD'
+}, {
+  'code': 'SSP',
+  'decimals': 2,
+  'name': 'South Sudanese pound',
+  'number': 'South Sudanese pound',
+  'symbol': 'SSP',
+  'text': 'SSP'
+}, {
+  'code': 'STD',
+  'decimals': 0,
+  'name': 'São Tomé and Príncipe dobra',
+  'number': 'São Tomé and Príncipe dobra',
+  'symbol': 'STD',
+  'text': 'STD'
+}, {
+  'code': 'SYP',
+  'decimals': 2,
+  'name': 'Syrian pound',
+  'number': 'Syrian pound',
+  'symbol': '£',
+  'text': 'SYP'
+}, {
+  'code': 'SZL',
+  'decimals': 2,
+  'name': 'Swazi lilangeni',
+  'number': 'Swazi lilangeni',
+  'symbol': 'SZL',
+  'text': 'SZL'
+}, {
+  'code': 'THB',
+  'decimals': 2,
+  'name': 'Thai baht',
+  'number': 'Thai baht',
+  'symbol': '฿',
+  'text': 'THB'
+}, {
+  'code': 'TJS',
+  'decimals': 2,
+  'name': 'Tajikistani somoni',
+  'number': 'Tajikistani somoni',
+  'symbol': 'TJS',
+  'text': 'TJS'
+}, {
+  'code': 'TMT',
+  'decimals': 2,
+  'name': 'Turkmenistani manat',
+  'number': 'Turkmenistani manat',
+  'symbol': 'TMT',
+  'text': 'TMT'
+}, {
+  'code': 'TND',
+  'decimals': 3,
+  'name': 'Tunisian dinar',
+  'number': 'Tunisian dinar',
+  'symbol': 'TND',
+  'text': 'TND'
+}, {
+  'code': 'TOP',
+  'decimals': 2,
+  'name': 'Tongan paʻanga',
+  'number': 'Tongan paʻanga',
+  'symbol': 'TOP',
+  'text': 'TOP'
+}, {
+  'code': 'TRY',
+  'decimals': 2,
+  'name': 'Turkish lira',
+  'number': 'Turkish lira',
+  'symbol': '',
+  'text': 'TRY'
+}, {
+  'code': 'TTD',
+  'decimals': 2,
+  'name': 'Trinidad and Tobago dollar',
+  'number': 'Trinidad and Tobago dollar',
+  'symbol': 'TT$',
+  'text': 'TTD'
+}, {
+  'code': 'TWD',
+  'decimals': 2,
+  'name': 'New Taiwan dollar',
+  'number': 'New Taiwan dollar',
+  'symbol': 'NT$',
+  'text': 'TWD'
+}, {
+  'code': 'TZS',
+  'decimals': 2,
+  'name': 'Tanzanian shilling',
+  'number': 'Tanzanian shilling',
+  'symbol': 'TSh',
+  'text': 'TZS'
+}, {
+  'code': 'UAH',
+  'decimals': 2,
+  'name': 'Ukrainian hryvnia',
+  'number': 'Ukrainian hryvnia',
+  'symbol': '₴',
+  'text': 'UAH'
+}, {
+  'code': 'UGX',
+  'decimals': 2,
+  'name': 'Ugandan shilling',
+  'number': 'Ugandan shilling',
+  'symbol': 'USh',
+  'text': 'UGX'
+}, {
+  'code': 'USD',
+  'decimals': 2,
+  'name': 'United States dollar',
+  'number': 'United States dollar',
+  'symbol': '$',
+  'text': 'USD'
+}, {
+  'code': 'USN',
+  'decimals': 2,
+  'name': 'United States dollar (next day) (funds code)',
+  'number': 'United States dollar (next day) (funds code)',
+  'symbol': 'USN',
+  'text': 'USN'
+}, {
+  'code': 'USS',
+  'decimals': 2,
+  'name': 'United States dollar (same day) (funds code) (one source[who?] claims it is no longer used, but it is still on the ISO 4217-MA list)',
+  'number': 'United States dollar (same day) (funds code) (one source[who?] claims it is no longer used, but it is still on the ISO 4217-MA list)',
+  'symbol': 'USS',
+  'text': 'USS'
+}, {
+  'code': 'UYI',
+  'decimals': 0,
+  'name': 'Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code)',
+  'number': 'Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code)',
+  'symbol': 'UYI',
+  'text': 'UYI'
+}, {
+  'code': 'UYU',
+  'decimals': 2,
+  'name': 'Uruguayan peso',
+  'number': 'Uruguayan peso',
+  'symbol': '$U',
+  'text': 'UYU'
+}, {
+  'code': 'UZS',
+  'decimals': 2,
+  'name': 'Uzbekistan som',
+  'number': 'Uzbekistan som',
+  'symbol': 'лв',
+  'text': 'UZS'
+}, {
+  'code': 'VEF',
+  'decimals': 2,
+  'name': 'Venezuelan bolívar fuerte',
+  'number': 'Venezuelan bolívar fuerte',
+  'symbol': 'Bs',
+  'text': 'VEF'
+}, {
+  'code': 'VND',
+  'decimals': 0,
+  'name': 'Vietnamese dong',
+  'number': 'Vietnamese dong',
+  'symbol': '₫',
+  'text': 'VND'
+}, {
+  'code': 'VUV',
+  'decimals': 0,
+  'name': 'Vanuatu vatu',
+  'number': 'Vanuatu vatu',
+  'symbol': 'VUV',
+  'text': 'VUV'
+}, {
+  'code': 'WST',
+  'decimals': 2,
+  'name': 'Samoan tala',
+  'number': 'Samoan tala',
+  'symbol': 'WST',
+  'text': 'WST'
+}, {
+  'code': 'XAF',
+  'decimals': 0,
+  'name': 'CFA franc BEAC',
+  'number': 'CFA franc BEAC',
+  'symbol': 'XAF',
+  'text': 'XAF'
+}, {
+  'code': 'XAG',
+  'name': 'Silver (one troy ounce)',
+  'number': 'Silver (one troy ounce)',
+  'symbol': 'XAG',
+  'text': 'XAG'
+}, {
+  'code': 'XAU',
+  'name': 'Gold (one troy ounce)',
+  'number': 'Gold (one troy ounce)',
+  'symbol': 'XAU',
+  'text': 'XAU'
+}, {
+  'code': 'XBA',
+  'name': 'European Composite Unit (EURCO) (bond market unit)',
+  'number': 'European Composite Unit (EURCO) (bond market unit)',
+  'symbol': 'XBA',
+  'text': 'XBA'
+}, {
+  'code': 'XBB',
+  'name': 'European Monetary Unit (E.M.U.-6) (bond market unit)',
+  'number': 'European Monetary Unit (E.M.U.-6) (bond market unit)',
+  'symbol': 'XBB',
+  'text': 'XBB'
+}, {
+  'code': 'XBC',
+  'name': 'European Unit of Account 9 (E.U.A.-9) (bond market unit)',
+  'number': 'European Unit of Account 9 (E.U.A.-9) (bond market unit)',
+  'symbol': 'XBC',
+  'text': 'XBC'
+}, {
+  'code': 'XBD',
+  'name': 'European Unit of Account 17 (E.U.A.-17) (bond market unit)',
+  'number': 'European Unit of Account 17 (E.U.A.-17) (bond market unit)',
+  'symbol': 'XBD',
+  'text': 'XBD'
+}, {
+  'code': 'XCD',
+  'decimals': 2,
+  'name': 'East Caribbean dollar',
+  'number': 'East Caribbean dollar',
+  'symbol': '$',
+  'text': 'XCD'
+}, {
+  'code': 'XDR',
+  'name': 'Special drawing rights',
+  'number': 'Special drawing rights',
+  'symbol': 'XDR',
+  'text': 'XDR'
+}, {
+  'code': 'XFU',
+  'name': 'UIC franc (special settlement currency)',
+  'number': 'UIC franc (special settlement currency)',
+  'symbol': 'XFU',
+  'text': 'XFU'
+}, {
+  'code': 'XOF',
+  'decimals': 0,
+  'name': 'CFA franc BCEAO',
+  'number': 'CFA franc BCEAO',
+  'symbol': 'XOF',
+  'text': 'XOF'
+}, {
+  'code': 'XPD',
+  'name': 'Palladium (one troy ounce)',
+  'number': 'Palladium (one troy ounce)',
+  'symbol': 'XPD',
+  'text': 'XPD'
+}, {
+  'code': 'XPF',
+  'decimals': 0,
+  'name': 'CFP franc',
+  'number': 'CFP franc',
+  'symbol': 'XPF',
+  'text': 'XPF'
+}, {
+  'code': 'XPT',
+  'name': 'Platinum (one troy ounce)',
+  'number': 'Platinum (one troy ounce)',
+  'symbol': 'XPT',
+  'text': 'XPT'
+}, {
+  'code': 'XTS',
+  'name': 'Code reserved for testing purposes',
+  'number': 'Code reserved for testing purposes',
+  'symbol': 'XTS',
+  'text': 'XTS'
+}, {
+  'code': 'XXX',
+  'name': 'No currency',
+  'number': 'No currency',
+  'symbol': 'XXX',
+  'text': 'XXX'
+}, {
+  'code': 'YER',
+  'decimals': 2,
+  'name': 'Yemeni rial',
+  'number': 'Yemeni rial',
+  'symbol': '﷼',
+  'text': 'YER'
+}, {
+  'code': 'ZAR',
+  'decimals': 2,
+  'name': 'South African rand',
+  'number': 'South African rand',
+  'symbol': 'R',
+  'text': 'ZAR'
+}, {
+  'code': 'ZMW',
+  'decimals': 2,
+  'name': 'Zambian kwacha',
+  'number': 'Zambian kwacha',
+  'symbol': 'ZMW',
+  'text': 'ZMW'
+}];
+
+/***/ }),
 /* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.date = undefined;
+
+var _dateFns = __webpack_require__(22);
+
+var date = exports.date = function date(Vue) {
+  Vue.filter('morph-date', function (value, formatting) {
+    if (!value) return;
+    return morphDate(value, formatting);
+  });
+
+  Vue.prototype.$morphDate = function (value, formatting) {
+    return morphDate(value, formatting);
+  };
+
+  function morphDate(value, formatting) {
+    return (0, _dateFns.format)(value, formatting);
+  }
+};
+
+/***/ }),
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8630,7 +8680,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fileSize = undefined;
 
-var _filesize = __webpack_require__(57);
+var _filesize = __webpack_require__(58);
 
 var _filesize2 = _interopRequireDefault(_filesize);
 
@@ -8657,7 +8707,7 @@ var fileSize = exports.fileSize = function fileSize(Vue) {
 };
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8682,7 +8732,7 @@ var json = exports.json = function json(Vue) {
 };
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8708,7 +8758,7 @@ var lowerCase = exports.lowerCase = function lowerCase(Vue) {
 };
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8719,11 +8769,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.objectSize = undefined;
 
-var _utf8Length = __webpack_require__(173);
+var _utf8Length = __webpack_require__(174);
 
 var _utf8Length2 = _interopRequireDefault(_utf8Length);
 
-var _filesize = __webpack_require__(57);
+var _filesize = __webpack_require__(58);
 
 var _filesize2 = _interopRequireDefault(_filesize);
 
@@ -8752,7 +8802,7 @@ var objectSize = exports.objectSize = function objectSize(Vue) {
 };
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports) {
 
 module.exports = function(s) {
@@ -8761,7 +8811,7 @@ module.exports = function(s) {
 
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8777,7 +8827,6 @@ var placeholder = exports.placeholder = function placeholder(Vue) {
   });
 
   Vue.prototype.$morphPlaceholder = function (value, placeholder) {
-    console.log(placeholder);
     return replace(value, placeholder);
   };
 
@@ -8787,7 +8836,7 @@ var placeholder = exports.placeholder = function placeholder(Vue) {
 };
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8812,7 +8861,7 @@ var replace = exports.replace = function replace(Vue) {
 };
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8838,7 +8887,7 @@ var reverse = exports.reverse = function reverse(Vue) {
 };
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8884,7 +8933,7 @@ var sandwich = exports.sandwich = function sandwich(Vue) {
 };
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8912,7 +8961,7 @@ var truncate = exports.truncate = function truncate(Vue) {
 };
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8933,7 +8982,7 @@ var uppercase = exports.uppercase = function uppercase(Vue) {
 };
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8943,7 +8992,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _url = __webpack_require__(181);
+var _url = __webpack_require__(182);
 
 Object.keys(_url).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -8955,7 +9004,7 @@ Object.keys(_url).forEach(function (key) {
   });
 });
 
-var _email = __webpack_require__(182);
+var _email = __webpack_require__(183);
 
 Object.keys(_email).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -8967,7 +9016,7 @@ Object.keys(_email).forEach(function (key) {
   });
 });
 
-var _highlight = __webpack_require__(183);
+var _highlight = __webpack_require__(184);
 
 Object.keys(_highlight).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
@@ -8980,7 +9029,7 @@ Object.keys(_highlight).forEach(function (key) {
 });
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8999,7 +9048,6 @@ var url = exports.url = function url(Vue) {
   function bind(el, binding, vnode) {
     var s = vnode.elm.innerText;
     var m = s.match(re);
-    var a = [];
     var prev;
 
     if (!m) return;
@@ -9025,7 +9073,7 @@ var url = exports.url = function url(Vue) {
 };
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9035,6 +9083,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var email = exports.email = function email(Vue) {
+  /* eslint no-control-regex: "error" */
   var re = /(?:[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gi;
 
   Vue.directive('morph-email', {
@@ -9044,7 +9093,6 @@ var email = exports.email = function email(Vue) {
   function bind(el, binding, vnode) {
     var s = vnode.elm.innerText;
     var m = s.match(re);
-    var a = [];
     var prev;
 
     if (!m) return;
@@ -9073,7 +9121,7 @@ var email = exports.email = function email(Vue) {
 };
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9091,7 +9139,7 @@ var highlight = exports.highlight = function highlight(Vue) {
     var highlightee = binding.value.split('::')[0];
     var highlighter = binding.value.split('::')[1];
     var regex = new RegExp(highlightee, 'gi');
-    el.innerHTML = str.replace(regex, '<span style="background-color: ' + highlighter + '">' + highlightee + '</span>');
+    el.innerHTML = str.replace(regex, '<mark style="background-color: ' + highlighter + '">' + highlightee + '</mark>');
   }
 };
 
