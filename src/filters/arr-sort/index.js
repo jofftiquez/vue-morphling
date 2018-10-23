@@ -11,13 +11,8 @@ export const arrSort = (Vue) => {
   function sort(value, key, direction) {
     if(!Array.isArray(value)) 
       console.warn('arg should be array');
-
-    console.log(value)
-
-    console.log('2', value)
     
     if(direction === 'asc') { 
-      console.warn('asc')
       let arr = value.sort((a, b) => a[key] - b[key]);
       return arr;
     }
