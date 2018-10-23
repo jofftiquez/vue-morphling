@@ -19,7 +19,7 @@
     ]
   },
   "scripts": {
-    "test": "jest --watch --coverage",
+    "test": "jest",
     "lint": "semistandard --fix | snazzy",
     "prebuild": "yarn lint",
     "build": "rm -rf dist && webpack --progress --hide-modules",
