@@ -1,6 +1,6 @@
 export const placeholder = (Vue) => {
   Vue.filter('morph-placeholder', (value, placeholder) => {
-    if(!value) return;
+    if (!value) return;
     return replace(value, placeholder);
   });
 
@@ -8,7 +8,7 @@ export const placeholder = (Vue) => {
     return replace(value, placeholder);
   };
 
-  function replace(value, placeholder) {
+  function replace (value, placeholder) {
     return placeholder;
   }
 };

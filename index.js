@@ -1,8 +1,8 @@
-export { 
+export {
   // all
-  VueMorphling, 
+  VueMorphling,
   // directives
-  vMorphHighlight, 
+  vMorphHighlight,
   vMorphUrl,
   vMorphEmail,
   // filters

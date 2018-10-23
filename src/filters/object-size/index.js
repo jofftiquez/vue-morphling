@@ -3,7 +3,7 @@ import filesize from 'filesize.js';
 
 export const objectSize = (Vue) => {
   Vue.filter('morph-object-size', (value, indent) => {
-    if(!value) return;
+    if (!value) return;
     return go(value, indent);
   });
 
@@ -11,10 +11,10 @@ export const objectSize = (Vue) => {
     return go(value, indent);
   };
 
-  function go(value, indent) {
+  function go (value, indent) {
     var json = null;
     // if(!indent) {
-      json = JSON.stringify(value);
+    json = JSON.stringify(value);
     // } else {
     //   indent = parseInt(indent);
     //   JSON.stringify(value, null, indent)

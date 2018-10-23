@@ -2,7 +2,7 @@ import filesize from 'filesize.js';
 
 export const fileSize = (Vue) => {
   Vue.filter('morph-file-size', (value) => {
-    if(!value) return;
+    if (!value) return;
     return go(value);
   });
 
@@ -10,9 +10,9 @@ export const fileSize = (Vue) => {
     return go(value);
   };
 
-  function go(value) {
+  function go (value) {
     const num = +value;
-    if(Number.isNaN(num)) {
+    if (Number.isNaN(num)) {
       console.warn('Warn: value must be a number.');
       return;
     }

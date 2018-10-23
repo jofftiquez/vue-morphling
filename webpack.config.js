@@ -1,11 +1,10 @@
 const path = require('path');
-const webpack = require('webpack');
 
-function createConfig(target) {
+function createConfig (target) {
   var name = 'index.js';
 
-  if(target !== 'commonjs2') {
-    name = 'vue-morphling.js'
+  if (target !== 'commonjs2') {
+    name = 'vue-morphling.js';
   }
 
   var output = {
@@ -13,14 +12,14 @@ function createConfig(target) {
     libraryTarget: target,
     path: path.resolve(__dirname, 'dist'),
     filename: name
-  }
+  };
 
-  if(typeof target === 'undefined') {
+  if (typeof target === 'undefined') {
     name = 'vue-morphling.js';
     output = {
       path: path.resolve(__dirname, 'dist'),
       filename: name
-    }
+    };
   }
 
   return {
@@ -41,10 +40,10 @@ function createConfig(target) {
         }
       ]
     }
-  }
+  };
 }
 
 module.exports = [
   createConfig('var'),
   createConfig('commonjs2')
-]
+];

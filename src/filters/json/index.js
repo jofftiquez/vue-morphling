@@ -1,6 +1,6 @@
 export const json = (Vue) => {
   Vue.filter('morph-json', (value, indent) => {
-    if(!value) return;
+    if (!value) return;
     return json(value, indent);
   });
 
@@ -8,7 +8,7 @@ export const json = (Vue) => {
     return json(value, indent);
   };
 
-  function json(value, indent) {
+  function json (value, indent) {
     return JSON.stringify(value, null, indent);
   }
 };

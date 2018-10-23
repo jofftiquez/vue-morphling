@@ -1,6 +1,6 @@
 export const lowerCase = (Vue) => {
   Vue.filter('morph-lowercase', (value) => {
-    if(!value) return;
+    if (!value) return;
     return lowercase(value);
   });
 
@@ -8,8 +8,8 @@ export const lowerCase = (Vue) => {
     return lowercase(value);
   };
 
-  function lowercase(value) {
-    if(typeof value !== 'string') value = value.toString();
+  function lowercase (value) {
+    if (typeof value !== 'string') value = value.toString();
     return value.toLowerCase();
   }
 };

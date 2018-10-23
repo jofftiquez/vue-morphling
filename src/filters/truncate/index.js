@@ -1,6 +1,6 @@
 export const truncate = (Vue) => {
   Vue.filter('morph-truncate', (value, length) => {
-    if(!value) return;
+    if (!value) return;
     return truncate(value, length);
   });
 
@@ -8,10 +8,10 @@ export const truncate = (Vue) => {
     return truncate(value, length);
   };
 
-  function truncate(value, length) {
-    if(value.length < length) {
-      console.warn('Morphling Warn: trucate value cannot be greater than string length.')
+  function truncate (value, length) {
+    if (value.length < length) {
+      console.warn('Morphling Warn: trucate value cannot be greater than string length.');
     }
-    return `${ value.substr(0, length) }...`
+    return `${value.substr(0, length)}...`;
   }
 };

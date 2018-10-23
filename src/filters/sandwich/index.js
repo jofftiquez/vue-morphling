@@ -6,13 +6,13 @@ const corpus = {
   '(': ')',
   ')': '(',
   '{': '}',
-  '}': '{',
+  '}': '{'
 };
 const corpusRegex = /(<|>|\[|\]|\(|\)|\{|\})/g;
 
 export const sandwich = (Vue) => {
   Vue.filter('morph-sandwich', (value, start, end) => {
-    if(!value) return;
+    if (!value) return;
     return sandwich(value, start, end);
   });
 
@@ -22,16 +22,15 @@ export const sandwich = (Vue) => {
 
   function flip (str) {
     return str.replace(corpusRegex, match => corpus[match])
-    .split('')
-    .reverse()
-    .join('');
+      .split('')
+      .reverse()
+      .join('');
   }
 
-  function sandwich(value, start, end) {
+  function sandwich (value, start, end) {
     start = start || '';
-    end   = end   || flip(start);
+    end = end || flip(start);
 
-    return `${ start }${ value }${ end }`;
+    return `${start}${value}${end}`;
   }
 };
-
