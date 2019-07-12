@@ -1,5 +1,6 @@
 import { createLocalVue } from '@vue/test-utils';
 import { age } from '../../src/filters/age';
+const CHESTER_BENNINGTON_AGE = 43;
 
 it('adds a $morphAge method to the Vue prototype', () => {
   const localVue = createLocalVue();
@@ -10,5 +11,5 @@ it('adds a $morphAge method to the Vue prototype', () => {
 it('calculate the age', () => {
   const localVue = createLocalVue();
   localVue.use(age);
-  expect(localVue.prototype.$morphAge(new Date(1976, 2, 20))).toBe(42);
+  expect(localVue.prototype.$morphAge(new Date(1976, 2, 20))).toBe(CHESTER_BENNINGTON_AGE);
 });
