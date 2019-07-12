@@ -9,7 +9,7 @@ export const truncate = (Vue) => {
   };
 
   function truncate (value, length) {
-    if ((!value) || value.length < length) return '';
+    if (value.length <= length) return value;
     return `${value.substr(0, length)}…`;
   }
 };
