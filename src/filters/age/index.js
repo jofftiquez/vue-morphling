@@ -10,7 +10,7 @@ export const age = (Vue) => {
     return calculateAge(value);
   };
 
-  function calculateAge (birthday) {
-    return differenceInYears(Date.now(), birthday);
+  function calculateAge (date) {
+    return differenceInYears(Date.now(), date);
   }
 };
