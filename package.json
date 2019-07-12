@@ -1,6 +1,6 @@
 {
   "name": "vue-morphling",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "description": "A collection of VueJs filters.",
   "main": "index.js",
   "semistandard": {
@@ -27,12 +27,18 @@
   },
   "dependencies": {
     "babel-loader": "^7.1.2",
+    "cryptiles": "^4.1.3",
     "date-fns": "^1.29.0",
+    "deep-extend": "^0.6.0",
     "filesize.js": "^1.0.2",
     "fstream": "^1.0.12",
     "handlebars": "^4.1.2",
+    "hoek": "^6.1.3",
     "js-yaml": "^3.13.1",
+    "lodash": "^4.17.14",
     "mem": "^5.1.1",
+    "merge": "^1.2.1",
+    "randomatic": "^3.1.1",
     "sshpk": "^1.16.1",
     "stringstream": "^1.0.0",
     "utf8-length": "^0.0.1"
