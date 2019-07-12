@@ -8953,7 +8953,7 @@ var truncate = exports.truncate = function truncate(Vue) {
   };
 
   function truncate(value, length) {
-    if (!value || value.length < length) return '';
+    if (value.length <= length) return value;
     return value.substr(0, length) + '\u2026';
   }
 };
