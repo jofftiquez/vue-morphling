@@ -9,9 +9,7 @@ export const truncate = (Vue) => {
   };
 
   function truncate (value, length) {
-    if (value.length < length) {
-      console.warn('Morphling Warn: trucate value cannot be greater than string length.');
-    }
-    return `${value.substr(0, length)}...`;
+    if ((!value) || value.length < length) return '';
+    return `${value.substr(0, length)}…`;
   }
 };
