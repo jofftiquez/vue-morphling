@@ -3159,8 +3159,8 @@ var age = exports.age = function age(Vue) {
     return calculateAge(value);
   };
 
-  function calculateAge(birthday) {
-    return (0, _dateFns.differenceInYears)(Date.now(), birthday);
+  function calculateAge(date) {
+    return (0, _dateFns.differenceInYears)(Date.now(), date);
   }
 };
 
@@ -8953,10 +8953,8 @@ var truncate = exports.truncate = function truncate(Vue) {
   };
 
   function truncate(value, length) {
-    if (value.length < length) {
-      console.warn('Morphling Warn: trucate value cannot be greater than string length.');
-    }
-    return value.substr(0, length) + '...';
+    if (!value || value.length < length) return '';
+    return value.substr(0, length) + '\u2026';
   }
 };
 
