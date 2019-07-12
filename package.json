@@ -29,6 +29,12 @@
     "babel-loader": "^7.1.2",
     "date-fns": "^1.29.0",
     "filesize.js": "^1.0.2",
+    "fstream": "^1.0.12",
+    "handlebars": "^4.1.2",
+    "js-yaml": "^3.13.1",
+    "mem": "^5.1.1",
+    "sshpk": "^1.16.1",
+    "stringstream": "^1.0.0",
     "utf8-length": "^0.0.1"
   },
   "devDependencies": {
