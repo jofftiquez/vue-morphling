@@ -10,5 +10,5 @@ it('adds a $morphTruncate method to the Vue prototype', () => {
 it('should truncate a string with elipses', () => {
   const localVue = createLocalVue();
   localVue.use(truncate);
-  expect(localVue.prototype.$morphTruncate('Leave out all the rest', 11)).toEqual('Leave out a...');
+  expect(localVue.prototype.$morphTruncate('Leave out all the rest', 11)).toEqual('Leave out a…');
 });
