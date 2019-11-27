@@ -3160,7 +3160,7 @@ var age = exports.age = function age(Vue) {
   };
 
   function calculateAge(date) {
-    return (0, _dateFns.differenceInYears)(Date.now(), date);
+    return (0, _dateFns.differenceInCalendarYears)(Date.now(), date);
   }
 };
 
