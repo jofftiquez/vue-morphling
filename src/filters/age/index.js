@@ -1,4 +1,4 @@
-import { differenceInYears } from 'date-fns';
+import { differenceInCalendarYears } from 'date-fns';
 
 export const age = (Vue) => {
   Vue.filter('morph-age', (value) => {
@@ -11,6 +11,6 @@ export const age = (Vue) => {
   };
 
   function calculateAge (date) {
-    return differenceInYears(Date.now(), date);
+    return differenceInCalendarYears(Date.now(), date);
   }
 };
