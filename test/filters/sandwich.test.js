@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { sandwich } from '../../src/filters/sandwich';
+import { sandwich } from './sandwich';
 
 it('adds a $morphSandwich method to the Vue prototype', () => {
   const localVue = createLocalVue();

@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { placeholder } from '../../src/filters/placeholder';
+import { placeholder } from './placeholder';
 
 it('adds a $morphPlaceholder method to the Vue prototype', () => {
   const localVue = createLocalVue();

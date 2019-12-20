@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { currency } from '../../src/filters/currency';
+import { currency } from './currency';
 
 it('adds a $morphCurrency method to the Vue prototype', () => {
   const localVue = createLocalVue();

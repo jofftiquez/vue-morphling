@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { json } from '../../src/filters/json';
+import { json } from './json';
 
 it('adds a $morphJson method to the Vue prototype', () => {
   const localVue = createLocalVue();

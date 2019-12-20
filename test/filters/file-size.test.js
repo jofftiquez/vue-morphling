@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { fileSize } from '../../src/filters/file-size';
+import { fileSize } from './file-size';
 
 it('adds a $morphFileSize method to the Vue prototype', () => {
   const localVue = createLocalVue();

@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { date } from '../../src/filters/date';
+import { date } from './date';
 
 it('adds a $morphDate method to the Vue prototype', () => {
   const localVue = createLocalVue();

@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { objectSize } from '../../src/filters/object-size';
+import { objectSize } from './object-size';
 
 it('adds a $morphObjectSize method to the Vue prototype', () => {
   const localVue = createLocalVue();

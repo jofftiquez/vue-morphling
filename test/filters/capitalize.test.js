@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { capitalize } from '../../src/filters/capitalize';
+import { capitalize } from './capitalize';
 
 it('adds a $morphCapitalize method to the Vue prototype', () => {
   const localVue = createLocalVue();
