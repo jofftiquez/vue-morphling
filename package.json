@@ -1,6 +1,6 @@
 {
   "name": "vue-morphling",
-  "version": "0.8.9",
+  "version": "0.9.0",
   "description": "A collection of VueJs filters.",
   "main": "dist/index.js",
   "semistandard": {
