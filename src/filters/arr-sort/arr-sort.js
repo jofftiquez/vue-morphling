@@ -9,7 +9,7 @@ export const arrSort = (Vue) => {
   };
 
   function sort (value, key, direction) {
-    if (!Array.isArray(value)) { console.warn('arg should be array'); }
+    if (!Array.isArray(value)) { console.warn('First argument should be an array'); }
 
     if (direction === 'asc') {
       const arr = value.sort((a, b) => a[key] - b[key]);
@@ -17,7 +17,6 @@ export const arrSort = (Vue) => {
     }
 
     if (direction === 'desc') {
-      console.warn('desc');
       const arr = value.sort((a, b) => b[key] - a[key]);
       return arr;
     }
