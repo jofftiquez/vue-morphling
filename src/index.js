@@ -159,7 +159,7 @@ export const VueMorphling = {
     capitalize(Vue, options);
     chop(Vue, options);
     currency(Vue, options);
-    date(Vue, options);
+    dateFormat(Vue, options);
     fileSize(Vue, options);
     json(Vue, options);
     lowerCase(Vue, options);
