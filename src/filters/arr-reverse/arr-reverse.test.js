@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { arrReverse } from '../../src/filters/arr-reverse';
+import { arrReverse } from './arr-reverse';
 
 it('adds a $morphArrReverse method to the Vue prototype', () => {
   const localVue = createLocalVue();
