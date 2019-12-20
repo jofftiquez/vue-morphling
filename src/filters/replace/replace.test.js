@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { replace } from '../../src/filters/replace';
+import { replace } from './replace';
 
 it('adds a $morphReplace method to the Vue prototype', () => {
   const localVue = createLocalVue();

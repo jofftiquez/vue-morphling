@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { arrSort } from '../../src/filters/arr-sort';
+import { arrSort } from './arr-sort';
 
 it('adds a $morphArrSort method to the Vue prototype', () => {
   const localVue = createLocalVue();

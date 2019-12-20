@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { truncate } from '../../src/filters/truncate';
+import { truncate } from './truncate';
 
 it('adds a $morphTruncate method to the Vue prototype', () => {
   const localVue = createLocalVue();

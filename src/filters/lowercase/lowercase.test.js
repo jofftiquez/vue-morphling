@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { lowerCase } from '../../src/filters/lowercase';
+import { lowerCase } from './lowercase';
 
 it('adds a $morphLowercase method to the Vue prototype', () => {
   const localVue = createLocalVue();

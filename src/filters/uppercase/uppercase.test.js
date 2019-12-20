@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { uppercase } from '../../src/filters/uppercase';
+import { uppercase } from './uppercase';
 
 it('adds a $morphUppercase method to the Vue prototype', () => {
   const localVue = createLocalVue();

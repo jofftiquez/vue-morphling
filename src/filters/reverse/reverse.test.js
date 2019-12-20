@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { reverse } from '../../src/filters/reverse';
+import { reverse } from './reverse';
 
 it('adds a $morphReverse method to the Vue prototype', () => {
   const localVue = createLocalVue();

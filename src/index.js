@@ -5,7 +5,7 @@ import {
   capitalize,
   chop,
   currency,
-  date,
+  dateFormat,
   fileSize,
   json,
   lowerCase,
@@ -80,9 +80,9 @@ export const morphCurrency = {
   }
 };
 
-export const morphDate = {
+export const morphDateFormat = {
   install (Vue, options) {
-    date(Vue, options);
+    dateFormat(Vue, options);
   }
 };
 
@@ -159,7 +159,7 @@ export const VueMorphling = {
     capitalize(Vue, options);
     chop(Vue, options);
     currency(Vue, options);
-    date(Vue, options);
+    dateFormat(Vue, options);
     fileSize(Vue, options);
     json(Vue, options);
     lowerCase(Vue, options);

@@ -1,9 +1,6 @@
-
-[![CircleCI](https://circleci.com/gh/jofftiquez/vue-morphling.svg?style=shield)](https://circleci.com/gh/jofftiquez/vue-morphling) <span class="badge-buymeacoffee"><a href="https://www.buymeacoffee.com/jofftiquez" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-green.svg" alt="Buy Me A Coffee donate button" /></a></span>
-
 # VueMorphling
 
-> IMPORTANT NOTE: morphling has been renamed to vue-mophling. The old morphling is now [framework agnostic](https://github.com/jofftiquez/morphling.js).
+![npm bundle size](https://img.shields.io/bundlephobia/min/vue-morphling) <span class="badge-buymeacoffee"><a href="https://www.buymeacoffee.com/jofftiquez" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-green.svg" alt="Buy Me A Coffee donate button" /></a></span>
 
 A collection of standard and custom VueJs filters and directives. 
 
@@ -15,7 +12,7 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 - [Usage](#usage) 
 - [Filters](#filters)
 - [Directives](#directives)
-- [Updates](#updates) (Breaking update - March 17, 2018 PHT)
+- [Updates](#updates) (Breaking update - Dec 20, 2019 PHT)
 - [Debug](#debug)
 - [Contributing](https://github.com/jofftiquez/morphling/blob/master/CONTRIBUTING.md)
 - [License](https://github.com/jofftiquez/morphling/blob/master/LICENSE)
@@ -23,11 +20,12 @@ It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
 ## Filters
 
-- [morph-age](#morph-age) **NEW**
+- [morph-age](#morph-age)
 - [morph-capitalize](#morph-capitalize)
 - [morph-chop](#morph-chop)
 - [morph-currency](#morph-currency)
-- [morph-date](#morph-date) 
+- [morph-date](#morph-date) **REMOVED**
+- [morph-date-format](#morph-date-format) **NEW**
 - [morph-file-size](#morph-file-size)
 - [morph-json](#morph-json)
 - [morph-lowercase](#morph-lowercase)
@@ -220,33 +218,37 @@ See [currencies.js](https://github.com/jofftiquez/morphling/blob/master/lib/curr
 
 ### morph-date
 
-> `import { morphDate } from 'vue-morphling';`
+> `morph-date` has been removed see [morph-date-format](#morph-date-format) for the updated date formatting method. I removed this to give way to future `morph-date-[foo]` methods such as e.g. `morph-date-diff-minutes`.
 
-Format any valid date using moment's `format()` function. 
+### morph-date-format
+
+> `import { morphDateFormat } from 'vue-morphling';`
+
+Format any valid date using date-fns' `format()` function. 
 
 *Syntax*
 
-`morph-date(format)`
+`morph-date-format(format)`
 
-*Note* - `morph-date` is now using using [`date-fns`](https://date-fns.org/).
+*Note* - `morph-date-format` is now using using [`date-fns@v1.30.1`](https://date-fns.org/).
 
 ```html
-<p>{{ new Date() | morph-date('MMM DD, YYYY') }}</p>
+<p>{{ new Date() | morph-date-format('MMM DD, YYYY') }}</p>
 <!-- Jul 26, 2017 -->
 
-<p>{{ new Date() | morph-date('YYYY') }}</p>
+<p>{{ new Date() | morph-date-format('YYYY') }}</p>
 <!-- 2017 -->
 
-<p>{{ new Date() | morph-date('[Today is a] dddd') }}</p>
-<!-- Wednesday -->
+<p>{{ new Date() | morph-date-format('[Today is a] dddd') }}</p>
+<!-- Today is Wednesday -->
 ```
 
 ```javascript
 const date = new Date('1976-03-20');
 
-const formatted = this.$morphDate(date, 'MMM DD, YYYY');
-const year = this.$morphDate(date, 'YYYY');
-const time = this.$morphDate(new Date(), 'hh:mm A');
+const formatted = this.$morphDateFormat(date, 'MMM DD, YYYY');
+const year = this.$morphDateFormat(date, 'YYYY');
+const time = this.$morphDateFormat(new Date(), 'hh:mm A');
 
 console.log(formatted); // Mar 20, 1976
 console.log(year); // 1976
@@ -255,7 +257,7 @@ console.log(time); // 11:00 PM
 
 **API**
 
-All formats are available of course in the [moment documentation](https://momentjs.com/docs/#/parsing/string-format/), but here are some common examples.
+All formats are available of course in the [date-fns format documentation](https://date-fns.org/v1.30.1/docs/format), but here are some common examples.
 
 [Back to top](#filters)
 
@@ -580,6 +582,14 @@ Pass the params as string, like, `'cats::#7fad33'` use `::` as separator for the
 
 
 ## Updates
+
+*1.0.0 and up - Dec. 20, 2019 PHT*
+- `morph-date` replaced with `morph-date-format`.
+- Test scripts are now inside it's respective filter folder.
+- Update build strategy
+  - From webpack to rollup
+  - Update all babel related dependencies
+  - Update date-fns to v1.30.1
 
 *0.8.0-alpha.1 - May 17, 2018 PHT* 
 - Updated the way filters are imported for tree shaking purposes. See [usage](#usage).

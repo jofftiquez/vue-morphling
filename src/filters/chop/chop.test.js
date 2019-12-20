@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { chop } from '../../src/filters/chop';
+import { chop } from './chop';
 
 it('adds a $morphChop method to the Vue prototype', () => {
   const localVue = createLocalVue();
