@@ -5,7 +5,7 @@ import {
   capitalize,
   chop,
   currency,
-  date,
+  dateFormat,
   fileSize,
   json,
   lowerCase,
@@ -80,9 +80,9 @@ export const morphCurrency = {
   }
 };
 
-export const morphDate = {
+export const morphDateFormat = {
   install (Vue, options) {
-    date(Vue, options);
+    dateFormat(Vue, options);
   }
 };
 
