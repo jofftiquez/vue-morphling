@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils';
-import { age } from '../../src/filters/age';
+import { age } from './age';
 const CHESTER_BENNINGTON_AGE = 43;
 
 it('adds a $morphAge method to the Vue prototype', () => {
