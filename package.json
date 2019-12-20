@@ -21,7 +21,7 @@
   "scripts": {
     "test": "jest",
     "lint": "semistandard --fix | snazzy",
-    "prebuild": "yarn lint && rimraf dist",
+    "prebuild": "rimraf dist && yarn lint && yarn test",
     "build": "rollup -c"
   },
   "dependencies": {
