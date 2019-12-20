@@ -1,10 +1,1 @@
-export const uppercase = (Vue) => {
-  Vue.filter('morph-uppercase', (value) => {
-    if (!value) return;
-    return value.toUpperCase();
-  });
-
-  Vue.prototype.$morphUppercase = (value) => {
-    return value.toUpperCase();
-  };
-};
+export * from './uppercase';
