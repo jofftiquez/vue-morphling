@@ -13,7 +13,7 @@ export const currency = (Vue) => {
   function sandwich (value, code, useSymbol) {
     let preffix = '';
     if (!code) code = 'USD';
-    let match = currencies.filter(item => code === item.code);
+    const match = currencies.filter(item => code === item.code);
     if (match.length === 0) {
       preffix = '$';
       console.warn(`Morphling Warn: The provided code '${code}' does not exist. Replaced with default $ symbol.`);
