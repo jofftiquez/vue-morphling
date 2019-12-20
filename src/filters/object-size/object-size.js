@@ -13,12 +13,7 @@ export const objectSize = (Vue) => {
 
   function go (value, indent) {
     var json = null;
-    // if(!indent) {
     json = JSON.stringify(value);
-    // } else {
-    //   indent = parseInt(indent);
-    //   JSON.stringify(value, null, indent)
-    // }
     return filesize(bytes(json));
   }
 };
