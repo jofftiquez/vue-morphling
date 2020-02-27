@@ -6,6 +6,8 @@ A collection of standard and custom VueJs filters and directives.
 
 It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
+If you like this project, please give it a start, and consider following the author. :)
+
 ## Contents
 
 - [Installation](#installation)
