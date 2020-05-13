@@ -6,8 +6,6 @@ A collection of standard and custom VueJs filters and directives.
 
 It's MORPHLING time! **plays power ranger theme song.* *pun intented* 😂
 
-If you like this project, please give it a star, and consider following the author. :)
-
 ## Contents
 
 - [Installation](#installation)
@@ -269,14 +267,18 @@ All formats are available of course in the [date-fns format documentation](https
 
 > `import { morphFileSize } from 'vue-morphling';`
 
-Converts any number (as bytes) to it's equivalent, `Kb`, `Mb`, `Gb`, `Tb`, `Pb`, `Eb`, `Zb` and `Yb`.
+Converts any number (as bytes) to it's equivalent, `KB`, `MB`, `GB`, `TB`, `PB`, `EB`, `ZB` and `YB`.
+
+**Options**
+
+For setting decimal places use `{ base: number }`. More options [here](https://www.npmjs.com/package/filesize#optional-settings).
 
 ```html
-<code>{{ 1024 | morph-file-size }}</code>
-<!-- 1.0 Kb -->
+<code>{{ 1024 | morph-file-size({ base: 0 }) }}</code>
+<!-- 1 KB -->
 
 <p>{{ 10000000000 | morph-file-size }}</p>
-<!-- 9.3 Gb -->
+<!-- 9.30 GB -->
 ```
 
 ```javascript
@@ -357,14 +359,18 @@ console.log(msg); // lost in the echo
 
 > `import { morphObjectSize } from 'vue-morphling';`
 
-Gets the bytes size (number) of any javascript object and converts it to it's equivalent `Kb`, `Mb`, `Gb`, `Tb`, `Pb`, `Eb`, `Zb` and `Yb`.
+Gets the bytes size (number) of any javascript object and converts it to it's equivalent `KB`, `MB`, `GB`, `TB`, `PB`, `EB`, `ZB` and `YB`.
+
+**Options**
+
+For setting decimal places use `{ base: number }`. More options [here](https://www.npmjs.com/package/filesize#optional-settings).
 
 ```html
-<code>{{ obj1 | morph-object-size }}</code>
-<!-- 18.0 b -->
+<code>{{ obj1 | morph-object-size({ base: 0 }) }}</code>
+<!-- 18 B -->
 
-<p>{{ `Forget the wrong the i've done.` | morph-object-size }}</p>
-<!-- 33.0 b -->
+<p>{{ `Forget the wrong the i've done.` | morph-object-size({ base: 2 }) }}</p>
+<!-- 33.00 B -->
 ```
 
 ```javascript
@@ -685,10 +691,3 @@ Leave out all the rest..."*
 I used Linkin Park songs as example strings to pay tribute to the death of Chester Bennington. One of my inspirations in music. Depression is very real, we may not fully understand it but it is very, very real. Talk to your love ones, and cherish every moment with them. Happy coding.
 
 Made with ❤️ by Jofferson Ramirez Tiquez
-
-
-
-
-
-
-
