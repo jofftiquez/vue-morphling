@@ -1,19 +1,19 @@
 import bytes from 'utf8-length';
-import filesize from 'filesize.js';
+import filesize from 'filesize';
 
 export const objectSize = (Vue) => {
-  Vue.filter('morph-object-size', (value, indent) => {
+  Vue.filter('morph-object-size', (value, option) => {
     if (!value) return;
-    return go(value, indent);
+    return go(value, option);
   });
 
-  Vue.prototype.$morphObjectSize = (value, indent) => {
-    return go(value, indent);
+  Vue.prototype.$morphObjectSize = (value, option) => {
+    return go(value, option);
   };
 
-  function go (value, indent) {
+  function go (value, option) {
     var json = null;
     json = JSON.stringify(value);
-    return filesize(bytes(json));
+    return filesize(bytes(json), option);
   }
 };
