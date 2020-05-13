@@ -11,5 +11,5 @@ it('should format object size value', () => {
   const localVue = createLocalVue();
   localVue.use(objectSize);
   const fixture = { a: 'test obj size' };
-  expect(localVue.prototype.$morphObjectSize(fixture)).toEqual('21.0 b');
+  expect(localVue.prototype.$morphObjectSize(fixture, { base: 0 })).toEqual('21 B');
 });
