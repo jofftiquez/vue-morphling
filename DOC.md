@@ -248,7 +248,7 @@ const date = new Date('1976-03-20');
 
 const formatted = this.$morphDateFormat(date, 'MMM dd, yyyy');
 const year = this.$morphDateFormat(date, 'yyyy');
-const time = this.$morphDateFormat(new Date(), 'hh:mm a..aa');
+const time = this.$morphDateFormat(new Date(), 'hh:mm a');
 
 console.log(formatted); // Mar 20, 1976
 console.log(year); // 1976
