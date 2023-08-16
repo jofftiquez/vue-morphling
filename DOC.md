@@ -230,25 +230,25 @@ Format any valid date using date-fns' `format()` function.
 
 `morph-date-format(format)`
 
-*Note* - `morph-date-format` is now using using [`date-fns@v1.30.1`](https://date-fns.org/).
+*Note* - `morph-date-format` is now using using [`date-fns@v2.30.0`](https://date-fns.org/).
 
 ```html
-<p>{{ new Date() | morph-date-format('MMM DD, YYYY') }}</p>
+<p>{{ new Date() | morph-date-format('MMM dd, yyyy') }}</p>
 <!-- Jul 26, 2017 -->
 
-<p>{{ new Date() | morph-date-format('YYYY') }}</p>
+<p>{{ new Date() | morph-date-format('yyyy') }}</p>
 <!-- 2017 -->
 
-<p>{{ new Date() | morph-date-format('[Today is a] dddd') }}</p>
+<p>{{ new Date() | morph-date-format('[Today is a] EEEE') }}</p>
 <!-- Today is Wednesday -->
 ```
 
 ```javascript
 const date = new Date('1976-03-20');
 
-const formatted = this.$morphDateFormat(date, 'MMM DD, YYYY');
-const year = this.$morphDateFormat(date, 'YYYY');
-const time = this.$morphDateFormat(new Date(), 'hh:mm A');
+const formatted = this.$morphDateFormat(date, 'MMM dd, yyyy');
+const year = this.$morphDateFormat(date, 'yyyy');
+const time = this.$morphDateFormat(new Date(), 'hh:mm a..aa');
 
 console.log(formatted); // Mar 20, 1976
 console.log(year); // 1976
@@ -257,7 +257,7 @@ console.log(time); // 11:00 PM
 
 **API**
 
-All formats are available of course in the [date-fns format documentation](https://date-fns.org/v1.30.1/docs/format), but here are some common examples.
+All formats are available of course in the [date-fns format documentation](https://date-fns.org/v2.30.0/docs/format), but here are some common examples.
 
 [Back to top](#filters)
 
