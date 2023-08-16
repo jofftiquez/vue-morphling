@@ -10,5 +10,5 @@ it('adds a $morphDate method to the Vue prototype', () => {
 it('should format date', () => {
   const localVue = createLocalVue();
   localVue.use(dateFormat);
-  expect(localVue.prototype.$morphDateFormat(new Date(2017, 6, 26), 'MMM DD, YYYY')).toEqual('Jul 26, 2017');
+  expect(localVue.prototype.$morphDateFormat(new Date(2017, 6, 26), 'MMM dd, yyyy')).toEqual('Jul 26, 2017');
 });
