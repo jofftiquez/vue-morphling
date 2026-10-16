@@ -6,8 +6,10 @@
   "module": "dist/vue-morphling.mjs",
   "unpkg": "dist/vue-morphling.js",
   "jsdelivr": "dist/vue-morphling.js",
+  "types": "types/vue-morphling.d.ts",
   "exports": {
     ".": {
+      "types": "./types/vue-morphling.d.ts",
       "import": "./dist/vue-morphling.mjs",
       "require": "./dist/vue-morphling.cjs"
     },
@@ -15,7 +17,8 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "sideEffects": false,
   "semistandard": {
@@ -30,8 +33,9 @@
   "scripts": {
     "test": "jest",
     "lint": "semistandard --fix | snazzy",
-    "prebuild": "rimraf dist && yarn lint && yarn test",
-    "build": "rollup -c"
+    "prebuild": "rimraf dist && yarn lint && yarn test && yarn test:types",
+    "build": "rollup -c",
+    "test:types": "tsc -p test/types"
   },
   "dependencies": {
     "date-fns": "^4.4.0",
@@ -50,6 +54,7 @@
     "rollup": "^4",
     "semistandard": "^17.0.0",
     "snazzy": "^9.0.0",
+    "typescript": "^6.0.3",
     "vue": "^3.5.0",
     "vue2": "npm:vue@^2.7.16"
   },
@@ -67,6 +72,5 @@
   "bugs": {
     "url": "https://github.com/jofftiquez/vue-morphling/issues"
   },
-  "homepage": "https://github.com/jofftiquez/vue-morphling#readme",
-  "peerDependencies": {}
+  "homepage": "https://github.com/jofftiquez/vue-morphling#readme"
 }
