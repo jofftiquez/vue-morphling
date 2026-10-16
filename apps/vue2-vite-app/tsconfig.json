@@ -1,0 +1,4 @@
+{
+  "compilerOptions": { "strict": true, "noEmit": true, "module": "esnext", "moduleResolution": "bundler", "target": "es2020", "lib": ["es2020", "dom"], "types": [] },
+  "files": ["src/types-check.ts"]
+}

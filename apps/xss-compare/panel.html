@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+body{font-family:system-ui,sans-serif;margin:0;padding:14px;font-size:14px}
+.label{font-weight:600;margin-bottom:8px}
+.status{padding:8px 10px;border-radius:6px;margin:10px 0;font-weight:600}
+.bad{background:#ffebe9;color:#a40e26;border:1px solid #ff8182}
+.good{background:#dafbe1;color:#116329;border:1px solid #4ac26b}
+p{background:#f6f8fa;padding:8px;border-radius:6px;margin:6px 0;word-break:break-all}
+img{outline:3px solid #cf222e}
+</style>
+<script src="vue2.js"></script></head><body>
+<div class="label" id="label"></div>
+<div id="app">
+  <p v-morph-url>{{ comment }}</p>
+  <p v-morph-email>{{ comment2 }}</p>
+  <p v-morph-highlight="'numb::yellow'">{{ comment3 }}</p>
+</div>
+<div id="status" class="status"></div>
+<script>
+const q = new URLSearchParams(location.search);
+document.getElementById('label').textContent = q.get('label');
+window.pwned = 0;
+const s = document.createElement('script');
+s.src = q.get('build');
+s.onload = () => {
+  const lib = window[q.get('global')];
+  Vue.config.productionTip = false;
+  Vue.use(lib.VueMorphling);
+  new Vue({
+    el: '#app',
+    data: {
+      comment: '<img src=x onerror="window.pwned++"> great post! https://vuejs.org',
+      comment2: '<img src=y onerror="window.pwned++"> mail me: jo@example.com',
+      comment3: '<img src=z onerror="window.pwned++"> numb'
+    }
+  });
+  setTimeout(() => {
+    const st = document.getElementById('status');
+    const imgs = document.querySelectorAll('#app img').length;
+    const links = document.querySelectorAll('#app a').length;
+    const marks = document.querySelectorAll('#app mark').length;
+    st.className = 'status ' + (window.pwned ? 'bad' : 'good');
+    st.textContent = (window.pwned ? `❌ injected script ran ${window.pwned}× · ${imgs} <img> injected` : '✅ no script ran · 0 <img> injected') + ` · ${links} links · ${marks} highlights`;
+  }, 400);
+};
+document.head.appendChild(s);
+</script></body></html>

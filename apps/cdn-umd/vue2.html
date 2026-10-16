@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>CDN · Vue 2</title>
+<link rel="stylesheet" href="dogfood.css">
+<script src="dogfood-checks.js"></script>
+<script>
+// ?cdn=1 loads Vue from unpkg and vue-morphling's UMD build from jsDelivr (GitHub, branch chore/v2-modernize)
+const CDN = new URLSearchParams(location.search).has('cdn');
+const SRC = CDN
+  ? { vue: 'https://unpkg.com/vue@2.7.16/dist/vue.min.js', morph: 'https://cdn.jsdelivr.net/gh/jofftiquez/vue-morphling@chore/v2-modernize/dist/vue-morphling.js' }
+  : { vue: 'local/vue2.min.js', morph: 'local/vue-morphling.js' };
+function load (src) { return new Promise((resolve, reject) => { const s = document.createElement('script'); s.src = src; s.onload = resolve; s.onerror = () => reject(new Error('failed to load ' + src)); document.head.appendChild(s); }); }
+</script>
+</head><body>
+<div id="app" class="wrap">
+  <h1>vue-morphling dogfood <span class="pill green" id="vv">Vue 2</span> <span class="pill">no bundler · &lt;script&gt; tags</span> <span class="pill" id="src"></span></h1>
+  <p class="sub" id="srcs"></p>
+  <div class="banner pending">running checks…</div>
+  <section><h2>Filters via the pipe syntax (in-DOM template)</h2><table><tbody><tr><th></th><th>template</th><th>rendered</th></tr>
+<tr><td class="st"></td><td v-pre><code>{{ birthday | morph-age }}</code></td><td class="out" data-expect="30">{{ birthday | morph-age }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ [1, 2, 3] | morph-arr-reverse }}</code></td><td class="out" :data-expect="JSON.stringify([3, 2, 1], null, 2)">{{ [1, 2, 3] | morph-arr-reverse }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ objects | morph-arr-sort(&#x27;a&#x27;, &#x27;asc&#x27;) }}</code></td><td class="out" :data-expect="JSON.stringify([{ a: 2 }, { a: 4 }, { a: 6 }], null, 2)">{{ objects | morph-arr-sort(&#x27;a&#x27;, &#x27;asc&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ &#x27;numb&#x27; | morph-capitalize }}</code></td><td class="out" data-expect="Numb">{{ &#x27;numb&#x27; | morph-capitalize }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ &#x27;Papercut&#x27; | morph-chop(3) }}</code></td><td class="out" data-expect="Paper">{{ &#x27;Papercut&#x27; | morph-chop(3) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ 100 | morph-currency(&#x27;PHP&#x27;) }}</code></td><td class="out" data-expect="₱100">{{ 100 | morph-currency(&#x27;PHP&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ new Date(2017, 6, 26) | morph-date-format(&#x27;MMM dd, yyyy&#x27;) }}</code></td><td class="out" data-expect="Jul 26, 2017">{{ new Date(2017, 6, 26) | morph-date-format(&#x27;MMM dd, yyyy&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ 1536 | morph-file-size }}</code></td><td class="out" data-expect="1.5 KB">{{ 1536 | morph-file-size }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ { band: &#x27;Linkin Park&#x27; } | morph-json }}</code></td><td class="out" data-expect="{&quot;band&quot;:&quot;Linkin Park&quot;}">{{ { band: &#x27;Linkin Park&#x27; } | morph-json }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ &#x27;LOST IN THE ECHO&#x27; | morph-lowercase }}</code></td><td class="out" data-expect="lost in the echo">{{ &#x27;LOST IN THE ECHO&#x27; | morph-lowercase }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ { a: &#x27;test obj size&#x27; } | morph-object-size }}</code></td><td class="out" data-expect="21 B">{{ { a: &#x27;test obj size&#x27; } | morph-object-size }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ &#x27;Battle Symphony&#x27; | morph-placeholder(&#x27;New Divide&#x27;) }}</code></td><td class="out" data-expect="New Divide">{{ &#x27;Battle Symphony&#x27; | morph-placeholder(&#x27;New Divide&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ &#x27;I gave up&#x27; | morph-replace(&#x27;gave&#x27;, &#x27;never give&#x27;) }}</code></td><td class="out" data-expect="I never give up">{{ &#x27;I gave up&#x27; | morph-replace(&#x27;gave&#x27;, &#x27;never give&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ &#x27;Shadow of the day&#x27; | morph-reverse }}</code></td><td class="out" data-expect="yad eht fo wodahS">{{ &#x27;Shadow of the day&#x27; | morph-reverse }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ &#x27;the&#x27; | morph-sandwich(&#x27;In &#x27;, &#x27; end!&#x27;) }}</code></td><td class="out" data-expect="In the end!">{{ &#x27;the&#x27; | morph-sandwich(&#x27;In &#x27;, &#x27; end!&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ &#x27;Leave out all the rest&#x27; | morph-truncate(11) }}</code></td><td class="out" data-expect="Leave out a…">{{ &#x27;Leave out all the rest&#x27; | morph-truncate(11) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ &#x27;somewhere i belong&#x27; | morph-uppercase }}</code></td><td class="out" data-expect="SOMEWHERE I BELONG">{{ &#x27;somewhere i belong&#x27; | morph-uppercase }}</td></tr>
+  </tbody></table></section>
+  <section><h2>Filters via <code>$morph*</code> (Vue.prototype)</h2><table><tbody><tr><th></th><th>template</th><th>rendered</th></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphAge(birthday) }}</code></td><td class="out" data-expect="30">{{ $morphAge(birthday) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphArrReverse([1, 2, 3]).join(&#x27;, &#x27;) }}</code></td><td class="out" data-expect="3, 2, 1">{{ $morphArrReverse([1, 2, 3]).join(&#x27;, &#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphArrSort(objects, &#x27;a&#x27;, &#x27;asc&#x27;).map(o =&gt; o.a).join(&#x27;, &#x27;) }}</code></td><td class="out" data-expect="2, 4, 6">{{ $morphArrSort(objects, &#x27;a&#x27;, &#x27;asc&#x27;).map(o =&gt; o.a).join(&#x27;, &#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphCapitalize(&#x27;numb&#x27;) }}</code></td><td class="out" data-expect="Numb">{{ $morphCapitalize(&#x27;numb&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphChop(&#x27;Papercut&#x27;, 3) }}</code></td><td class="out" data-expect="Paper">{{ $morphChop(&#x27;Papercut&#x27;, 3) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphCurrency(100, &#x27;PHP&#x27;) }}</code></td><td class="out" data-expect="₱100">{{ $morphCurrency(100, &#x27;PHP&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphDateFormat(new Date(2017, 6, 26), &#x27;MMM dd, yyyy&#x27;) }}</code></td><td class="out" data-expect="Jul 26, 2017">{{ $morphDateFormat(new Date(2017, 6, 26), &#x27;MMM dd, yyyy&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphFileSize(1536) }}</code></td><td class="out" data-expect="1.5 KB">{{ $morphFileSize(1536) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphJson({ band: &#x27;Linkin Park&#x27; }) }}</code></td><td class="out" data-expect="{&quot;band&quot;:&quot;Linkin Park&quot;}">{{ $morphJson({ band: &#x27;Linkin Park&#x27; }) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphLowercase(&#x27;LOST IN THE ECHO&#x27;) }}</code></td><td class="out" data-expect="lost in the echo">{{ $morphLowercase(&#x27;LOST IN THE ECHO&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphObjectSize({ a: &#x27;test obj size&#x27; }) }}</code></td><td class="out" data-expect="21 B">{{ $morphObjectSize({ a: &#x27;test obj size&#x27; }) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphPlaceholder(&#x27;Battle Symphony&#x27;, &#x27;New Divide&#x27;) }}</code></td><td class="out" data-expect="New Divide">{{ $morphPlaceholder(&#x27;Battle Symphony&#x27;, &#x27;New Divide&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphReplace(&#x27;I gave up&#x27;, &#x27;gave&#x27;, &#x27;never give&#x27;) }}</code></td><td class="out" data-expect="I never give up">{{ $morphReplace(&#x27;I gave up&#x27;, &#x27;gave&#x27;, &#x27;never give&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphReverse(&#x27;Shadow of the day&#x27;) }}</code></td><td class="out" data-expect="yad eht fo wodahS">{{ $morphReverse(&#x27;Shadow of the day&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphSandwich(&#x27;the&#x27;, &#x27;In &#x27;, &#x27; end!&#x27;) }}</code></td><td class="out" data-expect="In the end!">{{ $morphSandwich(&#x27;the&#x27;, &#x27;In &#x27;, &#x27; end!&#x27;) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphTruncate(&#x27;Leave out all the rest&#x27;, 11) }}</code></td><td class="out" data-expect="Leave out a…">{{ $morphTruncate(&#x27;Leave out all the rest&#x27;, 11) }}</td></tr>
+<tr><td class="st"></td><td v-pre><code>{{ $morphUppercase(&#x27;somewhere i belong&#x27;) }}</code></td><td class="out" data-expect="SOMEWHERE I BELONG">{{ $morphUppercase(&#x27;somewhere i belong&#x27;) }}</td></tr>
+  </tbody></table></section>
+<section><h2>Directives</h2><table><tbody>
+<tr><th></th><th>template</th><th>rendered</th></tr>
+<tr><td class="st"></td><td v-pre><code>&lt;p v-morph-url&gt;Docs: https://vuejs.org and https://vite.dev&lt;/p&gt;</code></td><td class="out" data-check="a[href^=http]:2"><p v-morph-url>Docs: https://vuejs.org and https://vite.dev</p></td></tr>
+<tr><td class="st"></td><td v-pre><code>&lt;p v-morph-email&gt;Mail a@x.io or b@y.io&lt;/p&gt;</code></td><td class="out" data-check="a[href^=mailto]:2"><p v-morph-email>Mail a@x.io or b@y.io</p></td></tr>
+<tr><td class="st"></td><td v-pre><code>&lt;p v-morph-highlight="'numb::yellow'"&gt;Numb, so numb&lt;/p&gt;</code></td><td class="out" data-check="mark:2"><p v-morph-highlight="'numb::yellow'">Numb, so numb</p></td></tr>
+<tr><td class="st"></td><td v-pre><code>&lt;p v-morph-url&gt;{{ comment }}&lt;/p&gt;  // comment has &lt;img onerror&gt;</code></td><td class="out" data-check="img:0,a:1" data-no-script><p v-morph-url>{{ comment }}</p></td></tr>
+</tbody></table></section>
+</div>
+<script>
+document.getElementById('src').textContent = CDN ? 'loaded from unpkg + jsDelivr CDN' : 'loaded from local files';
+document.getElementById('srcs').innerHTML = '<code>&lt;script src="' + SRC.vue + '"&gt;</code><br><code>&lt;script src="' + SRC.morph + '"&gt;</code>';
+load(SRC.vue).then(() => load(SRC.morph)).then(() => {
+  Vue.config.productionTip = false;
+  Vue.use(VueMorphling.VueMorphling);
+  document.getElementById('vv').textContent = 'Vue ' + Vue.version + ' (global build)';
+  new Vue({
+    el: '#app',
+    data: {
+        birthday: new Date(new Date().getFullYear() - 30, 0, 1),
+        objects: [{ a: 4 }, { a: 6 }, { a: 2 }],
+        comment: '<img src=x onerror="window.pwned = (window.pwned || 0) + 1"> nice! https://vuejs.org'
+      },
+    mounted () { this.$nextTick(() => setTimeout(() => runChecks(this.$el, 'CDN/UMD · Vue ' + Vue.version + (CDN ? ' (CDN)' : ' (local)')), 50)); }
+  });
+}).catch(e => { console.error(e.message); });
+</script></body></html>
