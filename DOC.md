@@ -201,7 +201,7 @@ The keys match the method names without the `$morph` prefix: `age`, `arrReverse`
 
 ### TypeScript
 
-Type declarations ship with the package. They type the plugins and `morphFilters`, and they add `$morph*` to `ComponentCustomProperties` (templates and `this`, in Vue 3 and Vue 2.7) and the `v-morph-*` directives to `GlobalDirectives`. You don't need to configure anything.
+Type declarations ship with the package. They type the plugins and `morphFilters`, and they add `$morph*` to `ComponentCustomProperties` (templates and `this`, in Vue 3 and Vue 2.7) and the `v-morph-*` directives to `GlobalDirectives`. You don't need to configure anything. The declarations rely on types that ship with Vue 2.7 and Vue 3; the Vue 2.6 runtime is supported, but its type definitions are not.
 
 All directive names need the `v-` prefix in templates, like `v-morph-url`.
 

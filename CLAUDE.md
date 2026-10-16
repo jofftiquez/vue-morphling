@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Yarn 1 is the package manager (`yarn.lock`). The dev toolchain needs Node ≥ 22.18 (Babel 8); see `.nvmrc`.
 
-- `yarn test` — run all Jest tests (every suite runs against Vue 2.7 **and** Vue 3)
+- `yarn test` — run all Jest tests (every suite runs against Vue 2.7, Vue 2.6 **and** Vue 3)
 - `yarn test src/filters/currency` — run one suite (or `yarn test -t 'prefixes the currency'`)
 - `yarn test:types` — type-check `types/vue-morphling.d.ts` via `test/types/usage.ts` (uses `@ts-expect-error` cases)
 - `yarn lint` — `semistandard --fix` (semicolons, space before function parens, no trailing commas)
@@ -33,7 +33,7 @@ CI: GitHub Actions (`.github/workflows/ci.yml`, Node 22 + 24) runs on PRs; Circl
 
 ## Tests
 
-`test/vue.js` is the shared harness. `targets` holds the Vue 2 (`vue2` alias → `npm:vue@2.7`) and Vue 3 (`vue`) runtimes. `target.install(plugin)` returns `{ globals, render(template, data) }` with real mounted apps, torn down after each test. `describeFilter(plugin, { filter, method, cases })` checks each case via `morphFilters`, the global method, a template method call and (Vue 2 only) the pipe syntax. Tests import the public plugins from `src/index`.
+`test/vue.js` is the shared harness. `targets` holds the Vue 2.7 (`vue2` alias → `npm:vue@2.7`), Vue 2.6 (`vue26` alias → `npm:vue@2.6.14`) and Vue 3 (`vue`) runtimes. `target.install(plugin)` returns `{ globals, render(template, data) }` with real mounted apps, torn down after each test. `describeFilter(plugin, { filter, method, cases })` checks each case via `morphFilters`, the global method, a template method call and (Vue 2 only) the pipe syntax. Tests import the public plugins from `src/index`.
 
 ## Build output
 

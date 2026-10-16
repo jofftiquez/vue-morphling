@@ -2,11 +2,14 @@
 // render templates with it. Every target listed in `targets` runs the same
 // specs, so a filter or directive is proven on each supported Vue major.
 import Vue2 from 'vue2/dist/vue.common.js';
+import Vue26 from 'vue26/dist/vue.common.js';
 import * as Vue3 from 'vue';
 import { morphFilters } from '../src/index';
 
-Vue2.config.productionTip = false;
-Vue2.config.devtools = false;
+for (const Vue of [Vue2, Vue26]) {
+  Vue.config.productionTip = false;
+  Vue.config.devtools = false;
+}
 
 // Tear down everything a test mounted so no app outlives its test file.
 const mounted = [];
@@ -14,12 +17,12 @@ afterEach(() => {
   while (mounted.length) mounted.pop()();
 });
 
-const vue2 = {
-  name: 'Vue 2',
-  version: Vue2.version,
+const vue2Target = (Vue, name) => ({
+  name,
+  version: Vue.version,
   supportsFilters: true,
   install (plugin, options) {
-    const Local = Vue2.extend();
+    const Local = Vue.extend();
     Local.use(plugin, options);
     return {
       globals: Local.prototype,
@@ -33,7 +36,7 @@ const vue2 = {
       }
     };
   }
-};
+});
 
 const vue3 = {
   name: 'Vue 3',
@@ -58,7 +61,7 @@ const vue3 = {
   }
 };
 
-export const targets = [vue2, vue3];
+export const targets = [vue2Target(Vue2, 'Vue 2.7'), vue2Target(Vue26, 'Vue 2.6'), vue3];
 
 // Runs `cases` against every target through three paths:
 //   1. the global method   ($morphX(value, ...args))
