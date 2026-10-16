@@ -1,14 +1,11 @@
-import { createLocalVue } from '@vue/test-utils';
-import { currency } from './currency';
+import { morphCurrency as currency } from '../../index';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphCurrency method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(currency);
-  expect(typeof localVue.prototype.$morphCurrency).toBe('function');
-});
-
-it('should add currency to a string', () => {
-  const localVue = createLocalVue();
-  localVue.use(currency);
-  expect(localVue.prototype.$morphCurrency('100', 'PHP')).toEqual('₱100');
+describeFilter(currency, {
+  filter: 'morph-currency',
+  method: '$morphCurrency',
+  cases: [
+    { title: 'prefixes the currency symbol', args: ['100', 'PHP'], expected: '₱100' },
+    { title: 'defaults to USD', args: ['100'], expected: '$100' }
+  ]
 });

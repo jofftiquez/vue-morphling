@@ -1,15 +1,15 @@
-import { createLocalVue } from '@vue/test-utils';
-import { objectSize } from './object-size';
+import { morphFilters, morphObjectSize as objectSize } from '../../index';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphObjectSize method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(objectSize);
-  expect(typeof localVue.prototype.$morphObjectSize).toBe('function');
+describeFilter(objectSize, {
+  filter: 'morph-object-size',
+  method: '$morphObjectSize',
+  cases: [
+    { title: 'formats the object size', args: [{ a: 'test obj size' }, { base: 0 }], expected: '21 B' },
+    { title: 'counts multi-byte characters as utf-8 bytes', args: [{ a: '₱' }], expected: '11 B' }
+  ]
 });
 
-it('should format object size value', () => {
-  const localVue = createLocalVue();
-  localVue.use(objectSize);
-  const fixture = { a: 'test obj size' };
-  expect(localVue.prototype.$morphObjectSize(fixture, { base: 0 })).toEqual('21 B');
+it.each([undefined, () => {}, Symbol('x')])('reports 0 B for values JSON cannot encode (%p)', (value) => {
+  expect(morphFilters.objectSize(value)).toBe('0 B');
 });

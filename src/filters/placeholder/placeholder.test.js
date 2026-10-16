@@ -1,14 +1,10 @@
-import { createLocalVue } from '@vue/test-utils';
-import { placeholder } from './placeholder';
+import { morphPlaceholder as placeholder } from '../../index';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphPlaceholder method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(placeholder);
-  expect(typeof localVue.prototype.$morphPlaceholder).toBe('function');
-});
-
-it('should replaces the value with a give placeholder', () => {
-  const localVue = createLocalVue();
-  localVue.use(placeholder);
-  expect(localVue.prototype.$morphPlaceholder('Battle Symphony', 'New Divide')).toEqual('New Divide');
+describeFilter(placeholder, {
+  filter: 'morph-placeholder',
+  method: '$morphPlaceholder',
+  cases: [
+    { title: 'replaces the value with the placeholder', args: ['Battle Symphony', 'New Divide'], expected: 'New Divide' }
+  ]
 });

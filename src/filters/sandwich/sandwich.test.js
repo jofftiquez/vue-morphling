@@ -1,14 +1,11 @@
-import { createLocalVue } from '@vue/test-utils';
-import { sandwich } from './sandwich';
+import { morphSandwich as sandwich } from '../../index';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphSandwich method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(sandwich);
-  expect(typeof localVue.prototype.$morphSandwich).toBe('function');
-});
-
-it('should prepend and append data around a given value', () => {
-  const localVue = createLocalVue();
-  localVue.use(sandwich);
-  expect(localVue.prototype.$morphSandwich('the', 'In ', ' end!')).toEqual('In the end!');
+describeFilter(sandwich, {
+  filter: 'morph-sandwich',
+  method: '$morphSandwich',
+  cases: [
+    { title: 'wraps the value with start and end', args: ['the', 'In ', ' end!'], expected: 'In the end!' },
+    { title: 'mirrors the start when no end is given', args: ['x', '<(['], expected: '<([x])>' }
+  ]
 });

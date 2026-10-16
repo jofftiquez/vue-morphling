@@ -1,14 +1,11 @@
-import { createLocalVue } from '@vue/test-utils';
-import { uppercase } from './uppercase';
+import { morphUpperCase as uppercase } from '../../index';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphUppercase method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(uppercase);
-  expect(typeof localVue.prototype.$morphUppercase).toBe('function');
-});
-
-it('should convert a string to uppercase', () => {
-  const localVue = createLocalVue();
-  localVue.use(uppercase);
-  expect(localVue.prototype.$morphUppercase('somewhere i belong')).toEqual('SOMEWHERE I BELONG');
+describeFilter(uppercase, {
+  filter: 'morph-uppercase',
+  method: '$morphUppercase',
+  cases: [
+    { title: 'uppercases a string', args: ['somewhere i belong'], expected: 'SOMEWHERE I BELONG' },
+    { title: 'coerces non-strings', args: [true], expected: 'TRUE' }
+  ]
 });

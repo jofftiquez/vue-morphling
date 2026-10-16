@@ -1,14 +1,10 @@
-import { createLocalVue } from '@vue/test-utils';
-import { reverse } from './reverse';
+import { morphReverse as reverse } from '../../index';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphReverse method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(reverse);
-  expect(typeof localVue.prototype.$morphReverse).toBe('function');
-});
-
-it('should reverse a string', () => {
-  const localVue = createLocalVue();
-  localVue.use(reverse);
-  expect(localVue.prototype.$morphReverse('Shadow of the day')).toEqual('yad eht fo wodahS');
+describeFilter(reverse, {
+  filter: 'morph-reverse',
+  method: '$morphReverse',
+  cases: [
+    { title: 'reverses a string', args: ['Shadow of the day'], expected: 'yad eht fo wodahS' }
+  ]
 });

@@ -1,15 +1,6 @@
-export const truncate = (Vue) => {
-  Vue.filter('morph-truncate', (value, length) => {
-    if (!value) return;
-    return truncate(value, length);
-  });
+function morphTruncate (value, length) {
+  if (value.length <= length) return value;
+  return `${value.substr(0, length)}…`;
+}
 
-  Vue.prototype.$morphTruncate = (value, length) => {
-    return truncate(value, length);
-  };
-
-  function truncate (value, length) {
-    if (value.length <= length) return value;
-    return `${value.substr(0, length)}…`;
-  }
-};
+export const truncate = { filter: 'morph-truncate', method: '$morphTruncate', fn: morphTruncate };

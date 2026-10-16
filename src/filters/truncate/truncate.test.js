@@ -1,20 +1,11 @@
-import { createLocalVue } from '@vue/test-utils';
-import { truncate } from './truncate';
+import { morphTruncate as truncate } from '../../index';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphTruncate method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(truncate);
-  expect(typeof localVue.prototype.$morphTruncate).toBe('function');
-});
-
-it('should truncate a string with ellipsis', () => {
-  const localVue = createLocalVue();
-  localVue.use(truncate);
-  expect(localVue.prototype.$morphTruncate('Leave out all the rest', 11)).toEqual('Leave out a…');
-});
-
-it('should not truncate', () => {
-  const localVue = createLocalVue();
-  localVue.use(truncate);
-  expect(localVue.prototype.$morphTruncate('One more light', 20)).toEqual('One more light');
+describeFilter(truncate, {
+  filter: 'morph-truncate',
+  method: '$morphTruncate',
+  cases: [
+    { title: 'truncates with an ellipsis', args: ['Leave out all the rest', 11], expected: 'Leave out a…' },
+    { title: 'does not truncate short strings', args: ['One more light', 20], expected: 'One more light' }
+  ]
 });

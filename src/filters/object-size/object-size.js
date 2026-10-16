@@ -1,19 +1,10 @@
-import bytes from 'utf8-length';
-import filesize from 'filesize';
+import { formatBytes } from '../../lib/format-bytes';
+import { utf8Length } from '../../lib/utf8-length';
 
-export const objectSize = (Vue) => {
-  Vue.filter('morph-object-size', (value, option) => {
-    if (!value) return;
-    return go(value, option);
-  });
+function morphObjectSize (value, option) {
+  // JSON.stringify returns undefined for undefined, functions and symbols.
+  const json = JSON.stringify(value);
+  return formatBytes(json === undefined ? 0 : utf8Length(json), option);
+}
 
-  Vue.prototype.$morphObjectSize = (value, option) => {
-    return go(value, option);
-  };
-
-  function go (value, option) {
-    var json = null;
-    json = JSON.stringify(value);
-    return filesize(bytes(json), option);
-  }
-};
+export const objectSize = { filter: 'morph-object-size', method: '$morphObjectSize', fn: morphObjectSize };

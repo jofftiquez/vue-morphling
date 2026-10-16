@@ -1,14 +1,5 @@
-export const placeholder = (Vue) => {
-  Vue.filter('morph-placeholder', (value, placeholder) => {
-    if (!value) return;
-    return replace(value, placeholder);
-  });
+function morphPlaceholder (value, placeholder) {
+  return placeholder;
+}
 
-  Vue.prototype.$morphPlaceholder = (value, placeholder) => {
-    return replace(value, placeholder);
-  };
-
-  function replace (value, placeholder) {
-    return placeholder;
-  }
-};
+export const placeholder = { filter: 'morph-placeholder', method: '$morphPlaceholder', fn: morphPlaceholder };

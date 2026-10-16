@@ -1,14 +1,18 @@
-import { createLocalVue } from '@vue/test-utils';
-import { arrSort } from './arr-sort';
+import { morphArrSort as arrSort } from '../../index';
+import { describeFilter, targets } from '../../../test/vue';
 
-it('adds a $morphArrSort method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(arrSort);
-  expect(typeof localVue.prototype.$morphArrSort).toBe('function');
+describeFilter(arrSort, {
+  filter: 'morph-arr-sort',
+  method: '$morphArrSort',
+  cases: [
+    { title: 'sorts an array of objects ascending', args: [[{ a: 4 }, { a: 6 }, { a: 2 }], 'a', 'asc'], expected: [{ a: 2 }, { a: 4 }, { a: 6 }] },
+    { title: 'sorts an array of objects descending', args: [[{ a: 4 }, { a: 6 }, { a: 2 }], 'a', 'desc'], expected: [{ a: 6 }, { a: 4 }, { a: 2 }] }
+  ]
 });
 
-it('should sort an array of objects', () => {
-  const localVue = createLocalVue();
-  localVue.use(arrSort);
-  expect(localVue.prototype.$morphArrSort([{ a: 4 }, { a: 6 }, { a: 2 }], 'a', 'asc')).toEqual([{ a: 2 }, { a: 4 }, { a: 6 }]);
+it('does not mutate the input array', () => {
+  const [target] = targets;
+  const input = [{ a: 4 }, { a: 6 }, { a: 2 }];
+  target.install(arrSort).globals.$morphArrSort(input, 'a', 'asc');
+  expect(input).toEqual([{ a: 4 }, { a: 6 }, { a: 2 }]);
 });
