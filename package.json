@@ -1,7 +1,7 @@
 {
   "name": "vue-morphling",
   "version": "1.2.1",
-  "description": "A collection of VueJs filters.",
+  "description": "Filters and directives for Vue 2 and Vue 3.",
   "main": "dist/vue-morphling.cjs",
   "module": "dist/vue-morphling.mjs",
   "unpkg": "dist/vue-morphling.js",
@@ -64,8 +64,12 @@
   },
   "keywords": [
     "filters",
+    "directives",
     "vue",
-    "vuejs"
+    "vue2",
+    "vue3",
+    "vuejs",
+    "nuxt"
   ],
   "author": "Jofferson R Tiquez",
   "license": "MIT",

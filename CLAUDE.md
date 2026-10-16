@@ -4,38 +4,41 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-`vue-morphling` is a **Vue 2** plugin library of filters and directives (Vue 2 filters do not exist in Vue 3). It is published to npm; the built `dist/` is committed.
+`vue-morphling` is a plugin library of filters and directives that supports **both Vue 2 (2.6/2.7) and Vue 3** from one codebase. It is published to npm; the built `dist/` is committed.
 
 ## Commands
 
-Yarn is the package manager (`yarn.lock`).
+Yarn 1 is the package manager (`yarn.lock`). The dev toolchain needs Node ≥ 22.18 (Babel 8); see `.nvmrc`.
 
-- `yarn test` — run all Jest tests
-- `yarn test src/filters/currency` — run a single filter's tests (any path/pattern works: `yarn test -t 'should add currency'`)
-- `yarn lint` — `semistandard --fix` (auto-fixes; semicolons required, space before function parens). `src/directives/email` and `dist` are lint-ignored.
-- `yarn build` — Rollup build. `prebuild` first deletes `dist/`, then runs lint and tests, so a failing test or lint error blocks the build.
+- `yarn test` — run all Jest tests (every suite runs against Vue 2.7 **and** Vue 3)
+- `yarn test src/filters/currency` — run one suite (or `yarn test -t 'prefixes the currency'`)
+- `yarn test:types` — type-check `types/vue-morphling.d.ts` via `test/types/usage.ts` (uses `@ts-expect-error` cases)
+- `yarn lint` — `semistandard --fix` (semicolons, space before function parens, no trailing commas)
+- `yarn build` — `prebuild` deletes `dist/`, then runs lint, tests and type tests, then `rollup -c`. A failure blocks the build.
 
-Release: CircleCI runs tests and `npm publish` only on `v*` tags.
+When running Jest from an agent shell, `AI_AGENT`/`CLAUDECODE` env vars make Jest 30 suppress per-test output; unset them (`env -u AI_AGENT -u CLAUDECODE npx jest --verbose`) to see it.
+
+CI: GitHub Actions (`.github/workflows/ci.yml`, Node 22 + 24) runs on PRs; CircleCI (`cimg/node:24.22`) runs `yarn build` and `npm publish` on `v*` tags.
 
 ## Architecture
 
-Each filter lives in `src/filters/<name>/` with three files:
-- `<name>.js` — exports a function `(Vue) => { ... }` that does two things: registers a global filter `Vue.filter('morph-<name>', ...)` and attaches the same logic as `Vue.prototype.$morph<Name>` so it can be called from component code. The filter wrapper usually returns early on falsy input; the prototype method does not.
-- `index.js` — `export * from './<name>'`
-- `<name>.test.js` — tests use `createLocalVue()` from `@vue/test-utils`, `localVue.use(fn)`, then assert on `localVue.prototype.$morph<Name>(...)`.
+- **Filters** (`src/filters/<name>/<name>.js`) export a plain function plus a definition `{ filter: 'morph-x', method: '$morphX', fn }`. No Vue API calls.
+- **Directives** (`src/directives/<name>/index.js`) export `{ directive: 'morph-x', apply(el, binding) }`. They read `el.textContent`, and must build HTML only through `src/lib/html.js` (`escapeHtml` / `replaceMatches`), which escapes all text. Writing unescaped text to `innerHTML` reintroduces an XSS bug fixed in v2.
+- **`src/utils/register.js`** is the only Vue-version-aware code. It detects the runtime from what `use()` receives: a Vue 3 app has `config.globalProperties`; Vue 2 gets the constructor. Vue 2 gets `Vue.filter('morph-x')` + `Vue.prototype.$morphX` (the filter wrapper returns `undefined` for falsy input). Vue 3 gets `app.config.globalProperties.$morphX` only (no filters in Vue 3). Directives register `bind` (Vue 2) or `mounted` (Vue 3).
+- **`src/index.js`** is the public API. It builds a standalone plugin per definition (`morph*`, `vMorph*`), plus `VueMorphling` (installs everything) and `morphFilters` (the plain functions, keyed by method name without `$morph`).
 
-Directives in `src/directives/<name>/index.js` follow the same `(Vue) => Vue.directive('morph-<name>', { bind })` shape and have no tests. They rewrite `el.innerHTML` from the element's `innerText`.
+**Adding a filter or directive touches:** its own folder, the barrel (`src/filters/index.js` or `src/directives/index.js`), `src/index.js` (the `filters`/`directives` array and a standalone export), `types/vue-morphling.d.ts`, and `DOC.md`.
 
-`src/index.js` is the public API. It wraps every filter/directive registration function in a Vue plugin object (`morph<Name>` for filters, `vMorph<Name>` for directives) and exports `VueMorphling`, which installs everything.
+`src/lib/` holds the shared helpers: `currencies.js` (static table), `format-bytes.js` (wraps filesize 11 and keeps the 1.x base-2/JEDEC defaults unless the caller passes `base`/`standard`), `utf8-length.js` (used instead of `TextEncoder`, which jsdom lacks), and `html.js`.
 
-**Adding a filter or directive requires touching three places:** its own folder, the barrel (`src/filters/index.js` or `src/directives/index.js`), and `src/index.js` (both a standalone plugin export *and* a call inside `VueMorphling.install`). Note that `replace` is currently exported as `morphReplace` but is missing from `VueMorphling.install`.
+## Tests
 
-`src/lib/currencies.js` is the static currency code/symbol table used by `morph-currency`.
+`test/vue.js` is the shared harness. `targets` holds the Vue 2 (`vue2` alias → `npm:vue@2.7`) and Vue 3 (`vue`) runtimes. `target.install(plugin)` returns `{ globals, render(template, data) }` with real mounted apps, torn down after each test. `describeFilter(plugin, { filter, method, cases })` checks each case via `morphFilters`, the global method, a template method call and (Vue 2 only) the pipe syntax. Tests import the public plugins from `src/index`.
 
-## Build output quirks
+## Build output
 
-`rollup.config.js` emits `dist/index.js` (ESM, the package `main`) and `dist/vue-stripe-checkout.js` (UMD with global `VueStripeCheckout`). These names are leftovers copied from another project. The docs reference `dist/vue-morphling.js` and a `VueMorphling` global, which the current build does not produce.
+`rollup.config.mjs` emits `dist/vue-morphling.mjs` (ESM) and `.cjs` (CJS) with runtime deps (`date-fns`, `filesize`) external, plus `dist/vue-morphling.js` (UMD, minified, deps bundled, global `VueMorphling`). The build does not run Babel; Babel is only used by Jest. Types live in `types/` (hand-written, not generated).
 
 ## Docs
 
-User-facing docs are in `DOC.md`, mirrored to GitBook (https://jofftiquez.gitbook.io/vue-morphling/). `README.md` is only a short stub. CONTRIBUTING asks contributors to document new filters/directives; add them to `DOC.md`.
+User-facing docs are in `DOC.md`, mirrored to GitBook (https://jofftiquez.gitbook.io/vue-morphling/). `README.md` is a short intro.
