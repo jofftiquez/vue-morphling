@@ -7,10 +7,15 @@ createApp({}).use(VueMorphling).use(morphCapitalize).use(vMorphUrl);
 const age: number = morphFilters.age(new Date());
 const reversed: number[] = morphFilters.arrReverse([1, 2, 3]);
 const sorted: { a: number }[] = morphFilters.arrSort([{ a: 1 }], 'a', 'asc');
-const size: string = morphFilters.fileSize(1024, { round: 0 });
+const size: string | undefined = morphFilters.fileSize(1024, { round: 0 });
+
+// @ts-expect-error fileSize can return undefined for non-numeric input
+const strictSize: string = morphFilters.fileSize('abc');
 
 // @ts-expect-error sort key must exist on the items
 morphFilters.arrSort([{ a: 1 }], 'b', 'asc');
+// @ts-expect-error sort key must hold numbers
+morphFilters.arrSort([{ a: 1, name: 'x' }], 'name', 'asc');
 // @ts-expect-error direction is 'asc' | 'desc'
 morphFilters.arrSort([{ a: 1 }], 'a', 'up');
 
@@ -24,4 +29,4 @@ defineComponent({
   }
 });
 
-export { age, reversed, sorted, size };
+export { age, reversed, sorted, size, strictSize };

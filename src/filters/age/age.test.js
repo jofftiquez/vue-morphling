@@ -24,4 +24,13 @@ describe('birthday not reached yet this year', () => {
     const [y, m, d] = birthday.split('-').map(Number);
     expect(targets[0].install(age).globals.$morphAge(new Date(y, m - 1, d))).toBe(expected);
   });
+
+  // jest.config.js pins TZ to America/New_York, where new Date('1990-01-02')
+  // is still Jan 1 locally.
+  it.each([
+    ['1990-01-02', 35],
+    ['1990-01-01', 36]
+  ])('reads the date-only string %s as a local date (%i)', (birthday, expected) => {
+    expect(targets[0].install(age).globals.$morphAge(birthday)).toBe(expected);
+  });
 });

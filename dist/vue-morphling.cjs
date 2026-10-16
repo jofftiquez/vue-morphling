@@ -4,9 +4,19 @@
 var dateFns = require('date-fns');
 var filesize = require('filesize');
 
+const dateOnly = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+// `new Date('1990-01-15')` is UTC midnight, which is the previous day west of
+// UTC. A birthday has no time zone, so read date-only strings as local dates.
+function toBirthday (date) {
+  if (date instanceof Date) return date;
+  const parts = typeof date === 'string' && date.match(dateOnly);
+  return parts ? new Date(+parts[1], parts[2] - 1, +parts[3]) : new Date(date);
+}
+
 function morphAge$1 (date) {
   const today = new Date();
-  const birthday = date instanceof Date ? date : new Date(date);
+  const birthday = toBirthday(date);
   const age = today.getFullYear() - birthday.getFullYear();
   const months = today.getMonth() - birthday.getMonth();
   const birthdayPending = months < 0 || (months === 0 && today.getDate() < birthday.getDate());
@@ -1537,8 +1547,9 @@ function utf8Length (str) {
 }
 
 function morphObjectSize$1 (value, option) {
+  // JSON.stringify returns undefined for undefined, functions and symbols.
   const json = JSON.stringify(value);
-  return formatBytes(utf8Length(json), option);
+  return formatBytes(json === undefined ? 0 : utf8Length(json), option);
 }
 
 const objectSize = { filter: 'morph-object-size', method: '$morphObjectSize', fn: morphObjectSize$1 };
@@ -1671,16 +1682,19 @@ const isVue3 = (app) => Boolean(app && app.config && app.config.globalProperties
 
 // Vue 2: a global `morph-*` filter plus `Vue.prototype.$morph*`.
 // Vue 3 has no filters, so only `app.config.globalProperties.$morph*`.
+// (A Vue 3 app running @vue/compat also has `app.filter`, so it gets both.)
 function registerFilter (app, { filter, method, fn }) {
+  if (typeof app.filter === 'function') {
+    app.filter(filter, (value, ...args) => {
+      if (!value) return;
+      return fn(value, ...args);
+    });
+  }
   if (isVue3(app)) {
     app.config.globalProperties[method] = fn;
-    return;
+  } else {
+    app.prototype[method] = fn;
   }
-  app.filter(filter, (value, ...args) => {
-    if (!value) return;
-    return fn(value, ...args);
-  });
-  app.prototype[method] = fn;
 }
 
 // Directives run once the element and its children exist: `bind` in Vue 2,

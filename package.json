@@ -9,9 +9,14 @@
   "types": "types/vue-morphling.d.ts",
   "exports": {
     ".": {
-      "types": "./types/vue-morphling.d.ts",
-      "import": "./dist/vue-morphling.mjs",
-      "require": "./dist/vue-morphling.cjs"
+      "import": {
+        "types": "./dist/vue-morphling.d.mts",
+        "default": "./dist/vue-morphling.mjs"
+      },
+      "require": {
+        "types": "./dist/vue-morphling.d.cts",
+        "default": "./dist/vue-morphling.cjs"
+      }
     },
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"

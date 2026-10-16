@@ -4,16 +4,19 @@ export const isVue3 = (app) => Boolean(app && app.config && app.config.globalPro
 
 // Vue 2: a global `morph-*` filter plus `Vue.prototype.$morph*`.
 // Vue 3 has no filters, so only `app.config.globalProperties.$morph*`.
+// (A Vue 3 app running @vue/compat also has `app.filter`, so it gets both.)
 export function registerFilter (app, { filter, method, fn }) {
+  if (typeof app.filter === 'function') {
+    app.filter(filter, (value, ...args) => {
+      if (!value) return;
+      return fn(value, ...args);
+    });
+  }
   if (isVue3(app)) {
     app.config.globalProperties[method] = fn;
-    return;
+  } else {
+    app.prototype[method] = fn;
   }
-  app.filter(filter, (value, ...args) => {
-    if (!value) return;
-    return fn(value, ...args);
-  });
-  app.prototype[method] = fn;
 }
 
 // Directives run once the element and its children exist: `bind` in Vue 2,

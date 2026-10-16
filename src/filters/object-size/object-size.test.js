@@ -1,4 +1,4 @@
-import { morphObjectSize as objectSize } from '../../index';
+import { morphFilters, morphObjectSize as objectSize } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(objectSize, {
@@ -8,4 +8,8 @@ describeFilter(objectSize, {
     { title: 'formats the object size', args: [{ a: 'test obj size' }, { base: 0 }], expected: '21 B' },
     { title: 'counts multi-byte characters as utf-8 bytes', args: [{ a: '₱' }], expected: '11 B' }
   ]
+});
+
+it.each([undefined, () => {}, Symbol('x')])('reports 0 B for values JSON cannot encode (%p)', (value) => {
+  expect(morphFilters.objectSize(value)).toBe('0 B');
 });

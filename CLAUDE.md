@@ -33,11 +33,11 @@ CI: GitHub Actions (`.github/workflows/ci.yml`, Node 22 + 24) runs on PRs; Circl
 
 ## Tests
 
-`test/vue.js` is the shared harness. `targets` holds the Vue 2.7 (`vue2` alias → `npm:vue@2.7`), Vue 2.6 (`vue26` alias → `npm:vue@2.6.14`) and Vue 3 (`vue`) runtimes. `target.install(plugin)` returns `{ globals, render(template, data) }` with real mounted apps, torn down after each test. `describeFilter(plugin, { filter, method, cases })` checks each case via `morphFilters`, the global method, a template method call and (Vue 2 only) the pipe syntax. Tests import the public plugins from `src/index`.
+`test/vue.js` is the shared harness. `targets` holds the Vue 2.7 (`vue2` alias → `npm:vue@2.7`), Vue 2.6 (`vue26` alias → `npm:vue@2.6.14`) and Vue 3 (`vue`) runtimes. `target.install(plugin)` returns `{ globals, render(template, data) }` with real mounted apps, torn down after each test. `describeFilter(plugin, { filter, method, cases })` checks each case via `morphFilters`, the global method, a template method call and (Vue 2 only) the pipe syntax. Tests import the public plugins from `src/index`. `jest.config.js` pins `TZ=America/New_York` so date tests are deterministic.
 
 ## Build output
 
-`rollup.config.mjs` emits `dist/vue-morphling.mjs` (ESM) and `.cjs` (CJS) with runtime deps (`date-fns`, `filesize`) external, plus `dist/vue-morphling.js` (UMD, minified, deps bundled, global `VueMorphling`). The build does not run Babel; Babel is only used by Jest. Types live in `types/` (hand-written, not generated).
+`rollup.config.mjs` emits `dist/vue-morphling.mjs` (ESM) and `.cjs` (CJS) with runtime deps (`date-fns`, `filesize`) external, plus `dist/vue-morphling.js` (UMD, minified, deps bundled, global `VueMorphling`). The build does not run Babel; Babel is only used by Jest. Types are hand-written in `types/vue-morphling.d.ts` (the single source, also the top-level `types` for `node10` resolution); the build copies it to `dist/vue-morphling.d.mts` / `.d.cts` so the `exports` `import`/`require` conditions each get matching ESM/CJS declarations. Check with `npx @arethetypeswrong/cli` on an `npm pack` tarball.
 
 ## Docs
 

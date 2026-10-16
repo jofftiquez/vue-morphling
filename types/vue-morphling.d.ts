@@ -8,16 +8,20 @@ export interface MorphPlugin {
 /** Options forwarded to filesize (https://github.com/avoidwork/filesize.js). */
 export type FileSizeOptions = Record<string, unknown>;
 
+/** Keys of T whose values are numbers (arrSort compares with `a[key] - b[key]`). */
+type NumericKeys<T> = { [K in keyof T]: T[K] extends number ? K : never }[keyof T];
+
 /** The plain functions behind every filter. */
 export interface MorphFilters {
   age (date: Date | number | string): number;
   arrReverse<T> (value: T[]): T[];
-  arrSort<T> (value: T[], key: keyof T, direction: 'asc' | 'desc'): T[];
+  arrSort<T> (value: T[], key: NumericKeys<T>, direction: 'asc' | 'desc'): T[];
   capitalize (value: unknown): string;
   chop (value: unknown, length: number, location?: 'start' | 'end'): string;
   currency (value: unknown, code?: string): string;
   dateFormat (value: Date | number | string, format: string): string;
-  fileSize (value: number | string, options?: FileSizeOptions): string;
+  /** `undefined` (with a console warning) when `value` is not numeric. */
+  fileSize (value: number | string, options?: FileSizeOptions): string | undefined;
   json (value: unknown, indent?: number | string): string;
   lowercase (value: unknown): string;
   objectSize (value: unknown, options?: FileSizeOptions): string;
