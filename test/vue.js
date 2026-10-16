@@ -8,6 +8,12 @@ import { morphFilters } from '../src/index';
 Vue2.config.productionTip = false;
 Vue2.config.devtools = false;
 
+// Tear down everything a test mounted so no app outlives its test file.
+const mounted = [];
+afterEach(() => {
+  while (mounted.length) mounted.pop()();
+});
+
 const vue2 = {
   name: 'Vue 2',
   version: Vue2.version,
@@ -22,6 +28,7 @@ const vue2 = {
           template: `<div>${template}</div>`,
           data: () => data
         }).$mount();
+        mounted.push(() => vm.$destroy());
         return vm.$el;
       }
     };
@@ -39,10 +46,12 @@ const vue3 = {
       globals: app.config.globalProperties,
       render (template, data = {}) {
         const el = document.createElement('div');
-        Vue3.createApp({
+        const app = Vue3.createApp({
           template: `<div>${template}</div>`,
           data: () => data
-        }).use(plugin, options).mount(el);
+        }).use(plugin, options);
+        app.mount(el);
+        mounted.push(() => app.unmount());
         return el.firstElementChild;
       }
     };
