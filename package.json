@@ -34,9 +34,8 @@
     "build": "rollup -c"
   },
   "dependencies": {
-    "date-fns": "^2.30.0",
-    "filesize": "^6.1.0",
-    "utf8-length": "^0.0.1"
+    "date-fns": "^4.4.0",
+    "filesize": "^11.0.26"
   },
   "devDependencies": {
     "@babel/core": "^8.0.7",

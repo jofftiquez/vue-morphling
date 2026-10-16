@@ -1,5 +1,5 @@
-import bytes from 'utf8-length';
-import filesize from 'filesize';
+import { formatBytes } from '../../lib/format-bytes';
+import { utf8Length } from '../../lib/utf8-length';
 
 export const objectSize = (Vue) => {
   Vue.filter('morph-object-size', (value, option) => {
@@ -12,8 +12,7 @@ export const objectSize = (Vue) => {
   };
 
   function go (value, option) {
-    let json = null;
-    json = JSON.stringify(value);
-    return filesize(bytes(json), option);
+    const json = JSON.stringify(value);
+    return formatBytes(utf8Length(json), option);
   }
 };

@@ -3,7 +3,6 @@
 
 var dateFns = require('date-fns');
 var filesize = require('filesize');
-var bytes = require('utf8-length');
 
 const age = (Vue) => {
   Vue.filter('morph-age', (value) => {
@@ -1554,6 +1553,15 @@ const dateFormat = (Vue) => {
   }
 };
 
+// filesize >= 10 defaults to SI units (1000 B = 1 kB). Keep morphling's
+// established output (1024 B = 1 KB) unless the caller picks a base or standard.
+function formatBytes (bytes, options = {}) {
+  const legacy = options.base === undefined && options.standard === undefined
+    ? { base: 2, standard: 'jedec' }
+    : {};
+  return filesize.filesize(bytes, { ...legacy, ...options });
+}
+
 const fileSize = (Vue) => {
   Vue.filter('morph-file-size', (value, option) => {
     if (!value) return;
@@ -1570,7 +1578,7 @@ const fileSize = (Vue) => {
       console.warn('Warn: value must be a number.');
       return;
     }
-    return filesize(num, option);
+    return formatBytes(num, option);
   }
 };
 
@@ -1605,6 +1613,18 @@ const lowerCase = (Vue) => {
   }
 };
 
+// Number of bytes `str` takes when UTF-8 encoded. Same result as
+// `new TextEncoder().encode(str).length`, without depending on TextEncoder
+// (missing in jsdom and some SSR/edge runtimes).
+function utf8Length (str) {
+  let bytes = 0;
+  for (const char of str) {
+    const code = char.codePointAt(0);
+    bytes += code < 0x80 ? 1 : code < 0x800 ? 2 : code < 0x10000 ? 3 : 4;
+  }
+  return bytes;
+}
+
 const objectSize = (Vue) => {
   Vue.filter('morph-object-size', (value, option) => {
     if (!value) return;
@@ -1616,9 +1636,8 @@ const objectSize = (Vue) => {
   };
 
   function go (value, option) {
-    let json = null;
-    json = JSON.stringify(value);
-    return filesize(bytes(json), option);
+    const json = JSON.stringify(value);
+    return formatBytes(utf8Length(json), option);
   }
 };
 

@@ -1,4 +1,4 @@
-import filesize from 'filesize';
+import { formatBytes } from '../../lib/format-bytes';
 
 export const fileSize = (Vue) => {
   Vue.filter('morph-file-size', (value, option) => {
@@ -16,6 +16,6 @@ export const fileSize = (Vue) => {
       console.warn('Warn: value must be a number.');
       return;
     }
-    return filesize(num, option);
+    return formatBytes(num, option);
   }
 };
