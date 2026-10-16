@@ -1,4 +1,4 @@
-import { chop } from './chop';
+import { morphChop as chop } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(chop, {

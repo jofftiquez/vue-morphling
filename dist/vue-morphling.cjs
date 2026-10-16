@@ -4,101 +4,56 @@
 var dateFns = require('date-fns');
 var filesize = require('filesize');
 
-const age = (Vue) => {
-  Vue.filter('morph-age', (value) => {
-    if (!value) return;
-    return calculateAge(value);
-  });
+function morphAge$1 (date) {
+  const today = new Date();
+  const birthday = date instanceof Date ? date : new Date(date);
+  const age = today.getFullYear() - birthday.getFullYear();
+  const months = today.getMonth() - birthday.getMonth();
+  const birthdayPending = months < 0 || (months === 0 && today.getDate() < birthday.getDate());
+  return birthdayPending ? age - 1 : age;
+}
 
-  Vue.prototype.$morphAge = (value) => {
-    return calculateAge(value);
-  };
+const age = { filter: 'morph-age', method: '$morphAge', fn: morphAge$1 };
 
-  function calculateAge (date) {
-    const today = new Date();
-    const birthday = date instanceof Date ? date : new Date(date);
-    const age = today.getFullYear() - birthday.getFullYear();
-    const months = today.getMonth() - birthday.getMonth();
-    const birthdayPending = months < 0 || (months === 0 && today.getDate() < birthday.getDate());
-    return birthdayPending ? age - 1 : age;
+function morphArrReverse$1 (value) {
+  if (!Array.isArray(value)) {
+    console.warn('Morphling Warn: morph-arr-reverse expects an array.');
+    return value;
   }
-};
+  // Copy first: reversing in place would mutate reactive state during render.
+  return [...value].reverse();
+}
 
-const arrReverse = (Vue) => {
-  Vue.filter('morph-arr-reverse', (value) => {
-    if (!value) return;
-    return reverse(value);
-  });
+const arrReverse = { filter: 'morph-arr-reverse', method: '$morphArrReverse', fn: morphArrReverse$1 };
 
-  Vue.prototype.$morphArrReverse = (value) => {
-    return reverse(value);
-  };
-
-  function reverse (value) {
-    if (!Array.isArray(value)) {
-      console.warn('Morphling Warn: morph-arr-reverse expects an array.');
-      return value;
-    }
-    // Copy first: reversing in place would mutate reactive state during render.
-    return [...value].reverse();
+function morphArrSort$1 (value, key, direction) {
+  if (!Array.isArray(value)) {
+    console.warn('Morphling Warn: morph-arr-sort expects an array.');
+    return value;
   }
-};
+  // Copy first: sorting in place would mutate reactive state during render.
+  if (direction === 'asc') return [...value].sort((a, b) => a[key] - b[key]);
+  if (direction === 'desc') return [...value].sort((a, b) => b[key] - a[key]);
+}
 
-const arrSort = (Vue) => {
-  Vue.filter('morph-arr-sort', (value, key, direction) => {
-    if (!value) return;
-    return sort(value, key, direction);
-  });
+const arrSort = { filter: 'morph-arr-sort', method: '$morphArrSort', fn: morphArrSort$1 };
 
-  Vue.prototype.$morphArrSort = (value, key, direction) => {
-    return sort(value, key, direction);
-  };
+function morphCapitalize$1 (value) {
+  if (typeof value !== 'string') value = value.toString();
+  return `${value.charAt(0).toUpperCase()}${value.substring(1)}`;
+}
 
-  function sort (value, key, direction) {
-    if (!Array.isArray(value)) {
-      console.warn('Morphling Warn: morph-arr-sort expects an array.');
-      return value;
-    }
-    // Copy first: sorting in place would mutate reactive state during render.
-    if (direction === 'asc') return [...value].sort((a, b) => a[key] - b[key]);
-    if (direction === 'desc') return [...value].sort((a, b) => b[key] - a[key]);
-  }
-};
+const capitalize = { filter: 'morph-capitalize', method: '$morphCapitalize', fn: morphCapitalize$1 };
 
-const capitalize = (Vue) => {
-  Vue.filter('morph-capitalize', (value) => {
-    if (!value) return;
-    return capitalize(value);
-  });
+function morphChop$1 (value, length, location) {
+  if (!length) return 'Warn: option length (number) is required. morph-morphChop(length, location)';
+  if (!location) location = 'end';
+  if (typeof value !== 'string') value = value.toString();
+  if (location === 'end') { return value.toString().slice(0, ~length + 1); }
+  if (location === 'start') { return value.toString().substring(length); }
+}
 
-  Vue.prototype.$morphCapitalize = (value) => {
-    return capitalize(value);
-  };
-
-  function capitalize (value) {
-    if (typeof value !== 'string') value = value.toString();
-    return `${value.charAt(0).toUpperCase()}${value.substring(1)}`;
-  }
-};
-
-const chop = (Vue) => {
-  Vue.filter('morph-chop', (value, length, location) => {
-    if (!value) return;
-    return chop(value, length, location);
-  });
-
-  Vue.prototype.$morphChop = (value, length, location) => {
-    return chop(value, length, location);
-  };
-
-  function chop (value, length, location) {
-    if (!length) return 'Warn: option length (number) is required. morph-chop(length, location)';
-    if (!location) location = 'end';
-    if (typeof value !== 'string') value = value.toString();
-    if (location === 'end') { return value.toString().slice(0, ~length + 1); }
-    if (location === 'start') { return value.toString().substring(length); }
-  }
-};
+const chop = { filter: 'morph-chop', method: '$morphChop', fn: morphChop$1 };
 
 var currencies = [
   {
@@ -1515,44 +1470,26 @@ var currencies = [
   }
 ];
 
-const currency = (Vue) => {
-  Vue.filter('morph-currency', (value, code, useSymbol) => {
-    if (!value) return;
-    return sandwich(value, code);
-  });
-
-  Vue.prototype.$morphCurrency = (value, code, useSymbol) => {
-    return sandwich(value, code);
-  };
-
-  function sandwich (value, code, useSymbol) {
-    let preffix = '';
-    if (!code) code = 'USD';
-    const match = currencies.filter(item => code === item.code);
-    if (match.length === 0) {
-      preffix = '$';
-      console.warn(`Morphling Warn: The provided code '${code}' does not exist. Replaced with default $ symbol.`);
-    } else {
-      preffix = match[0].symbol;
-    }
-    return `${preffix}${value}`;
+function morphCurrency$1 (value, code, useSymbol) {
+  let preffix = '';
+  if (!code) code = 'USD';
+  const match = currencies.filter(item => code === item.code);
+  if (match.length === 0) {
+    preffix = '$';
+    console.warn(`Morphling Warn: The provided code '${code}' does not exist. Replaced with default $ symbol.`);
+  } else {
+    preffix = match[0].symbol;
   }
-};
+  return `${preffix}${value}`;
+}
 
-const dateFormat = (Vue) => {
-  Vue.filter('morph-date-format', (value, formatting) => {
-    if (!value) return;
-    return morphDateFormat(value, formatting);
-  });
+const currency = { filter: 'morph-currency', method: '$morphCurrency', fn: morphCurrency$1 };
 
-  Vue.prototype.$morphDateFormat = (value, formatting) => {
-    return morphDateFormat(value, formatting);
-  };
+function morphDateFormat$1 (value, formatting) {
+  return dateFns.format(value, formatting);
+}
 
-  function morphDateFormat (value, formatting) {
-    return dateFns.format(value, formatting);
-  }
-};
+const dateFormat = { filter: 'morph-date-format', method: '$morphDateFormat', fn: morphDateFormat$1 };
 
 // filesize >= 10 defaults to SI units (1000 B = 1 kB). Keep morphling's
 // established output (1024 B = 1 KB) unless the caller picks a base or standard.
@@ -1563,56 +1500,29 @@ function formatBytes (bytes, options = {}) {
   return filesize.filesize(bytes, { ...legacy, ...options });
 }
 
-const fileSize = (Vue) => {
-  Vue.filter('morph-file-size', (value, option) => {
-    if (!value) return;
-    return go(value, option);
-  });
-
-  Vue.prototype.$morphFileSize = (value, option) => {
-    return go(value, option);
-  };
-
-  function go (value, option) {
-    const num = +value;
-    if (Number.isNaN(num)) {
-      console.warn('Warn: value must be a number.');
-      return;
-    }
-    return formatBytes(num, option);
+function morphFileSize$1 (value, option) {
+  const num = +value;
+  if (Number.isNaN(num)) {
+    console.warn('Warn: value must be a number.');
+    return;
   }
-};
+  return formatBytes(num, option);
+}
 
-const json = (Vue) => {
-  Vue.filter('morph-json', (value, indent) => {
-    if (!value) return;
-    return json(value, indent);
-  });
+const fileSize = { filter: 'morph-file-size', method: '$morphFileSize', fn: morphFileSize$1 };
 
-  Vue.prototype.$morphJson = (value, indent) => {
-    return json(value, indent);
-  };
+function morphJson$1 (value, indent) {
+  return JSON.stringify(value, null, indent);
+}
 
-  function json (value, indent) {
-    return JSON.stringify(value, null, indent);
-  }
-};
+const json = { filter: 'morph-json', method: '$morphJson', fn: morphJson$1 };
 
-const lowerCase = (Vue) => {
-  Vue.filter('morph-lowercase', (value) => {
-    if (!value) return;
-    return lowercase(value);
-  });
+function morphLowercase (value) {
+  if (typeof value !== 'string') value = value.toString();
+  return value.toLowerCase();
+}
 
-  Vue.prototype.$morphLowercase = (value) => {
-    return lowercase(value);
-  };
-
-  function lowercase (value) {
-    if (typeof value !== 'string') value = value.toString();
-    return value.toLowerCase();
-  }
-};
+const lowerCase = { filter: 'morph-lowercase', method: '$morphLowercase', fn: morphLowercase };
 
 // Number of bytes `str` takes when UTF-8 encoded. Same result as
 // `new TextEncoder().encode(str).length`, without depending on TextEncoder
@@ -1626,67 +1536,31 @@ function utf8Length (str) {
   return bytes;
 }
 
-const objectSize = (Vue) => {
-  Vue.filter('morph-object-size', (value, option) => {
-    if (!value) return;
-    return go(value, option);
-  });
+function morphObjectSize$1 (value, option) {
+  const json = JSON.stringify(value);
+  return formatBytes(utf8Length(json), option);
+}
 
-  Vue.prototype.$morphObjectSize = (value, option) => {
-    return go(value, option);
-  };
+const objectSize = { filter: 'morph-object-size', method: '$morphObjectSize', fn: morphObjectSize$1 };
 
-  function go (value, option) {
-    const json = JSON.stringify(value);
-    return formatBytes(utf8Length(json), option);
-  }
-};
+function morphPlaceholder$1 (value, placeholder) {
+  return placeholder;
+}
 
-const placeholder = (Vue) => {
-  Vue.filter('morph-placeholder', (value, placeholder) => {
-    if (!value) return;
-    return replace(value, placeholder);
-  });
+const placeholder = { filter: 'morph-placeholder', method: '$morphPlaceholder', fn: morphPlaceholder$1 };
 
-  Vue.prototype.$morphPlaceholder = (value, placeholder) => {
-    return replace(value, placeholder);
-  };
+function morphReplace$1 (value, replacee, replacer) {
+  return value.replace(replacee, replacer);
+}
 
-  function replace (value, placeholder) {
-    return placeholder;
-  }
-};
+const replace = { filter: 'morph-replace', method: '$morphReplace', fn: morphReplace$1 };
 
-const replace = (Vue) => {
-  Vue.filter('morph-replace', (value, replacee, replacer) => {
-    if (!value) return;
-    return replace(value, replacee, replacer);
-  });
+function morphReverse$1 (value) {
+  if (typeof value !== 'string') value = value.toString();
+  return value.split('').reverse().join('');
+}
 
-  Vue.prototype.$morphReplace = (value, replacee, replacer) => {
-    return replace(value, replacee, replacer);
-  };
-
-  function replace (value, replacee, replacer) {
-    return value.replace(replacee, replacer);
-  }
-};
-
-const reverse = (Vue) => {
-  Vue.filter('morph-reverse', (value) => {
-    if (!value) return;
-    return reverse(value);
-  });
-
-  Vue.prototype.$morphReverse = (value) => {
-    return reverse(value);
-  };
-
-  function reverse (value) {
-    if (typeof value !== 'string') value = value.toString();
-    return value.split('').reverse().join('');
-  }
-};
+const reverse = { filter: 'morph-reverse', method: '$morphReverse', fn: morphReverse$1 };
 
 const corpus = {
   '<': '>',
@@ -1700,62 +1574,35 @@ const corpus = {
 };
 const corpusRegex = /(<|>|\[|\]|\(|\)|\{|\})/g;
 
-const sandwich = (Vue) => {
-  Vue.filter('morph-sandwich', (value, start, end) => {
-    if (!value) return;
-    return sandwich(value, start, end);
-  });
+function flip (str) {
+  return str.replace(corpusRegex, match => corpus[match])
+    .split('')
+    .reverse()
+    .join('');
+}
 
-  Vue.prototype.$morphSandwich = (value, start, end) => {
-    return sandwich(value, start, end);
-  };
+function morphSandwich$1 (value, start, end) {
+  start = start || '';
+  end = end || flip(start);
 
-  function flip (str) {
-    return str.replace(corpusRegex, match => corpus[match])
-      .split('')
-      .reverse()
-      .join('');
-  }
+  return `${start}${value}${end}`;
+}
 
-  function sandwich (value, start, end) {
-    start = start || '';
-    end = end || flip(start);
+const sandwich = { filter: 'morph-sandwich', method: '$morphSandwich', fn: morphSandwich$1 };
 
-    return `${start}${value}${end}`;
-  }
-};
+function morphTruncate$1 (value, length) {
+  if (value.length <= length) return value;
+  return `${value.substr(0, length)}…`;
+}
 
-const truncate = (Vue) => {
-  Vue.filter('morph-truncate', (value, length) => {
-    if (!value) return;
-    return truncate(value, length);
-  });
+const truncate = { filter: 'morph-truncate', method: '$morphTruncate', fn: morphTruncate$1 };
 
-  Vue.prototype.$morphTruncate = (value, length) => {
-    return truncate(value, length);
-  };
+function morphUppercase (value) {
+  if (typeof value !== 'string') value = value.toString();
+  return value.toUpperCase();
+}
 
-  function truncate (value, length) {
-    if (value.length <= length) return value;
-    return `${value.substr(0, length)}…`;
-  }
-};
-
-const uppercase = (Vue) => {
-  Vue.filter('morph-uppercase', (value) => {
-    if (!value) return;
-    return uppercase(value);
-  });
-
-  Vue.prototype.$morphUppercase = (value) => {
-    return uppercase(value);
-  };
-
-  function uppercase (value) {
-    if (typeof value !== 'string') value = value.toString();
-    return value.toUpperCase();
-  }
-};
+const uppercase = { filter: 'morph-uppercase', method: '$morphUppercase', fn: morphUppercase };
 
 const entities = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 
@@ -1784,198 +1631,115 @@ function replaceMatches (text, re, toHtml) {
 
 const re$1 = /\b(https|http|ftp)?:\/\/\S+/gi;
 
-const url = (Vue) => {
-  Vue.directive('morph-url', {
-    bind
-  });
+function apply$2 (el, binding) {
+  const html = replaceMatches(el.textContent, re$1, link =>
+    `<a target="_blank" rel="noopener noreferrer" href="${escapeHtml(link)}" style="${escapeHtml(binding.value || '')}">${escapeHtml(link)}</a>`
+  );
+  if (html !== null) el.innerHTML = html;
+}
 
-  function bind (el, binding) {
-    const html = replaceMatches(el.textContent, re$1, link =>
-      `<a target="_blank" rel="noopener noreferrer" href="${escapeHtml(link)}" style="${escapeHtml(binding.value || '')}">${escapeHtml(link)}</a>`
-    );
-    if (html !== null) el.innerHTML = html;
-  }
-};
+const url = { directive: 'morph-url', apply: apply$2 };
 
 // RFC 5322 pattern: control characters and escapes are intentional.
 // eslint-disable-next-line no-control-regex, no-useless-escape
 const re = /(?:[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gi;
 
-const email = (Vue) => {
-  Vue.directive('morph-email', {
-    bind
-  });
+function apply$1 (el) {
+  const html = replaceMatches(el.textContent, re, address =>
+    `<a target="_blank" rel="noopener noreferrer" href="mailto:${escapeHtml(address)}">${escapeHtml(address)}</a>`
+  );
+  if (html !== null) el.innerHTML = html;
+}
 
-  function bind (el) {
-    const html = replaceMatches(el.textContent, re, address =>
-      `<a target="_blank" rel="noopener noreferrer" href="mailto:${escapeHtml(address)}">${escapeHtml(address)}</a>`
-    );
-    if (html !== null) el.innerHTML = html;
+const email = { directive: 'morph-email', apply: apply$1 };
+
+function apply (el, binding) {
+  if (!binding.value) return;
+  const [term, color = ''] = binding.value.split('::');
+  if (!term) return;
+  const html = replaceMatches(el.textContent, new RegExp(escapeRegExp(term), 'gi'), match =>
+    `<mark style="background-color: ${escapeHtml(color)}">${escapeHtml(match)}</mark>`
+  );
+  if (html !== null) el.innerHTML = html;
+}
+
+const highlight = { directive: 'morph-highlight', apply };
+
+// `Vue.use(plugin)` hands Vue 2 plugins the Vue constructor and Vue 3 plugins
+// the app instance. Only the Vue 3 app has `config.globalProperties`.
+const isVue3 = (app) => Boolean(app && app.config && app.config.globalProperties);
+
+// Vue 2: a global `morph-*` filter plus `Vue.prototype.$morph*`.
+// Vue 3 has no filters, so only `app.config.globalProperties.$morph*`.
+function registerFilter (app, { filter, method, fn }) {
+  if (isVue3(app)) {
+    app.config.globalProperties[method] = fn;
+    return;
   }
-};
-
-const highlight = (Vue) => {
-  Vue.directive('morph-highlight', {
-    bind
+  app.filter(filter, (value, ...args) => {
+    if (!value) return;
+    return fn(value, ...args);
   });
+  app.prototype[method] = fn;
+}
 
-  function bind (el, binding) {
-    if (!binding.value) return;
-    const [term, color = ''] = binding.value.split('::');
-    if (!term) return;
-    const html = replaceMatches(el.textContent, new RegExp(escapeRegExp(term), 'gi'), match =>
-      `<mark style="background-color: ${escapeHtml(color)}">${escapeHtml(match)}</mark>`
-    );
-    if (html !== null) el.innerHTML = html;
+// Directives run once the element and its children exist: `bind` in Vue 2,
+// `mounted` in Vue 3.
+function registerDirective (app, { directive, apply }) {
+  app.directive(directive, isVue3(app) ? { mounted: apply } : { bind: apply });
+}
+
+const filters = [age, arrReverse, arrSort, capitalize, chop, currency, dateFormat, fileSize, json, lowerCase, objectSize, placeholder, replace, reverse, sandwich, truncate, uppercase];
+const directives = [email, highlight, url];
+
+const filterPlugin = (definition) => ({
+  install (app) {
+    registerFilter(app, definition);
   }
-};
+});
+
+const directivePlugin = (definition) => ({
+  install (app) {
+    registerDirective(app, definition);
+  }
+});
 
 // Directives
-const vMorphHighlight = {
-  install (Vue, options) {
-    highlight(Vue);
-  }
-};
-
-const vMorphUrl = {
-  install (Vue, options) {
-    url(Vue);
-  }
-};
-
-const vMorphEmail = {
-  install (Vue, options) {
-    email(Vue);
-  }
-};
+const vMorphHighlight = directivePlugin(highlight);
+const vMorphUrl = directivePlugin(url);
+const vMorphEmail = directivePlugin(email);
 
 // Filters
-const morphAge = {
-  install (Vue, options) {
-    age(Vue);
-  }
-};
+const morphAge = filterPlugin(age);
+const morphArrReverse = filterPlugin(arrReverse);
+const morphArrSort = filterPlugin(arrSort);
+const morphCapitalize = filterPlugin(capitalize);
+const morphChop = filterPlugin(chop);
+const morphCurrency = filterPlugin(currency);
+const morphDateFormat = filterPlugin(dateFormat);
+const morphFileSize = filterPlugin(fileSize);
+const morphJson = filterPlugin(json);
+const morphLowerCase = filterPlugin(lowerCase);
+const morphObjectSize = filterPlugin(objectSize);
+const morphPlaceholder = filterPlugin(placeholder);
+const morphReplace = filterPlugin(replace);
+const morphReverse = filterPlugin(reverse);
+const morphSandwich = filterPlugin(sandwich);
+const morphTruncate = filterPlugin(truncate);
+const morphUpperCase = filterPlugin(uppercase);
 
-const morphArrReverse = {
-  install (Vue, options) {
-    arrReverse(Vue);
-  }
-};
-
-const morphArrSort = {
-  install (Vue, options) {
-    arrSort(Vue);
-  }
-};
-
-const morphCapitalize = {
-  install (Vue, options) {
-    capitalize(Vue);
-  }
-};
-
-const morphChop = {
-  install (Vue, options) {
-    chop(Vue);
-  }
-};
-
-const morphCurrency = {
-  install (Vue, options) {
-    currency(Vue);
-  }
-};
-
-const morphDateFormat = {
-  install (Vue, options) {
-    dateFormat(Vue);
-  }
-};
-
-const morphFileSize = {
-  install (Vue, options) {
-    fileSize(Vue);
-  }
-};
-
-const morphJson = {
-  install (Vue, options) {
-    json(Vue);
-  }
-};
-
-const morphLowerCase = {
-  install (Vue, options) {
-    lowerCase(Vue);
-  }
-};
-
-const morphObjectSize = {
-  install (Vue, options) {
-    objectSize(Vue);
-  }
-};
-
-const morphPlaceholder = {
-  install (Vue, options) {
-    placeholder(Vue);
-  }
-};
-
-const morphReplace = {
-  install (Vue, options) {
-    replace(Vue);
-  }
-};
-
-const morphReverse = {
-  install (Vue, options) {
-    reverse(Vue);
-  }
-};
-
-const morphSandwich = {
-  install (Vue, options) {
-    sandwich(Vue);
-  }
-};
-
-const morphTruncate = {
-  install (Vue, options) {
-    truncate(Vue);
-  }
-};
-
-const morphUpperCase = {
-  install (Vue, options) {
-    uppercase(Vue);
-  }
-};
+// The plain functions behind every filter, keyed like their `$morph*` method
+// (`$morphCapitalize` -> `morphFilters.capitalize`). Handy in Vue 3
+// `<script setup>`, where global properties are not in scope.
+const morphFilters = Object.fromEntries(filters.map(({ method, fn }) => [
+  method.charAt(6).toLowerCase() + method.slice(7),
+  fn
+]));
 
 const VueMorphling = {
-  install (Vue, options) {
-    // directives
-    email(Vue);
-    highlight(Vue);
-    url(Vue);
-    // filters
-    age(Vue);
-    arrReverse(Vue);
-    arrSort(Vue);
-    capitalize(Vue);
-    chop(Vue);
-    currency(Vue);
-    dateFormat(Vue);
-    fileSize(Vue);
-    json(Vue);
-    lowerCase(Vue);
-    objectSize(Vue);
-    placeholder(Vue);
-    replace(Vue);
-    reverse(Vue);
-    sandwich(Vue);
-    truncate(Vue);
-    uppercase(Vue);
+  install (app) {
+    directives.forEach(definition => registerDirective(app, definition));
+    filters.forEach(definition => registerFilter(app, definition));
   }
 };
 
@@ -1988,6 +1752,7 @@ exports.morphChop = morphChop;
 exports.morphCurrency = morphCurrency;
 exports.morphDateFormat = morphDateFormat;
 exports.morphFileSize = morphFileSize;
+exports.morphFilters = morphFilters;
 exports.morphJson = morphJson;
 exports.morphLowerCase = morphLowerCase;
 exports.morphObjectSize = morphObjectSize;

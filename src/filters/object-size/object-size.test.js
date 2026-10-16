@@ -1,4 +1,4 @@
-import { objectSize } from './object-size';
+import { morphObjectSize as objectSize } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(objectSize, {

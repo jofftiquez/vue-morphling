@@ -1,4 +1,4 @@
-import { truncate } from './truncate';
+import { morphTruncate as truncate } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(truncate, {

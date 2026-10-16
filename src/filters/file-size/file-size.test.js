@@ -1,4 +1,4 @@
-import { fileSize } from './file-size';
+import { morphFileSize as fileSize } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(fileSize, {

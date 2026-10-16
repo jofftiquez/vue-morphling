@@ -1,4 +1,4 @@
-import { url } from './index';
+import { vMorphUrl as url } from '../../index';
 import { targets } from '../../../test/vue';
 
 describe.each(targets)('v-morph-url on $name', (target) => {

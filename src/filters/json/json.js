@@ -1,14 +1,5 @@
-export const json = (Vue) => {
-  Vue.filter('morph-json', (value, indent) => {
-    if (!value) return;
-    return json(value, indent);
-  });
+function morphJson (value, indent) {
+  return JSON.stringify(value, null, indent);
+}
 
-  Vue.prototype.$morphJson = (value, indent) => {
-    return json(value, indent);
-  };
-
-  function json (value, indent) {
-    return JSON.stringify(value, null, indent);
-  }
-};
+export const json = { filter: 'morph-json', method: '$morphJson', fn: morphJson };

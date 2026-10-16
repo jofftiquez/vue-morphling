@@ -2,6 +2,8 @@
 // render templates with it. Every target listed in `targets` runs the same
 // specs, so a filter or directive is proven on each supported Vue major.
 import Vue2 from 'vue2/dist/vue.common.js';
+import * as Vue3 from 'vue';
+import { morphFilters } from '../src/index';
 
 Vue2.config.productionTip = false;
 Vue2.config.devtools = false;
@@ -26,13 +28,40 @@ const vue2 = {
   }
 };
 
-export const targets = [vue2];
+const vue3 = {
+  name: 'Vue 3',
+  version: Vue3.version,
+  supportsFilters: false,
+  install (plugin, options) {
+    const app = Vue3.createApp({});
+    app.use(plugin, options);
+    return {
+      globals: app.config.globalProperties,
+      render (template, data = {}) {
+        const el = document.createElement('div');
+        Vue3.createApp({
+          template: `<div>${template}</div>`,
+          data: () => data
+        }).use(plugin, options).mount(el);
+        return el.firstElementChild;
+      }
+    };
+  }
+};
+
+export const targets = [vue2, vue3];
 
 // Runs `cases` against every target through three paths:
 //   1. the global method   ($morphX(value, ...args))
 //   2. the method inside a template   {{ $morphX(value, ...args) }}
 //   3. the filter pipe syntax   {{ value | morph-x(...args) }}   (Vue 2 only)
+// plus the plain function exported as `morphFilters.x`.
 export function describeFilter (plugin, { filter, method, cases }) {
+  const key = method.charAt(6).toLowerCase() + method.slice(7);
+  it.each(cases)(`morphFilters.${key}: $title`, ({ args, expected }) => {
+    expect(morphFilters[key](...args)).toEqual(expected);
+  });
+
   describe.each(targets)(`${filter} on $name`, (target) => {
     let vue;
     beforeEach(() => { vue = target.install(plugin); });

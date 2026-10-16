@@ -1,4 +1,4 @@
-import { placeholder } from './placeholder';
+import { morphPlaceholder as placeholder } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(placeholder, {

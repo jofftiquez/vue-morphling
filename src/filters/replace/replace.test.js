@@ -1,4 +1,4 @@
-import { replace } from './replace';
+import { morphReplace as replace } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(replace, {

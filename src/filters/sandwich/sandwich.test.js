@@ -1,4 +1,4 @@
-import { sandwich } from './sandwich';
+import { morphSandwich as sandwich } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(sandwich, {

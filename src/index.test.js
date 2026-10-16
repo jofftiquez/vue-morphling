@@ -23,7 +23,9 @@ describe.each(targets)('VueMorphling on $name', (target) => {
   if (target.supportsFilters) {
     it.each(filters)('installs the morph-%s filter', (name) => {
       const error = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
       vue.render(`{{ 'abc' | morph-${name}(1) }}`);
+      warn.mockRestore();
       expect(error.mock.calls.join('\n')).not.toMatch(new RegExp(`Failed to resolve filter: morph-${name}(?![\\w-])`));
       error.mockRestore();
     });

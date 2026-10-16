@@ -1,4 +1,4 @@
-import { currency } from './currency';
+import { morphCurrency as currency } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(currency, {

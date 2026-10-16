@@ -1,4 +1,4 @@
-import { highlight } from './index';
+import { vMorphHighlight as highlight } from '../../index';
 import { targets } from '../../../test/vue';
 
 describe.each(targets)('v-morph-highlight on $name', (target) => {

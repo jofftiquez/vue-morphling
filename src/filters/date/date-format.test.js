@@ -1,4 +1,4 @@
-import { dateFormat } from './date-format';
+import { morphDateFormat as dateFormat } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(dateFormat, {

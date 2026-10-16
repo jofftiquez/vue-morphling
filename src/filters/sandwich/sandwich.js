@@ -10,27 +10,18 @@ const corpus = {
 };
 const corpusRegex = /(<|>|\[|\]|\(|\)|\{|\})/g;
 
-export const sandwich = (Vue) => {
-  Vue.filter('morph-sandwich', (value, start, end) => {
-    if (!value) return;
-    return sandwich(value, start, end);
-  });
+function flip (str) {
+  return str.replace(corpusRegex, match => corpus[match])
+    .split('')
+    .reverse()
+    .join('');
+}
 
-  Vue.prototype.$morphSandwich = (value, start, end) => {
-    return sandwich(value, start, end);
-  };
+function morphSandwich (value, start, end) {
+  start = start || '';
+  end = end || flip(start);
 
-  function flip (str) {
-    return str.replace(corpusRegex, match => corpus[match])
-      .split('')
-      .reverse()
-      .join('');
-  }
+  return `${start}${value}${end}`;
+}
 
-  function sandwich (value, start, end) {
-    start = start || '';
-    end = end || flip(start);
-
-    return `${start}${value}${end}`;
-  }
-};
+export const sandwich = { filter: 'morph-sandwich', method: '$morphSandwich', fn: morphSandwich };

@@ -1,4 +1,4 @@
-import { email } from './index';
+import { vMorphEmail as email } from '../../index';
 import { targets } from '../../../test/vue';
 
 describe.each(targets)('v-morph-email on $name', (target) => {

@@ -1,4 +1,4 @@
-import { json } from './json';
+import { morphJson as json } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(json, {

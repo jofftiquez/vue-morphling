@@ -1,4 +1,4 @@
-import { reverse } from './reverse';
+import { morphReverse as reverse } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(reverse, {

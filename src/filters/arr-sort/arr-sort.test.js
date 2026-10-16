@@ -1,4 +1,4 @@
-import { arrSort } from './arr-sort';
+import { morphArrSort as arrSort } from '../../index';
 import { describeFilter, targets } from '../../../test/vue';
 
 describeFilter(arrSort, {

@@ -24,151 +24,58 @@ import {
   url
 } from './directives';
 
+import { registerDirective, registerFilter } from './utils/register';
+
+const filters = [age, arrReverse, arrSort, capitalize, chop, currency, dateFormat, fileSize, json, lowerCase, objectSize, placeholder, replace, reverse, sandwich, truncate, uppercase];
+const directives = [email, highlight, url];
+
+const filterPlugin = (definition) => ({
+  install (app) {
+    registerFilter(app, definition);
+  }
+});
+
+const directivePlugin = (definition) => ({
+  install (app) {
+    registerDirective(app, definition);
+  }
+});
+
 // Directives
-export const vMorphHighlight = {
-  install (Vue, options) {
-    highlight(Vue, options);
-  }
-};
-
-export const vMorphUrl = {
-  install (Vue, options) {
-    url(Vue, options);
-  }
-};
-
-export const vMorphEmail = {
-  install (Vue, options) {
-    email(Vue, options);
-  }
-};
+export const vMorphHighlight = directivePlugin(highlight);
+export const vMorphUrl = directivePlugin(url);
+export const vMorphEmail = directivePlugin(email);
 
 // Filters
-export const morphAge = {
-  install (Vue, options) {
-    age(Vue, options);
-  }
-};
+export const morphAge = filterPlugin(age);
+export const morphArrReverse = filterPlugin(arrReverse);
+export const morphArrSort = filterPlugin(arrSort);
+export const morphCapitalize = filterPlugin(capitalize);
+export const morphChop = filterPlugin(chop);
+export const morphCurrency = filterPlugin(currency);
+export const morphDateFormat = filterPlugin(dateFormat);
+export const morphFileSize = filterPlugin(fileSize);
+export const morphJson = filterPlugin(json);
+export const morphLowerCase = filterPlugin(lowerCase);
+export const morphObjectSize = filterPlugin(objectSize);
+export const morphPlaceholder = filterPlugin(placeholder);
+export const morphReplace = filterPlugin(replace);
+export const morphReverse = filterPlugin(reverse);
+export const morphSandwich = filterPlugin(sandwich);
+export const morphTruncate = filterPlugin(truncate);
+export const morphUpperCase = filterPlugin(uppercase);
 
-export const morphArrReverse = {
-  install (Vue, options) {
-    arrReverse(Vue, options);
-  }
-};
-
-export const morphArrSort = {
-  install (Vue, options) {
-    arrSort(Vue, options);
-  }
-};
-
-export const morphCapitalize = {
-  install (Vue, options) {
-    capitalize(Vue, options);
-  }
-};
-
-export const morphChop = {
-  install (Vue, options) {
-    chop(Vue, options);
-  }
-};
-
-export const morphCurrency = {
-  install (Vue, options) {
-    currency(Vue, options);
-  }
-};
-
-export const morphDateFormat = {
-  install (Vue, options) {
-    dateFormat(Vue, options);
-  }
-};
-
-export const morphFileSize = {
-  install (Vue, options) {
-    fileSize(Vue, options);
-  }
-};
-
-export const morphJson = {
-  install (Vue, options) {
-    json(Vue, options);
-  }
-};
-
-export const morphLowerCase = {
-  install (Vue, options) {
-    lowerCase(Vue, options);
-  }
-};
-
-export const morphObjectSize = {
-  install (Vue, options) {
-    objectSize(Vue, options);
-  }
-};
-
-export const morphPlaceholder = {
-  install (Vue, options) {
-    placeholder(Vue, options);
-  }
-};
-
-export const morphReplace = {
-  install (Vue, options) {
-    replace(Vue, options);
-  }
-};
-
-export const morphReverse = {
-  install (Vue, options) {
-    reverse(Vue, options);
-  }
-};
-
-export const morphSandwich = {
-  install (Vue, options) {
-    sandwich(Vue, options);
-  }
-};
-
-export const morphTruncate = {
-  install (Vue, options) {
-    truncate(Vue, options);
-  }
-};
-
-export const morphUpperCase = {
-  install (Vue, options) {
-    uppercase(Vue, options);
-  }
-};
+// The plain functions behind every filter, keyed like their `$morph*` method
+// (`$morphCapitalize` -> `morphFilters.capitalize`). Handy in Vue 3
+// `<script setup>`, where global properties are not in scope.
+export const morphFilters = Object.fromEntries(filters.map(({ method, fn }) => [
+  method.charAt(6).toLowerCase() + method.slice(7),
+  fn
+]));
 
 export const VueMorphling = {
-  install (Vue, options) {
-    // directives
-    email(Vue, options);
-    highlight(Vue, options);
-    url(Vue, options);
-    // filters
-    age(Vue, options);
-    arrReverse(Vue, options);
-    arrSort(Vue, options);
-    capitalize(Vue, options);
-    chop(Vue, options);
-    currency(Vue, options);
-    dateFormat(Vue, options);
-    fileSize(Vue, options);
-    json(Vue, options);
-    lowerCase(Vue, options);
-    objectSize(Vue, options);
-    placeholder(Vue, options);
-    replace(Vue, options);
-    reverse(Vue, options);
-    sandwich(Vue, options);
-    truncate(Vue, options);
-    uppercase(Vue, options);
+  install (app) {
+    directives.forEach(definition => registerDirective(app, definition));
+    filters.forEach(definition => registerFilter(app, definition));
   }
 };

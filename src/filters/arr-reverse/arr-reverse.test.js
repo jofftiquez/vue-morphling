@@ -1,4 +1,4 @@
-import { arrReverse } from './arr-reverse';
+import { morphArrReverse as arrReverse } from '../../index';
 import { describeFilter, targets } from '../../../test/vue';
 
 describeFilter(arrReverse, {

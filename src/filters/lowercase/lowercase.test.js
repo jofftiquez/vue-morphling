@@ -1,4 +1,4 @@
-import { lowerCase } from './lowercase';
+import { morphLowerCase as lowerCase } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(lowerCase, {

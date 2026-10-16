@@ -1,4 +1,4 @@
-import { capitalize } from './capitalize';
+import { morphCapitalize as capitalize } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(capitalize, {

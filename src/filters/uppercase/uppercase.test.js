@@ -1,4 +1,4 @@
-import { uppercase } from './uppercase';
+import { morphUpperCase as uppercase } from '../../index';
 import { describeFilter } from '../../../test/vue';
 
 describeFilter(uppercase, {

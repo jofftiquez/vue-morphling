@@ -1,15 +1,6 @@
-export const reverse = (Vue) => {
-  Vue.filter('morph-reverse', (value) => {
-    if (!value) return;
-    return reverse(value);
-  });
+function morphReverse (value) {
+  if (typeof value !== 'string') value = value.toString();
+  return value.split('').reverse().join('');
+}
 
-  Vue.prototype.$morphReverse = (value) => {
-    return reverse(value);
-  };
-
-  function reverse (value) {
-    if (typeof value !== 'string') value = value.toString();
-    return value.split('').reverse().join('');
-  }
-};
+export const reverse = { filter: 'morph-reverse', method: '$morphReverse', fn: morphReverse };

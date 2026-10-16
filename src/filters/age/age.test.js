@@ -1,4 +1,4 @@
-import { age } from './age';
+import { morphAge as age } from '../../index';
 import { describeFilter, targets } from '../../../test/vue';
 
 const thisYear = new Date().getFullYear();
