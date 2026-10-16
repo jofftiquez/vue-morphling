@@ -165,6 +165,7 @@ export const VueMorphling = {
     lowerCase(Vue, options);
     objectSize(Vue, options);
     placeholder(Vue, options);
+    replace(Vue, options);
     reverse(Vue, options);
     sandwich(Vue, options);
     truncate(Vue, options);

@@ -15,9 +15,12 @@ const age = (Vue) => {
   };
 
   function calculateAge (date) {
-    const dateLeft = new Date();
-    const dateRight = date instanceof Date ? date : new Date(date);
-    return dateLeft.getFullYear() - dateRight.getFullYear();
+    const today = new Date();
+    const birthday = date instanceof Date ? date : new Date(date);
+    const age = today.getFullYear() - birthday.getFullYear();
+    const months = today.getMonth() - birthday.getMonth();
+    const birthdayPending = months < 0 || (months === 0 && today.getDate() < birthday.getDate());
+    return birthdayPending ? age - 1 : age;
   }
 };
 
@@ -32,10 +35,12 @@ const arrReverse = (Vue) => {
   };
 
   function reverse (value) {
-    if (!Array.isArray(value)) { console.warn('arg should be array'); }
-
-    const arr = value.reverse();
-    return arr;
+    if (!Array.isArray(value)) {
+      console.warn('Morphling Warn: morph-arr-reverse expects an array.');
+      return value;
+    }
+    // Copy first: reversing in place would mutate reactive state during render.
+    return [...value].reverse();
   }
 };
 
@@ -50,17 +55,13 @@ const arrSort = (Vue) => {
   };
 
   function sort (value, key, direction) {
-    if (!Array.isArray(value)) { console.warn('First argument should be an array'); }
-
-    if (direction === 'asc') {
-      const arr = value.sort((a, b) => a[key] - b[key]);
-      return arr;
+    if (!Array.isArray(value)) {
+      console.warn('Morphling Warn: morph-arr-sort expects an array.');
+      return value;
     }
-
-    if (direction === 'desc') {
-      const arr = value.sort((a, b) => b[key] - a[key]);
-      return arr;
-    }
+    // Copy first: sorting in place would mutate reactive state during render.
+    if (direction === 'asc') return [...value].sort((a, b) => a[key] - b[key]);
+    if (direction === 'desc') return [...value].sort((a, b) => b[key] - a[key]);
   }
 };
 
@@ -1743,84 +1744,73 @@ const truncate = (Vue) => {
 const uppercase = (Vue) => {
   Vue.filter('morph-uppercase', (value) => {
     if (!value) return;
-    return value.toUpperCase();
+    return uppercase(value);
   });
 
   Vue.prototype.$morphUppercase = (value) => {
-    return value.toUpperCase();
+    return uppercase(value);
   };
+
+  function uppercase (value) {
+    if (typeof value !== 'string') value = value.toString();
+    return value.toUpperCase();
+  }
 };
 
-const url = (Vue) => {
-  const re = /\b(https|http|ftp)?:\/\/\S+/gi;
+const entities = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 
+function escapeHtml (value) {
+  return String(value).replace(/[&<>"']/g, char => entities[char]);
+}
+
+function escapeRegExp (value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// Rebuilds `text` as HTML: every match of the global regex `re` goes through
+// `toHtml`, everything else is escaped. Returns null when nothing matches.
+function replaceMatches (text, re, toHtml) {
+  let html = '';
+  let last = 0;
+  let matched = false;
+  for (const match of text.matchAll(re)) {
+    html += escapeHtml(text.slice(last, match.index)) + toHtml(match[0]);
+    last = match.index + match[0].length;
+    matched = true;
+  }
+  if (!matched) return null;
+  return html + escapeHtml(text.slice(last));
+}
+
+const re$1 = /\b(https|http|ftp)?:\/\/\S+/gi;
+
+const url = (Vue) => {
   Vue.directive('morph-url', {
     bind
   });
 
-  function bind (el, binding, vnode) {
-    let s = vnode.elm.innerText;
-    const m = s.match(re);
-    let prev;
-
-    if (!m) return;
-
-    if (m.length === 1) {
-      el.innerHTML = s.replace(m[0], convertToA(m[0], binding));
-      return;
-    }
-
-    m.forEach((link, i, arr) => {
-      if (i % 2 === 0) {
-        prev = s.replace(link, convertToA(link, binding));
-      } else {
-        s = prev.replace(link, convertToA(link, binding));
-      }
-    });
-    el.innerHTML = s;
-  }
-
-  function convertToA (link, binding) {
-    return `<a target="_blank" href="${link}" style="${binding.value}">${link}</a>`;
+  function bind (el, binding) {
+    const html = replaceMatches(el.textContent, re$1, link =>
+      `<a target="_blank" rel="noopener noreferrer" href="${escapeHtml(link)}" style="${escapeHtml(binding.value || '')}">${escapeHtml(link)}</a>`
+    );
+    if (html !== null) el.innerHTML = html;
   }
 };
 
-const email = (Vue) => {
-  // RFC 5322 pattern: control characters and escapes are intentional.
-  // eslint-disable-next-line no-control-regex, no-useless-escape
-  const re = /(?:[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gi;
+// RFC 5322 pattern: control characters and escapes are intentional.
+// eslint-disable-next-line no-control-regex, no-useless-escape
+const re = /(?:[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/gi;
 
+const email = (Vue) => {
   Vue.directive('morph-email', {
     bind
   });
 
-  function bind (el, binding, vnode) {
-    let s = vnode.elm.innerText;
-    const m = s.match(re);
-    let prev;
-
-    if (!m) return;
-
-    console.warn(m);
-
-    if (m.length === 1) {
-      el.innerHTML = s.replace(m[0], convertToA(m[0]));
-      return;
-    }
-
-    m.forEach((email, i, arr) => {
-      console.warn(email);
-      if (i % 2 === 0) {
-        prev = s.replace(email, convertToA(email));
-      } else {
-        s = prev.replace(email, convertToA(email));
-      }
-    });
-    el.innerHTML = s;
-  }
-
-  function convertToA (email, binding) {
-    return `<a target="_blank" href="mailto:${email}">${email}</a>`;
+  function bind (el) {
+    const html = replaceMatches(el.textContent, re, address =>
+      `<a target="_blank" rel="noopener noreferrer" href="mailto:${escapeHtml(address)}">${escapeHtml(address)}</a>`
+    );
+    if (html !== null) el.innerHTML = html;
   }
 };
 
@@ -1828,12 +1818,15 @@ const highlight = (Vue) => {
   Vue.directive('morph-highlight', {
     bind
   });
-  function bind (el, binding, vnode) {
-    const str = vnode.elm.innerText;
-    const highlightee = binding.value.split('::')[0];
-    const highlighter = binding.value.split('::')[1];
-    const regex = new RegExp(highlightee, 'gi');
-    el.innerHTML = str.replace(regex, `<mark style="background-color: ${highlighter}">${highlightee}</mark>`);
+
+  function bind (el, binding) {
+    if (!binding.value) return;
+    const [term, color = ''] = binding.value.split('::');
+    if (!term) return;
+    const html = replaceMatches(el.textContent, new RegExp(escapeRegExp(term), 'gi'), match =>
+      `<mark style="background-color: ${escapeHtml(color)}">${escapeHtml(match)}</mark>`
+    );
+    if (html !== null) el.innerHTML = html;
   }
 };
 
@@ -1978,6 +1971,7 @@ const VueMorphling = {
     lowerCase(Vue);
     objectSize(Vue);
     placeholder(Vue);
+    replace(Vue);
     reverse(Vue);
     sandwich(Vue);
     truncate(Vue);

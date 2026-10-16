@@ -5,6 +5,7 @@ describeFilter(uppercase, {
   filter: 'morph-uppercase',
   method: '$morphUppercase',
   cases: [
-    { title: 'uppercases a string', args: ['somewhere i belong'], expected: 'SOMEWHERE I BELONG' }
+    { title: 'uppercases a string', args: ['somewhere i belong'], expected: 'SOMEWHERE I BELONG' },
+    { title: 'coerces non-strings', args: [true], expected: 'TRUE' }
   ]
 });

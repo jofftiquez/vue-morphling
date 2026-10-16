@@ -9,9 +9,11 @@ export const arrReverse = (Vue) => {
   };
 
   function reverse (value) {
-    if (!Array.isArray(value)) { console.warn('arg should be array'); }
-
-    const arr = value.reverse();
-    return arr;
+    if (!Array.isArray(value)) {
+      console.warn('Morphling Warn: morph-arr-reverse expects an array.');
+      return value;
+    }
+    // Copy first: reversing in place would mutate reactive state during render.
+    return [...value].reverse();
   }
 };
