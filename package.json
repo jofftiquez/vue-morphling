@@ -2,7 +2,22 @@
   "name": "vue-morphling",
   "version": "1.2.1",
   "description": "A collection of VueJs filters.",
-  "main": "dist/index.js",
+  "main": "dist/vue-morphling.cjs",
+  "module": "dist/vue-morphling.mjs",
+  "unpkg": "dist/vue-morphling.js",
+  "jsdelivr": "dist/vue-morphling.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-morphling.mjs",
+      "require": "./dist/vue-morphling.cjs"
+    },
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
   "semistandard": {
     "ignore": [
       "dist"
@@ -26,18 +41,14 @@
   "devDependencies": {
     "@babel/core": "^8.0.7",
     "@babel/preset-env": "^8.0.7",
-    "@rollup/plugin-node-resolve": "^6.0.0",
+    "@rollup/plugin-commonjs": "^29",
+    "@rollup/plugin-node-resolve": "^16",
+    "@rollup/plugin-terser": "^1",
     "babel-jest": "^30.5.2",
-    "cross-env": "^6.0.3",
     "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.5.2",
-    "rimraf": "^3.0.0",
-    "rollup": "^1.27.9",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-terser": "^5.1.3",
-    "rollup-plugin-uglify": "^6.0.3",
+    "rimraf": "^6",
+    "rollup": "^4",
     "semistandard": "^17.0.0",
     "snazzy": "^9.0.0",
     "vue": "^3.5.0",
