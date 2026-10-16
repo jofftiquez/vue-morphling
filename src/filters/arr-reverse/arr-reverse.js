@@ -11,7 +11,7 @@ export const arrReverse = (Vue) => {
   function reverse (value) {
     if (!Array.isArray(value)) { console.warn('arg should be array'); }
 
-    var arr = value.reverse();
+    const arr = value.reverse();
     return arr;
   }
 };

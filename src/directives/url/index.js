@@ -7,9 +7,9 @@ export const url = (Vue) => {
   });
 
   function bind (el, binding, vnode) {
-    var s = vnode.elm.innerText;
+    let s = vnode.elm.innerText;
     const m = s.match(re);
-    var prev;
+    let prev;
 
     if (!m) return;
 

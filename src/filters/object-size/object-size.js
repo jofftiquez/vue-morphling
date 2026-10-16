@@ -12,7 +12,7 @@ export const objectSize = (Vue) => {
   };
 
   function go (value, option) {
-    var json = null;
+    let json = null;
     json = JSON.stringify(value);
     return filesize(bytes(json), option);
   }
