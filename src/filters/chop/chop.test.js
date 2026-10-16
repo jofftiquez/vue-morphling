@@ -1,26 +1,12 @@
-import { createLocalVue } from '@vue/test-utils';
 import { chop } from './chop';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphChop method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(chop);
-  expect(typeof localVue.prototype.$morphChop).toBe('function');
-});
-
-it('should chop a string without location', () => {
-  const localVue = createLocalVue();
-  localVue.use(chop);
-  expect(localVue.prototype.$morphChop('Papercut', 2)).toEqual('Paperc');
-});
-
-it('should chop a string with location', () => {
-  const localVue = createLocalVue();
-  localVue.use(chop);
-  expect(localVue.prototype.$morphChop('Papercut', 3, 'end')).toEqual('Paper');
-});
-
-it('should chop a string from start', () => {
-  const localVue = createLocalVue();
-  localVue.use(chop);
-  expect(localVue.prototype.$morphChop('Papercut', 2, 'start')).toEqual('percut');
+describeFilter(chop, {
+  filter: 'morph-chop',
+  method: '$morphChop',
+  cases: [
+    { title: 'chops from the end by default', args: ['Papercut', 2], expected: 'Paperc' },
+    { title: 'chops from the end', args: ['Papercut', 3, 'end'], expected: 'Paper' },
+    { title: 'chops from the start', args: ['Papercut', 2, 'start'], expected: 'percut' }
+  ]
 });

@@ -1,14 +1,11 @@
-import { createLocalVue } from '@vue/test-utils';
 import { capitalize } from './capitalize';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphCapitalize method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(capitalize);
-  expect(typeof localVue.prototype.$morphCapitalize).toBe('function');
-});
-
-it('should capitalize a string', () => {
-  const localVue = createLocalVue();
-  localVue.use(capitalize);
-  expect(localVue.prototype.$morphCapitalize('numb')).toEqual('Numb');
+describeFilter(capitalize, {
+  filter: 'morph-capitalize',
+  method: '$morphCapitalize',
+  cases: [
+    { title: 'capitalizes a string', args: ['numb'], expected: 'Numb' },
+    { title: 'coerces non-strings', args: [123], expected: '123' }
+  ]
 });

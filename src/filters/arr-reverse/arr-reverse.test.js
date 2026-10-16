@@ -1,14 +1,10 @@
-import { createLocalVue } from '@vue/test-utils';
 import { arrReverse } from './arr-reverse';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphArrReverse method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(arrReverse);
-  expect(typeof localVue.prototype.$morphArrReverse).toBe('function');
-});
-
-it('should reverse an array', () => {
-  const localVue = createLocalVue();
-  localVue.use(arrReverse);
-  expect(localVue.prototype.$morphArrReverse([1, 2, 3])).toEqual([3, 2, 1]);
+describeFilter(arrReverse, {
+  filter: 'morph-arr-reverse',
+  method: '$morphArrReverse',
+  cases: [
+    { title: 'reverses an array', args: [[1, 2, 3]], expected: [3, 2, 1] }
+  ]
 });

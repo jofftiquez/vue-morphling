@@ -1,14 +1,11 @@
-import { createLocalVue } from '@vue/test-utils';
 import { fileSize } from './file-size';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphFileSize method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(fileSize);
-  expect(typeof localVue.prototype.$morphFileSize).toBe('function');
-});
-
-it('should format a file size value', () => {
-  const localVue = createLocalVue();
-  localVue.use(fileSize);
-  expect(localVue.prototype.$morphFileSize(1024, { round: 0 })).toEqual('1 KB');
+describeFilter(fileSize, {
+  filter: 'morph-file-size',
+  method: '$morphFileSize',
+  cases: [
+    { title: 'formats a file size', args: [1024, { round: 0 }], expected: '1 KB' },
+    { title: 'accepts numeric strings', args: ['2048', { round: 0 }], expected: '2 KB' }
+  ]
 });

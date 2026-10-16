@@ -1,14 +1,10 @@
-import { createLocalVue } from '@vue/test-utils';
 import { lowerCase } from './lowercase';
+import { describeFilter } from '../../../test/vue';
 
-it('adds a $morphLowercase method to the Vue prototype', () => {
-  const localVue = createLocalVue();
-  localVue.use(lowerCase);
-  expect(typeof localVue.prototype.$morphLowercase).toBe('function');
-});
-
-it('should convert a string to lowercase', () => {
-  const localVue = createLocalVue();
-  localVue.use(lowerCase);
-  expect(localVue.prototype.$morphLowercase('LOST IN THE ECHO')).toEqual('lost in the echo');
+describeFilter(lowerCase, {
+  filter: 'morph-lowercase',
+  method: '$morphLowercase',
+  cases: [
+    { title: 'lowercases a string', args: ['LOST IN THE ECHO'], expected: 'lost in the echo' }
+  ]
 });
